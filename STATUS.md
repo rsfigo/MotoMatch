@@ -10,9 +10,9 @@ und Git-Historie; was sich daraus nicht belegen lässt, ist als offen markiert.
 
 Phase 1 ist abgeschlossen: Die Meilensteine M0–M6 sind erledigt. MotoMatch läuft als reine
 Frontend-App ohne Backend mit Katalog, Detailseite, Vergleich und Match-Wizard, und `build`, `test`
-und `validate:data` laufen grün. Für den Livegang fehlen noch Domain, echte Angaben im Impressum und
-die Prüfung einzelner Daten. Für Phase 2 (Supabase) gibt es noch keinen Code, und die neue Fassung
-des Master Prompts (`docs/MASTER_PROMPT.md`) liegt noch nicht im Repository.
+und `validate:data` laufen grün. Der Master Prompt liegt jetzt in `docs/MASTER_PROMPT.md`: Phase 2
+besteht aus M7 (Datenbank mit Supabase) und M8 (Veröffentlichen). Vor M7 ist ein Halt vorgesehen, an
+dem du die nötigen Konten anlegst; Code für Phase 2 gibt es noch keinen.
 
 ## 2. Meilensteine
 
@@ -25,8 +25,8 @@ des Master Prompts (`docs/MASTER_PROMPT.md`) liegt noch nicht im Repository.
 | M4 – Vergleich    | erledigt | 2–3 Bikes mit Generation pro Bike, Bestwerte, Differenz-Chips, «Nur Unterschiede», Radar-Overlay, Teilen-Link; auf dem Handy seitlich wischen mit Einrasten.                                       |
 | M5 – Match-Wizard | erledigt | Sechs Fragen, getestete Bewertung in `src/lib/match.ts`, 3–5 Treffer mit Match-Prozent und Begründung, Antworten in der URL.                                                                       |
 | M6 – Feinschliff  | erledigt | Barrierefreiheit (axe ohne Befund, Tastatur geprüft), Lighthouse Mobile Performance 92–95, SEO über `VITE_SITE_URL`, Vorschaubild, Impressum und Datenschutz als Entwürfe, README mit Screenshots. |
-| M7                | offen    | Inhalt unbekannt: M7 ist im neuen Master Prompt definiert, der noch nicht im Repository liegt. Laut Hinweis betrifft die neue Fassung Phase 2 mit Supabase.                                        |
-| M8                | offen    | Inhalt unbekannt, aus demselben Grund wie M7.                                                                                                                                                      |
+| M7 – Supabase     | offen    | Daten in Supabase (PostgreSQL): Repository-Schicht (JSON oder Supabase), SQL-Migration mit Row Level Security, Seed-Skript, `check:rls`, TanStack Query. Halt davor: Supabase-Konto und Projekt.   |
+| M8 – Online       | offen    | Hosting bei Cloudflare mit Build bei jedem Push, eigene Domain mit HTTPS, Google Search Console, Rechtstexte, Secret-Scan. Halt davor: Konten und Domain.                                          |
 
 ## 3. Daten
 
@@ -146,32 +146,31 @@ Fokuszustände sichtbar.
 
 ## 5. Abweichungen vom Master Prompt
 
-Verglichen mit der Fassung aus der ersten Sitzung (Phase 1). Mit der neuen Fassung in
-`docs/MASTER_PROMPT.md` konnte noch nicht verglichen werden, weil die Datei fehlt. Begründungen
-ausführlich in `DECISIONS.md`.
+Verglichen mit `docs/MASTER_PROMPT.md`. Begründungen ausführlich in `DECISIONS.md`.
 
-| Thema                     | Abweichung                                                                                | Grund                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| TypeScript                | Version 6.0 statt 7                                                                       | `typescript-eslint` unterstützt TypeScript 7 noch nicht.                                         |
-| Barrierefreiheits-Linting | ohne `eslint-plugin-jsx-a11y`                                                             | Plugin unterstützt ESLint 10 noch nicht; geprüft wird stattdessen mit axe-core und Lighthouse.   |
-| Generations-ID            | `<modell-id>-<erstes Baujahr>` (z. B. `yamaha-mt-07-2025`) statt «von–bis»                | bleibt stabil, wenn eine laufende Generation ein Endjahr bekommt – geteilte Links brechen nicht. |
-| Zusatzfelder              | `chassis.weightNote`; `description` bei Extras                                            | Gewicht «ohne Kraftstoff» sichtbar machen statt umrechnen; Erklärung für Einsteiger als Tooltip. |
-| Führerausweis A1          | keine kW/kg-Grenze                                                                        | Schweizer Recht (VZV) kennt sie nicht; die 0.1 kW/kg stammen aus dem EU-Recht.                   |
-| Drosselung                | Die «doppelte Leistung»-Regel wird nicht berechnet, nur die offizielle Drosselung geprüft | Die Regel betrifft die Typengenehmigung; offizielle 35-kW-Versionen erfüllen sie per Definition. |
-| Beispieldaten             | kein Bike ohne Extras, kein Audio                                                         | In den echten Daten hat jedes Bike Extras; die bedingte Anzeige ist mit Unit-Tests abgesichert.  |
-| Katalogkarte              | «+1 weitere Generation» statt «+2 weitere Baujahre»                                       | Eine Generation fasst mehrere Baujahre zusammen.                                                 |
-| Video-Review              | ohne Vorschaubild                                                                         | Auch ein Vorschaubild käme von Google-Servern; so geht vor dem Klick keine Anfrage an YouTube.   |
-| Vergleich                 | «Bike hinzufügen» über der Beschriftungsspalte statt als leere Spalte                     | Kein leerer Tabellenbereich, besonders auf dem Handy.                                            |
-| Match-Wizard              | mit A1 nur 2 Treffer statt 3–5                                                            | Im Datensatz sind nur 2 A1-Bikes; Bikes, die man nicht fahren darf, werden nie vorgeschlagen.    |
-| Animationen               | Ring-Gauges animieren `pathLength`; beim ersten Laden keine Einblendung der Seite         | Ein Ring lässt sich nicht anders füllen; die erste Seite soll sofort sichtbar sein (LCP).        |
-| SEO                       | Kanonische URLs, absolutes Vorschaubild und Sitemap nur mit `VITE_SITE_URL`               | Die Domain steht noch nicht fest; Open Graph und Sitemaps verlangen absolute Adressen.           |
+| Thema                     | Abweichung                                                                                | Grund                                                                                                 |
+| ------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| TypeScript                | Version 6.0 statt 7                                                                       | `typescript-eslint` unterstützt TypeScript 7 noch nicht.                                              |
+| Barrierefreiheits-Linting | ohne `eslint-plugin-jsx-a11y`                                                             | Plugin unterstützt ESLint 10 noch nicht; geprüft wird stattdessen mit axe-core und Lighthouse.        |
+| Generations-ID            | `<modell-id>-<erstes Baujahr>` (z. B. `yamaha-mt-07-2025`) statt «von–bis»                | bleibt stabil, wenn eine laufende Generation ein Endjahr bekommt – geteilte Links brechen nicht.      |
+| Zusatzfelder              | `chassis.weightNote`; `description` bei Extras                                            | Gewicht «ohne Kraftstoff» sichtbar machen statt umrechnen; Erklärung für Einsteiger als Tooltip.      |
+| Führerausweis A1          | keine kW/kg-Grenze                                                                        | Schweizer Recht (VZV) kennt sie nicht; die 0.1 kW/kg stammen aus dem EU-Recht.                        |
+| Drosselung                | Die «doppelte Leistung»-Regel wird nicht berechnet, nur die offizielle Drosselung geprüft | Die Regel betrifft die Typengenehmigung; offizielle 35-kW-Versionen erfüllen sie per Definition.      |
+| Beispieldaten             | kein Bike ohne Extras, kein Audio                                                         | In den echten Daten hat jedes Bike Extras; die bedingte Anzeige ist mit Unit-Tests abgesichert.       |
+| Katalogkarte              | «+1 weitere Generation» statt «+2 weitere Baujahre»                                       | Eine Generation fasst mehrere Baujahre zusammen.                                                      |
+| Video-Review              | ohne Vorschaubild                                                                         | Auch ein Vorschaubild käme von Google-Servern; so geht vor dem Klick keine Anfrage an YouTube.        |
+| Vergleich                 | «Bike hinzufügen» über der Beschriftungsspalte statt als leere Spalte                     | Kein leerer Tabellenbereich, besonders auf dem Handy.                                                 |
+| Match-Wizard              | mit A1 nur 2 Treffer statt 3–5                                                            | Im Datensatz sind nur 2 A1-Bikes; Bikes, die man nicht fahren darf, werden nie vorgeschlagen.         |
+| Animationen               | Ring-Gauges animieren `pathLength`; beim ersten Laden keine Einblendung der Seite         | Ein Ring lässt sich nicht anders füllen; die erste Seite soll sofort sichtbar sein (LCP).             |
+| SEO                       | Kanonische URLs, absolutes Vorschaubild und Sitemap nur mit `VITE_SITE_URL`               | Die Domain steht noch nicht fest; Open Graph und Sitemaps verlangen absolute Adressen.                |
+| Datenzugriff              | `src/lib/data.ts` ist synchron, verlangt sind Funktionen mit Promise                      | Vorgabe der neuen Fassung (Abschnitt 3); wird zu Beginn von M7 mit der Repository-Schicht umgestellt. |
+| Rechtstexte               | Platzhalter wie `[Vorname Nachname oder Firma]` statt `[NAME]`, `[ADRESSE]`, `[E-MAIL]`   | Entstanden vor der neuen Fassung; wird in M8 an die vorgegebenen Platzhalter angepasst.               |
 
 ## 6. Bekannte Probleme und offene Fragen
 
 **Bekannte Probleme**
 
-- `docs/MASTER_PROMPT.md` fehlt – weder lokal noch auf GitHub. Abschnitt 2 (M7, M8), 5 und 8 sind
-  deshalb nur für Phase 1 vollständig.
+- `src/lib/data.ts` gibt noch keine Promises zurück (Vorgabe der neuen Fassung, siehe Abschnitt 5).
 - 6 von 20 Generationen sind als `needsVerification` markiert (Gründe in `DECISIONS.md`, M1).
 - Führerausweis-Grenzwerte müssen vor dem Livegang gegen die Angaben der Strassenverkehrsämter
   geprüft werden; zwei Rechtsfragen sind offen (Details in `DECISIONS.md`, «Offen»).
@@ -192,14 +191,17 @@ ausführlich in `DECISIONS.md`.
 
 **Offene Fragen an dich**
 
-1. Kannst du den neuen Master Prompt als `docs/MASTER_PROMPT.md` ablegen? Danach ergänze ich M7, M8
-   und die Abweichungen zu Phase 2.
-2. Unter welcher Domain und bei welchem Hosting soll MotoMatch laufen?
-3. Welche Angaben sollen ins Impressum? Achtung: Sie werden im öffentlichen Repository und auf der
-   Website sichtbar.
-4. Sollen die Prüfskripte (axe, Lighthouse) ins Repository und als CI auf GitHub laufen?
+1. Ist kommerzielle Nutzung geplant (Werbung oder Affiliate-Links)? Davon hängen die Pflichtangaben
+   im Impressum und die Prüfung der Nutzungsbedingungen von Supabase und Cloudflare ab.
+2. Soll es eine Besucherstatistik geben? Wenn ja, eine cookiefreie, datensparsame (sie muss in die
+   Datenschutzerklärung).
+3. Soll das Repository eine Lizenz bekommen, und wenn ja, welche?
+4. Sollen die Prüfungen (Build, Tests, Daten, später gitleaks, axe und Lighthouse) als CI auf GitHub
+   laufen?
 5. Sollen weitere Bikes recherchiert werden, vor allem für A1 und A beschränkt?
-6. Soll das Repository eine Lizenz bekommen, und wenn ja, welche?
+
+Durch den Master Prompt geklärt: Hosting bei Cloudflare, Wunsch-Domain `motomatch.ch` (Kauf durch dich),
+Impressum-Angaben füllst du selbst aus, M6 vor Phase 2 (erledigt).
 
 ## 7. Supabase
 
@@ -207,16 +209,22 @@ ausführlich in `DECISIONS.md`.
 `package.json`.
 
 Umgebungsvariablen: bisher nur `VITE_SITE_URL` (optional, öffentliche Adresse für die SEO-Angaben),
-beschrieben in `.env.example`. Es gibt keine `.env`-Dateien im Repository; `.gitignore` schliesst
-`.env` und `.env.*` aus (ausser `.env.example`).
+beschrieben in `.env.example`. Für M7 geplant: `VITE_DATA_SOURCE` (`json` oder `supabase`),
+`VITE_SUPABASE_URL` und `VITE_SUPABASE_PUBLISHABLE_KEY` (öffentlicher Schlüssel) sowie – nur lokal
+für das Seed-Skript, ohne `VITE_`-Präfix – `SUPABASE_SECRET_KEY`. Es gibt keine `.env`-Dateien im
+Repository; `.gitignore` schliesst `.env` und `.env.*` aus (ausser `.env.example`). Ein
+Vorab-Check über alle 47 Commits fand keine Schlüssel und keine `.env`-Dateien (gitleaks folgt in M8).
 
 ## 8. Nächste Schritte
 
-1. `docs/MASTER_PROMPT.md` ins Repository legen; danach `STATUS.md` und `CLAUDE.md` an M7/M8 anpassen.
-2. Phase 2 nach dem neuen Master Prompt. Aus Sicht des Codes beginnt die Umstellung bei der
-   Datenschicht (`src/lib/data.ts`, `src/hooks/useBikeData.ts`); die Reihenfolge der Schritte
-   (Schema, Seed-Skript, Repository-Schicht) richtet sich nach M7 und M8.
-3. Vor dem Livegang (Liste «Offen» in `DECISIONS.md`): Domain festlegen und `VITE_SITE_URL` setzen,
-   Weiterleitung beim Hosting, Impressum und Datenschutz ergänzen und prüfen lassen,
-   `needsVerification` klären, Führerausweis-Grenzwerte prüfen, Preise aktualisieren.
-4. Optional: Prüfskripte und CI ins Repository, weitere A1- und A35-Bikes, Lizenz.
+1. **Halt vor M7 (du):** Supabase-Konto und Projekt anlegen (Region Frankfurt), URL und öffentlichen
+   Schlüssel in `.env.local` eintragen – nie in den Chat oder ins Repository.
+2. **M7:** Datenschicht asynchron mit `BikeRepository` (`JsonRepository` und `SupabaseRepository`),
+   SQL-Migration mit Row Level Security, Seed-Skript mit `--dry-run`, `check:rls`, TanStack Query
+   mit Skeletons und «Erneut versuchen», Mapping-Tests, Gratis-Tarif in der Doku prüfen. Zod nur dort
+   laden, wo Supabase-Daten geprüft werden (Bundle-Grösse). Danach Halt zur Prüfung.
+3. **Halt vor M8 (du):** Cloudflare-Konto, Domain `motomatch.ch` (vorher Verfügbarkeit und
+   Markenregister prüfen), Google Search Console.
+4. **M8:** Hosting, DNS und HTTPS, Prerendering-Entscheid, Rechtstexte mit `[NAME]`, `[ADRESSE]`,
+   `[E-MAIL]`, gitleaks, Checkliste vor dem Livegang (Liste «Offen» in `DECISIONS.md`).
+5. Laufend: `needsVerification` klären, Führerausweis-Grenzwerte prüfen, Preise aktualisieren.
