@@ -44,6 +44,12 @@ export const spring = {
   layout: { type: 'spring', stiffness: 400, damping: 38 },
 } as const satisfies Record<string, Transition>;
 
+/** Federn für Werte, die einem Ziel folgen (useSpring), z. B. Karten-Tilt oder Tacho-Nadel. */
+export const followSpring = {
+  soft: { stiffness: 220, damping: 26 },
+  needle: { stiffness: 120, damping: 14, mass: 0.9 },
+} as const;
+
 /** Zeitversatz zwischen Elementen einer Liste (Sekunden). */
 export const staggerStep = {
   tight: 0.04,
