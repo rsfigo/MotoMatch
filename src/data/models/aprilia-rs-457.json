@@ -34,7 +34,7 @@
       },
       "throttle": {
         "available": false,
-        "note": "Serienmässig 35 kW bei 175 kg – genau an der Grenze für «A beschränkt» (0,2 kW/kg)."
+        "note": "Serienmässig 35 kW bei 175 kg – genau an der Grenze für «A beschränkt» (0.2 kW/kg)."
       },
       "quickshifter": "optional",
       "blipper": "optional",

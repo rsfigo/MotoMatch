@@ -60,7 +60,7 @@
         {
           "key": "tft-display",
           "availability": "standard",
-          "detail": "3,5-Zoll-TFT"
+          "detail": "3.5-Zoll-TFT"
         },
         {
           "key": "cornering-abs",
@@ -151,7 +151,7 @@
       "throttle": {
         "available": true,
         "throttledPowerKw": 35,
-        "note": "Offizielle 35-kW-Version; sie lässt sich nur auf 70 kW entdrosseln, nicht auf die vollen 87,5 kW."
+        "note": "Offizielle 35-kW-Version; sie lässt sich nur auf 70 kW entdrosseln, nicht auf die vollen 87.5 kW."
       },
       "quickshifter": "standard",
       "blipper": "standard",
@@ -180,7 +180,7 @@
         {
           "key": "tft-display",
           "availability": "standard",
-          "detail": "3,5-Zoll-TFT"
+          "detail": "3.5-Zoll-TFT"
         },
         {
           "key": "cornering-abs",
@@ -246,7 +246,7 @@
       "yearTo": null,
       "changes": [
         "Neue Verkleidung, neuer Tank und zweiteilige Sitzbank; sportlichere Sitzposition",
-        "5-Zoll-TFT statt 3,5 Zoll, mit MyRide-App und Navigation",
+        "5-Zoll-TFT statt 3.5 Zoll, mit MyRide-App und Navigation",
         "Tempomat serienmässig",
         "Quickshifter der dritten Generation",
         "Gewicht 193 statt 189 kg",

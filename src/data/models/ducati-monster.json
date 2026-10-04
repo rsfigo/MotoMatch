@@ -52,7 +52,7 @@
         "description": "90°-V2 (Testastretta): dumpfes, kerniges Bollern mit dem typischen Ducati-Klang."
       },
       "extras": [
-        { "key": "tft-display", "availability": "standard", "detail": "4,3-Zoll-TFT" },
+        { "key": "tft-display", "availability": "standard", "detail": "4.3-Zoll-TFT" },
         { "key": "cornering-abs", "availability": "standard" },
         {
           "key": "traction-control",
@@ -89,10 +89,10 @@
       "yearTo": null,
       "changes": [
         "Neuer 890-cm³-V2 mit variabler Einlass-Steuerung, ohne Desmodromik",
-        "Gleiche Leistung (81,6 kW) bei 9’000 statt 9’250 U/min; 91,1 statt 93 Nm",
+        "Gleiche Leistung (81.6 kW) bei 9’000 statt 9’250 U/min; 91.1 statt 93 Nm",
         "Rund 4 kg leichter, Sitzhöhe 815 statt 820 mm",
         "Quickshifter hoch und runter serienmässig (Version 2.0)",
-        "5-Zoll-TFT statt 4,3 Zoll, neu mit Motorbremsregelung",
+        "5-Zoll-TFT statt 4.3 Zoll, neu mit Motorbremsregelung",
         "Vorbereitet für Tempomat und Reifendruckkontrolle; USB nur noch als Zubehör"
       ],
       "colors": ["Ducati Red", "Iceberg White", "Sport Livery"],
@@ -119,7 +119,7 @@
       "throttle": {
         "available": true,
         "throttledPowerKw": 35,
-        "note": "Offizielle 35-kW-Version; die genaue Leistung nennt Ducati nicht (1000PS misst 43,5 PS) – gerechnet wird mit dem Maximum von 35 kW."
+        "note": "Offizielle 35-kW-Version; die genaue Leistung nennt Ducati nicht (1000PS misst 43.5 PS) – gerechnet wird mit dem Maximum von 35 kW."
       },
       "quickshifter": "standard",
       "blipper": "standard",

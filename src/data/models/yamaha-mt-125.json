@@ -10,9 +10,9 @@
       "yearFrom": 2025,
       "yearTo": null,
       "changes": [
-        "Motor nach Euro 5+ (11 kW und 11,5 Nm unverändert)",
+        "Motor nach Euro 5+ (11 kW und 11.5 Nm unverändert)",
         "Navigation, Musiksteuerung und Wetter über die MyRide-App auf dem 5-Zoll-TFT",
-        "Normverbrauch 2,0 statt 2,1 l/100 km"
+        "Normverbrauch 2.0 statt 2.1 l/100 km"
       ],
       "colors": ["Ice Storm", "Icon Blue", "Tech Black"],
       "engine": {

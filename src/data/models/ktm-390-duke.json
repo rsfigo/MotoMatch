@@ -10,11 +10,11 @@
       "yearFrom": 2024,
       "yearTo": null,
       "changes": [
-        "Neuer Motor mit 398,7 cm³ statt 373 cm³, 33 kW und 39 Nm",
+        "Neuer Motor mit 398.7 cm³ statt 373 cm³, 33 kW und 39 Nm",
         "Neuer Rahmen, Gabel in Druck- und Zugstufe einstellbar",
         "Kurven-ABS, Kurven-Traktionskontrolle und Fahrmodi serienmässig",
         "5-Zoll-TFT mit Smartphone-Anbindung serienmässig",
-        "Tank 15 l statt 13,4 l"
+        "Tank 15 l statt 13.4 l"
       ],
       "engine": {
         "displacementCc": 398.7,
@@ -38,7 +38,7 @@
       },
       "throttle": {
         "available": false,
-        "note": "Serienmässig 33 kW – passt ohne Drosselung zu «A beschränkt» (genau 0,2 kW/kg)."
+        "note": "Serienmässig 33 kW – passt ohne Drosselung zu «A beschränkt» (genau 0.2 kW/kg)."
       },
       "quickshifter": "optional",
       "blipper": "optional",

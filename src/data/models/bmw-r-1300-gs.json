@@ -58,7 +58,7 @@
         "description": "Boxer-Zweizylinder: sattes, tiefes Brummen und das typische Schütteln im Stand."
       },
       "extras": [
-        { "key": "tft-display", "availability": "standard", "detail": "6,5-Zoll-TFT" },
+        { "key": "tft-display", "availability": "standard", "detail": "6.5-Zoll-TFT" },
         {
           "key": "smartphone-connectivity",
           "availability": "standard",
