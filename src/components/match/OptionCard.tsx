@@ -32,11 +32,10 @@ export function OptionCard({
   icon,
 }: OptionCardProps) {
   return (
-    <motion.label
-      whileTap={{ scale: 0.98 }}
-      transition={spring.snappy}
+    // Kein Motion-«whileTap»: Motion machte das Label sonst zu einem eigenen Tab-Stopp.
+    <label
       className={cn(
-        'flex cursor-pointer items-center gap-3 rounded-card border p-3.5 transition-colors select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent sm:gap-4 sm:p-4',
+        'flex cursor-pointer items-center gap-3 rounded-card border p-3.5 transition-[color,background-color,border-color,transform] duration-150 select-none active:scale-[0.98] has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent motion-reduce:active:scale-100 sm:gap-4 sm:p-4',
         checked
           ? 'border-accent bg-accent-soft'
           : 'border-line bg-surface hover:border-line-strong hover:bg-surface-2',
@@ -84,6 +83,6 @@ export function OptionCard({
           )}
         </AnimatePresence>
       </span>
-    </motion.label>
+    </label>
   );
 }

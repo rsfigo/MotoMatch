@@ -1,12 +1,10 @@
 import { Play } from 'lucide-react';
-import { motion } from 'motion/react';
 import { useState } from 'react';
 import { BikeSilhouette } from '@/components/bike/BikeSilhouette';
 import { Section } from '@/components/ui/Section';
 import type { Category } from '@/data/schema';
 import { t } from '@/i18n';
 import { cn } from '@/lib/cn';
-import { spring } from '@/lib/motion';
 import { youTubeEmbedUrl } from '@/lib/youtube';
 
 interface YouTubeCardProps {
@@ -53,14 +51,10 @@ export function YouTubeCard({ url, name, category, className }: YouTubeCardProps
             category={category}
             className="pointer-events-none absolute inset-x-[15%] bottom-0 w-[70%] opacity-40"
           />
-          <motion.span
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            transition={spring.snappy}
-            className="relative grid size-14 place-items-center rounded-full bg-accent text-on-accent shadow-glow sm:size-16"
-          >
+          {/* Hover und Klick über den Button (group) – ein Motion-Tap hier wäre ein eigener Tab-Stopp */}
+          <span className="relative grid size-14 place-items-center rounded-full bg-accent text-on-accent shadow-glow transition-transform duration-200 group-hover:scale-[1.08] group-active:scale-95 motion-reduce:transition-none sm:size-16">
             <Play aria-hidden="true" className="ml-1 size-6 fill-current sm:size-7" />
-          </motion.span>
+          </span>
           <span className="relative font-display text-lg font-semibold sm:text-xl">
             {t.youtube.title(name)}
           </span>
