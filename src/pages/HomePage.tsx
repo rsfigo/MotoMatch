@@ -57,13 +57,13 @@ export default function HomePage() {
 
             <AnimatedHeadline
               text={t.home.title}
-              delay={0.1}
+              delay={0}
               className="mt-6 max-w-4xl text-[2.6rem] leading-[1.02] font-bold xs:text-5xl sm:text-6xl lg:text-7xl"
             />
 
             <motion.p
               variants={fadeUp}
-              custom={0.45}
+              custom={0.15}
               initial="hidden"
               animate="visible"
               className="mt-6 max-w-2xl text-base text-ink-muted sm:text-lg"
@@ -73,7 +73,7 @@ export default function HomePage() {
 
             <motion.div
               variants={fadeUp}
-              custom={0.55}
+              custom={0.25}
               initial="hidden"
               animate="visible"
               className="mt-8"
@@ -83,7 +83,7 @@ export default function HomePage() {
 
             <motion.div
               variants={fadeUp}
-              custom={0.65}
+              custom={0.35}
               initial="hidden"
               animate="visible"
               className="mt-5 flex flex-col gap-3 xs:flex-row"

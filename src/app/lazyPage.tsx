@@ -29,12 +29,3 @@ export function lazyPage(factory: () => Promise<{ default: ComponentType }>) {
   Page.preload = load;
   return Page;
 }
-
-/** Lädt die Seiten im Hintergrund vor, sobald der Browser Zeit hat. */
-export function preloadWhenIdle(pages: readonly { preload: () => Promise<unknown> }[]) {
-  const run = () => {
-    for (const page of pages) void page.preload();
-  };
-  if ('requestIdleCallback' in window) window.requestIdleCallback(run, { timeout: 3000 });
-  else setTimeout(run, 1500);
-}

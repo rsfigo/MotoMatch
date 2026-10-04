@@ -3,29 +3,8 @@ import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { useScrollMemory } from '@/hooks/useScrollMemory';
 import { pageVariants } from '@/lib/motion';
-import { lazyPage, preloadWhenIdle } from './lazyPage';
+import { preloadOtherPagesLater, ROUTES } from './pages';
 import { PageFrame } from './PageFrame';
-
-// Jede Seite ist ein eigener Chunk (Code-Splitting pro Route) und wird im Leerlauf vorgeladen.
-const HomePage = lazyPage(() => import('@/pages/HomePage'));
-const CatalogPage = lazyPage(() => import('@/pages/CatalogPage'));
-const BikeDetailPage = lazyPage(() => import('@/pages/BikeDetailPage'));
-const ComparePage = lazyPage(() => import('@/pages/ComparePage'));
-const MatchPage = lazyPage(() => import('@/pages/MatchPage'));
-const ImprintPage = lazyPage(() => import('@/pages/ImprintPage'));
-const PrivacyPage = lazyPage(() => import('@/pages/PrivacyPage'));
-const NotFoundPage = lazyPage(() => import('@/pages/NotFoundPage'));
-
-const PAGES = [
-  HomePage,
-  CatalogPage,
-  BikeDetailPage,
-  ComparePage,
-  MatchPage,
-  ImprintPage,
-  PrivacyPage,
-  NotFoundPage,
-];
 
 /**
  * Alle Routen mit Seitenübergang.
@@ -39,10 +18,12 @@ export function AppRoutes() {
   const location = useLocation();
   const scrollTop = useScrollMemory();
 
-  useEffect(() => preloadWhenIdle(PAGES), []);
+  useEffect(() => preloadOtherPagesLater(), []);
 
   return (
-    <AnimatePresence mode="popLayout">
+    // initial={false}: Beim ersten Laden steht die Seite sofort da (schnelleres LCP),
+    // die Übergänge gelten nur beim Wechsel zwischen Seiten.
+    <AnimatePresence mode="popLayout" initial={false}>
       <motion.div
         key={location.pathname}
         variants={pageVariants}
@@ -52,14 +33,9 @@ export function AppRoutes() {
       >
         <Routes location={location}>
           <Route element={<PageFrame scrollTop={scrollTop} />}>
-            <Route index element={<HomePage />} />
-            <Route path="bikes" element={<CatalogPage />} />
-            <Route path="bikes/:slug" element={<BikeDetailPage />} />
-            <Route path="compare" element={<ComparePage />} />
-            <Route path="match" element={<MatchPage />} />
-            <Route path="impressum" element={<ImprintPage />} />
-            <Route path="datenschutz" element={<PrivacyPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            {ROUTES.map(({ path, page: Page }) => (
+              <Route key={path} path={path} element={<Page />} />
+            ))}
           </Route>
         </Routes>
       </motion.div>
