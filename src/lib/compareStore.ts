@@ -61,6 +61,13 @@ export const compareStore = {
     update([]);
   },
 
+  /** Übernimmt eine Auswahl (z. B. von der Vergleichsseite), falls sie sich unterscheidet. */
+  replace: (ids: readonly string[]): void => {
+    if (ids.length === selection.length && ids.every((id, index) => selection[index] === id))
+      return;
+    update([...ids]);
+  },
+
   /** Startposition für die Flug-Animation, falls das Bike gerade eben gewählt wurde. */
   getFlyOrigin: (id: string): DOMRect | undefined => {
     const origin = flyOrigins.get(id);

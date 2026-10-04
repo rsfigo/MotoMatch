@@ -10,6 +10,8 @@ import {
   formatPowerToWeight,
   formatRange,
   formatRpm,
+  formatSigned,
+  formatWeight,
   formatYearRange,
 } from './format';
 
@@ -91,5 +93,14 @@ describe('formatYearRange (Generationen-Anzeige)', () => {
 describe('formatDate', () => {
   it('wandelt ISO-Daten ins Schweizer Format', () => {
     expect(formatDate('2026-10-04')).toBe('4.10.2026');
+  });
+});
+
+describe('formatSigned (Differenz-Chips)', () => {
+  it('setzt Plus, typografisches Minus oder ±0', () => {
+    expect(plain(formatSigned(20, formatWeight))).toBe('+20 kg');
+    expect(plain(formatSigned(-5, formatWeight))).toBe('−5 kg');
+    expect(plain(formatSigned(0, formatWeight))).toBe('±0 kg');
+    expect(plain(formatSigned(-890, formatChf))).toBe('−CHF 890.–');
   });
 });

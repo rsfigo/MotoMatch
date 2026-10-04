@@ -6,7 +6,7 @@ import { DETAIL_SPEC_GROUPS, visibleSpecs, type SpecDefinition } from '@/lib/spe
 
 function SpecRow({ spec, generation }: { spec: SpecDefinition; generation: Generation }) {
   const value = spec.display(generation);
-  const detail = spec.detail?.(generation);
+  const detail = spec.detail?.(generation) ?? spec.hint;
   const kind = spec.kind?.(generation);
 
   return (

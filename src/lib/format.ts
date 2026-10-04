@@ -109,6 +109,15 @@ export function formatRange(km: number): string {
   return `ca.${NBSP}${formatNumber(Math.round(km / 10) * 10)}${NBSP}km`;
 }
 
+/**
+ * Abstand mit Vorzeichen, z. B. formatSigned(-5, formatWeight) → «−5 kg».
+ * Typografisches Minus (−); bei 0 «±0».
+ */
+export function formatSigned(delta: number, format: (value: number) => string): string {
+  if (delta === 0) return `±${format(0)}`;
+  return `${delta > 0 ? '+' : '−'}${format(Math.abs(delta))}`;
+}
+
 /** Baujahre: «2022–2024», «ab 2022» (noch erhältlich) oder «2024» (nur ein Jahr). */
 export function formatYearRange(yearFrom: number, yearTo: number | null): string {
   if (yearTo === null) return `ab${NBSP}${yearFrom}`;

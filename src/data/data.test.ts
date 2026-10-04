@@ -4,6 +4,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import { getLicenceInfo } from '@/lib/licence';
+import { POPULAR_COMPARISONS } from '@/lib/popularComparisons';
 import featuresJson from './features.json';
 import manufacturersJson from './manufacturers.json';
 import { validateDataset } from './validateDataset';
@@ -45,6 +46,13 @@ describe('Datenbestand', () => {
       (model) => model.generations.length > 1,
     );
     expect(multiGeneration.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('«Beliebte Vergleiche» verweisen nur auf vorhandene Modelle', () => {
+    const ids = new Set((result.data?.models ?? []).map((model) => model.id));
+    for (const comparison of POPULAR_COMPARISONS) {
+      for (const bike of comparison.bikes) expect(ids.has(bike)).toBe(true);
+    }
   });
 
   it('enthält Bikes mit und ohne YouTube-Review (für die bedingte Anzeige)', () => {
