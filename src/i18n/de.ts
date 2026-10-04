@@ -108,8 +108,133 @@ export const de = {
 
   data: {
     notAvailable: 'k. A.',
+    notAvailableLong: 'keine Angabe',
     approx: 'ca.',
     needsVerification: 'Daten werden noch geprüft',
+    needsVerificationHint:
+      'Einzelne Werte dieser Generation sind noch nicht vollständig bestätigt. Details in den Quellen.',
+    verified: 'Daten geprüft',
+    kind: {
+      official: 'Herstellerangabe',
+      tested: 'Messwert aus einem Test',
+      estimate: 'Schätzung bzw. ungefährer Wert',
+    },
+    sourceOf: (label: string) => `${label}: Art der Quelle`,
+    yes: 'Ja',
+    no: 'Nein',
+    none: '–',
+  },
+
+  /** Beschriftungen der technischen Daten (Detailseite und Vergleich) */
+  specs: {
+    power: 'Leistung',
+    torque: 'Drehmoment',
+    displacement: 'Hubraum',
+    cylinders: 'Zylinder',
+    layout: 'Bauart',
+    cooling: 'Kühlung',
+    powerToWeight: 'Leistungsgewicht',
+    topSpeed: 'Höchstgeschwindigkeit',
+    accel: 'Beschleunigung 0–100 km/h',
+    weight: 'Gewicht fahrbereit',
+    seatHeight: 'Sitzhöhe',
+    tank: 'Tankinhalt',
+    consumption: 'Verbrauch (WMTC)',
+    range: 'Reichweite',
+    gears: 'Gänge',
+    drive: 'Antrieb',
+    quickshifter: 'Quickshifter',
+    blipper: 'Auto-Blipper',
+    throttle: 'Drosselbar',
+    licence: 'Führerausweis',
+    price: 'Listenpreis',
+    noise: 'Standgeräusch',
+    tuningVisual: 'Tuning Optik',
+    tuningPerformance: 'Tuning Leistung',
+    sound: 'Sound',
+    atRpm: (rpm: string) => `bei ${rpm}`,
+    priceAsOf: (date: string) => `Stand ${date}`,
+    throttleYes: (kw: string) => `Ja, auf ${kw}`,
+    rangeHint: 'Berechnet aus Tankinhalt und Verbrauch',
+    powerToWeightHint: 'Berechnet aus Leistung und Gewicht',
+    blipperHint: 'Runterschalten ohne Kupplung',
+  },
+
+  cooling: { air: 'Luft', liquid: 'Flüssigkeit', 'air-oil': 'Luft/Öl' },
+  drive: { chain: 'Kette', shaft: 'Kardan', belt: 'Riemen' },
+
+  profile: {
+    beginner: 'Einsteiger',
+    city: 'Stadt',
+    touring: 'Touren',
+    sport: 'Sport',
+    offroad: 'Offroad',
+  },
+
+  editorial: {
+    label: 'Redaktionelle Einschätzung',
+    hint: 'Diese Wertung ist eine Einschätzung der MotoMatch-Redaktion auf einer Skala von 1 bis 10 – keine Herstellerangabe.',
+    scoreOutOf: (score: number) => `${score} von 10`,
+  },
+
+  tuning: {
+    disclaimer: 'Angaben ohne Gewähr, Eintragung beim Strassenverkehrsamt prüfen.',
+    visualScale: '1 = kaum Zubehör · 5 = übliche Teile · 10 = riesiger Zubehörmarkt',
+    performanceScale:
+      '1 = praktisch nichts legal möglich · 5 = zugelassene Auspuff-, Filter- und Mapping-Kombinationen · 10 = viele legale Leistungsteile',
+  },
+
+  detail: {
+    back: 'Zurück',
+    backToCatalog: 'Alle Bikes',
+    notFoundTitle: 'Bike nicht gefunden',
+    notFoundText: 'Dieses Motorrad gibt es (noch) nicht bei MotoMatch.',
+    generations: 'Baujahre',
+    generationLabel: 'Generation wählen',
+    whatsNew: 'Was ist neu?',
+    whatsNewLead: 'Gegenüber der Vorgängergeneration',
+    keyFigures: 'Kerndaten',
+    techData: 'Technische Daten',
+    groups: {
+      engine: 'Motor & Leistung',
+      chassis: 'Fahrwerk & Abmessungen',
+      equipment: 'Ausstattung & Elektronik',
+      price: 'Preis',
+    },
+    licenceTitle: 'Führerausweis',
+    licenceText: {
+      A1: 'Mit dem Führerausweis A1 (ab 16 Jahren) fahrbar: höchstens 125 cm³ und 11 kW.',
+      A_LIMITED:
+        'Mit «A beschränkt» (ab 18 Jahren) fahrbar: höchstens 35 kW und 0.2 kW pro kg Gewicht.',
+      A: 'Braucht den unbeschränkten Führerausweis A.',
+    },
+    licenceThrottle: (kw: string) =>
+      `Mit der offiziellen Drosselung auf ${kw} reicht auch «A beschränkt».`,
+    licenceThrottleRule:
+      'Gedrosselt werden darf nur, wenn die Serienleistung höchstens doppelt so hoch ist wie die gedrosselte (VTS Art. 145a). Offizielle 35-kW-Versionen der Hersteller erfüllen das.',
+    extrasTitle: 'Ausstattung',
+    extrasLead: 'Was dieses Bike serienmässig hat oder gegen Aufpreis bekommt.',
+    optional: 'Optional',
+    character: 'Charakter',
+    profileTitle: 'Einsatzprofil',
+    tuningTitle: 'Tuning',
+    soundTitle: 'Sound',
+    soundPlay: 'Sound abspielen',
+    soundPause: 'Sound pausieren',
+    similarTitle: 'Ähnliche Bikes',
+    sourcesTitle: 'Quellen und Datenstand',
+    lastChecked: (date: string) => `Zuletzt geprüft am ${date}`,
+    colors: 'Farben',
+    compareAdd: 'Zum Vergleich',
+    variantNote: 'Hinweis',
+  },
+
+  youtube: {
+    sectionTitle: 'Video-Review',
+    title: (name: string) => `${name} im Video-Test`,
+    play: (name: string) => `Video-Test zu ${name} abspielen`,
+    privacy: 'Das Video wird erst nach dem Klick von YouTube (youtube-nocookie.com) geladen.',
+    iframeTitle: (name: string) => `YouTube-Video: ${name}`,
   },
 
   catalog: {
