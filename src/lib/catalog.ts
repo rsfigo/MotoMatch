@@ -5,7 +5,7 @@
  * Gefiltert wird immer auf die neueste Generation eines Modells (die auch die Karte zeigt).
  */
 import type { Category, Generation, Manufacturer, Model } from '@/data/schema';
-import { CATEGORIES } from '@/data/schema';
+import { CATEGORIES } from '@/data/constants';
 import { latestGeneration } from './generations';
 import { canRide, getLicenceInfo, type LicenceCategory, type LicenceInfo } from './licence';
 import { kwToPs } from './units';

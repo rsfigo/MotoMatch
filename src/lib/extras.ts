@@ -1,7 +1,8 @@
 /**
  * Extras (Griffheizung, Tempomat, …) gruppiert anzeigen und für den Vergleich vereinen.
  */
-import { FEATURE_GROUPS, type Extra, type Feature, type FeatureGroup } from '@/data/schema';
+import { FEATURE_GROUPS } from '@/data/constants';
+import type { Extra, Feature, FeatureGroup } from '@/data/schema';
 
 export interface ExtraItem {
   feature: Feature;

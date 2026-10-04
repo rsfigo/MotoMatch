@@ -1,4 +1,4 @@
-import { getYouTubeVideoId } from '@/data/schema';
+import { getYouTubeVideoId } from '@/data/constants';
 
 /**
  * Einbettungs-Link über youtube-nocookie.com (ohne Tracking-Cookies, bis man abspielt).

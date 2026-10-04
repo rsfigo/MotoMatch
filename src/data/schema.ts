@@ -10,10 +10,13 @@
  * Hinweis: Diese Datei wird auch von Node-Skripten geladen (scripts/validate-data.ts).
  * Deshalb importiert sie nur `zod` und verwendet keinen `@/`-Alias.
  *
- * Wichtig: Die App selbst importiert hieraus nur Typen (`import type`). So landet Zod
- * nicht im Browser-Bundle.
+ * Wichtig: Die App selbst importiert hieraus nur Typen (`import type`), Konstanten wie
+ * CATEGORIES kommen aus constants.ts. So landet Zod nicht im Browser-Bundle.
  */
 import { z } from 'zod';
+import { CATEGORIES, FEATURE_GROUPS, FEATURE_ICONS, getYouTubeVideoId } from './constants.ts';
+
+export { CATEGORIES, FEATURE_GROUPS, FEATURE_ICONS, getYouTubeVideoId };
 
 // ---------------------------------------------------------------------------
 // Bausteine
@@ -29,18 +32,6 @@ const isoDate = z.iso.date();
 
 const year = z.int().min(1950).max(2100);
 
-export const CATEGORIES = [
-  'naked',
-  'supersport',
-  'sport',
-  'touring',
-  'adventure',
-  'enduro',
-  'supermoto',
-  'cruiser',
-  'retro',
-  'scooter',
-] as const;
 export const categorySchema = z.enum(CATEGORIES);
 
 /** Serie, gegen Aufpreis (Werksoption oder Original-Zubehör) oder nicht erhältlich. */
@@ -237,36 +228,6 @@ export const manufacturerSchema = z.strictObject({
     .regex(/^[A-Z]{2}$/, 'Zweistelliger Ländercode in Grossbuchstaben, z. B. "CH"'),
 });
 
-export const FEATURE_GROUPS = [
-  'comfort',
-  'safety',
-  'chassis',
-  'electronics',
-  'technology',
-] as const;
-
-/** Icons aus lucide-react, die für Extras verwendet werden dürfen (siehe FeatureIcon.tsx). */
-export const FEATURE_ICONS = [
-  'flame',
-  'armchair',
-  'gauge',
-  'wind',
-  'key-round',
-  'square-parking',
-  'usb',
-  'shield-check',
-  'activity',
-  'lightbulb',
-  'circle-gauge',
-  'sliders-horizontal',
-  'cpu',
-  'tablet',
-  'smartphone',
-  'layers',
-  'cog',
-  'bot',
-] as const;
-
 export const featureSchema = z.strictObject({
   key: slug,
   /** Deutsches Label, z. B. «Griffheizung» */
@@ -299,31 +260,3 @@ export type Manufacturer = z.infer<typeof manufacturerSchema>;
 export type FeatureGroup = (typeof FEATURE_GROUPS)[number];
 export type FeatureIconName = (typeof FEATURE_ICONS)[number];
 export type Feature = z.infer<typeof featureSchema>;
-
-// ---------------------------------------------------------------------------
-// Hilfsfunktionen (ohne Abhängigkeiten, auch im Browser nutzbar)
-// ---------------------------------------------------------------------------
-
-/**
- * Liest die Video-ID aus einem YouTube-Link.
- * Unterstützt https://www.youtube.com/watch?v=ID und https://youtu.be/ID.
- */
-export function getYouTubeVideoId(url: string): string | null {
-  let parsed: URL;
-  try {
-    parsed = new URL(url);
-  } catch {
-    return null;
-  }
-  const isValidId = (id: string | null): id is string => !!id && /^[A-Za-z0-9_-]{11}$/.test(id);
-
-  if (parsed.hostname === 'youtu.be') {
-    const id = parsed.pathname.slice(1);
-    return isValidId(id) ? id : null;
-  }
-  if (['www.youtube.com', 'youtube.com', 'm.youtube.com'].includes(parsed.hostname)) {
-    const id = parsed.searchParams.get('v');
-    return isValidId(id) ? id : null;
-  }
-  return null;
-}
