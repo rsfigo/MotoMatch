@@ -66,7 +66,7 @@
 
   --mm-accent: #ff5a1f;
   --mm-on-accent: #0b0c0f;
-  --mm-accent-ink: #c2410c; /* dunkleres Orange für Schrift auf hellem Grund (5.2:1) */
+  --mm-accent-ink: #b83c0a; /* dunkleres Orange für Schrift: 5.7:1 auf Weiss, 4.6:1 auf accent-soft */
   --mm-accent-soft: rgb(255 90 31 / 0.12);
 
   --mm-positive: #15803d;
