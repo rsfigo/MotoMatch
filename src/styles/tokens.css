@@ -1,0 +1,85 @@
+/*
+ * Design-Tokens von MotoMatch
+ * ---------------------------
+ * Alle Farben, Schatten und Radien als CSS-Variablen. Komponenten verwenden sie
+ * über die Tailwind-Klassen (z. B. bg-surface, text-ink-muted, border-line),
+ * die in index.css auf diese Variablen zeigen.
+ *
+ * Dunkel ist der Standard. Das helle Theme überschreibt nur die Werte.
+ * Kontraste sind auf WCAG AA geprüft (Fliesstext >= 4.5:1).
+ */
+
+:root,
+[data-theme='dark'] {
+  /* Flächen */
+  --mm-canvas: #0b0c0f; /* Seitenhintergrund */
+  --mm-surface: #121419; /* Karten */
+  --mm-surface-2: #191c22; /* Eingabefelder, Hover */
+  --mm-surface-3: #22262e; /* aktive Elemente */
+
+  /* Linien */
+  --mm-line: rgb(255 255 255 / 0.08);
+  --mm-line-strong: rgb(255 255 255 / 0.16);
+
+  /* Schrift */
+  --mm-ink: #f4f5f7; /* Haupttext */
+  --mm-ink-muted: #a3a9b4; /* Nebentext (7.8:1 auf Karten) */
+  --mm-ink-subtle: #7c828d; /* gedämpft, z. B. «k. A.» (4.7:1 auf Karten) */
+
+  /* Akzent: Signal-Orange – sparsam für Aktionen und «Gewinner» */
+  --mm-accent: #ff5a1f;
+  --mm-on-accent: #0b0c0f; /* Text auf Orange (6.3:1) */
+  --mm-accent-ink: #ff6a33; /* orange Schrift auf dunklem Grund */
+  --mm-accent-soft: rgb(255 90 31 / 0.12);
+
+  /* Status */
+  --mm-positive: #4ade80;
+  --mm-negative: #f87171;
+  --mm-warning: #fbbf24;
+
+  /* Schatten und Glow */
+  --mm-shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 12px 32px -16px rgb(0 0 0 / 0.7);
+  --mm-shadow-raised: 0 1px 0 0 rgb(255 255 255 / 0.06) inset, 0 24px 48px -20px rgb(0 0 0 / 0.8);
+  --mm-shadow-glow: 0 0 0 1px rgb(255 90 31 / 0.45), 0 14px 44px -12px rgb(255 90 31 / 0.5);
+  --mm-glow-color: rgb(255 90 31 / 0.35);
+
+  /* Glas-Effekt für Sticky-Leisten */
+  --mm-glass: rgb(11 12 15 / 0.72);
+
+  /* Silhouetten-Platzhalter */
+  --mm-silhouette: #2a2e36;
+  --mm-silhouette-detail: #3a3f49;
+}
+
+[data-theme='light'] {
+  --mm-canvas: #f6f6f3;
+  --mm-surface: #ffffff;
+  --mm-surface-2: #efefea;
+  --mm-surface-3: #e4e4de;
+
+  --mm-line: rgb(11 12 15 / 0.1);
+  --mm-line-strong: rgb(11 12 15 / 0.2);
+
+  --mm-ink: #0b0c0f;
+  --mm-ink-muted: #4a4f58; /* 8.2:1 auf Weiss */
+  --mm-ink-subtle: #6b7079; /* 5.0:1 auf Weiss */
+
+  --mm-accent: #ff5a1f;
+  --mm-on-accent: #0b0c0f;
+  --mm-accent-ink: #c2410c; /* dunkleres Orange für Schrift auf hellem Grund (5.2:1) */
+  --mm-accent-soft: rgb(255 90 31 / 0.12);
+
+  --mm-positive: #15803d;
+  --mm-negative: #b91c1c;
+  --mm-warning: #b45309;
+
+  --mm-shadow-card: 0 1px 2px rgb(11 12 15 / 0.05), 0 12px 32px -18px rgb(11 12 15 / 0.25);
+  --mm-shadow-raised: 0 2px 4px rgb(11 12 15 / 0.06), 0 24px 48px -22px rgb(11 12 15 / 0.3);
+  --mm-shadow-glow: 0 0 0 1px rgb(255 90 31 / 0.5), 0 14px 40px -14px rgb(255 90 31 / 0.45);
+  --mm-glow-color: rgb(255 90 31 / 0.22);
+
+  --mm-glass: rgb(246 246 243 / 0.78);
+
+  --mm-silhouette: #d9d9d2;
+  --mm-silhouette-detail: #c4c4bc;
+}

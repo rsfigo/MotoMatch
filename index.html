@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de-CH" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>MotoMatch – Finde das Bike, das zu dir passt.</title>
+    <meta
+      name="description"
+      content="Motorräder für die Schweiz vergleichen: Leistung, Gewicht, Preis in CHF, Führerausweis-Kategorie und Ausstattung auf einen Blick."
+    />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0B0C0F" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph (Vorschau beim Teilen) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MotoMatch" />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:title" content="MotoMatch – Finde das Bike, das zu dir passt." />
+    <meta
+      property="og:description"
+      content="Motorräder für die Schweiz vergleichen: Leistung, Gewicht, Preis in CHF, Führerausweis-Kategorie und Ausstattung auf einen Blick."
+    />
+
+    <!--
+      Theme vor dem ersten Rendern setzen, damit nichts aufblitzt.
+      Standard ist dunkel; die Wahl aus dem Umschalter wird in localStorage gemerkt.
+    -->
+    <script>
+      (function () {
+        var theme = 'dark';
+        try {
+          if (localStorage.getItem('motomatch-theme') === 'light') theme = 'light';
+        } catch (e) {}
+        document.documentElement.dataset.theme = theme;
+        if (theme === 'light') {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F6F6F3');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>MotoMatch benötigt JavaScript.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

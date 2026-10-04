@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+/* `dark:`-Varianten richten sich nach dem gewählten Theme, nicht nach dem System. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Tailwind-Klassen, die auf die Design-Tokens zeigen.
+ * "inline" sorgt dafür, dass z. B. bg-surface direkt var(--mm-surface) verwendet
+ * und damit beim Theme-Wechsel automatisch mitwechselt.
+ */
+@theme inline {
+  --color-canvas: var(--mm-canvas);
+  --color-surface: var(--mm-surface);
+  --color-surface-2: var(--mm-surface-2);
+  --color-surface-3: var(--mm-surface-3);
+  --color-line: var(--mm-line);
+  --color-line-strong: var(--mm-line-strong);
+  --color-ink: var(--mm-ink);
+  --color-ink-muted: var(--mm-ink-muted);
+  --color-ink-subtle: var(--mm-ink-subtle);
+  --color-accent: var(--mm-accent);
+  --color-on-accent: var(--mm-on-accent);
+  --color-accent-ink: var(--mm-accent-ink);
+  --color-accent-soft: var(--mm-accent-soft);
+  --color-positive: var(--mm-positive);
+  --color-negative: var(--mm-negative);
+  --color-warning: var(--mm-warning);
+  --color-glass: var(--mm-glass);
+
+  --shadow-card: var(--mm-shadow-card);
+  --shadow-raised: var(--mm-shadow-raised);
+  --shadow-glow: var(--mm-shadow-glow);
+}
+
+@theme {
+  /* Schriften (selbst gehostet über Fontsource, siehe main.tsx) */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', 'Inter Variable', ui-sans-serif, sans-serif;
+
+  /* Radien: Karten gross und weich */
+  --radius-card: 1.25rem; /* 20px */
+  --radius-panel: 1.5rem; /* 24px */
+  --radius-control: 0.875rem; /* 14px */
+
+  /* Breakpoint für sehr kleine Handys (ab 360 px wird alles sauber dargestellt) */
+  --breakpoint-xs: 26rem;
+
+  /* CSS-Animationen (nur transform und opacity) */
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+  --animate-drift: drift 18s ease-in-out infinite alternate;
+  --animate-drift-slow: drift 26s ease-in-out infinite alternate-reverse;
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes drift {
+    0% {
+      transform: translate3d(-8%, -4%, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(8%, 6%, 0) scale(1.15);
+    }
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  [data-theme='light'] {
+    color-scheme: light;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-line);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  /* Gut sichtbarer Fokus für Tastaturbedienung */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--mm-accent) 35%, transparent);
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  /* Inhalt nur für Screenreader */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Scrollbar ausblenden, Scrollen bleibt möglich (z. B. Chip-Leisten) */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * Theme-Wechsel mit kreisförmiger Enthüllung (View Transitions API).
+ * Die Animation selbst wird in ThemeToggle.tsx gestartet.
+ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
