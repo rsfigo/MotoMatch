@@ -33,7 +33,8 @@ export function CountUp({ value, format, decimals, className }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
   const reduceMotion = useReducedMotion();
-  const current = useMotionValue(0);
+  // Bei reduzierter Bewegung steht der Endwert von Anfang an da (auch ausserhalb des Bildschirms)
+  const current = useMotionValue(reduceMotion ? value : 0);
   const precision = decimals ?? (Number.isInteger(value) ? 0 : 1);
   // Zwischenwerte gerundet (keine «CHF 4’523.71»), der Endwert exakt – sonst würde doppelt
   // gerundet (145.48 → 145.5 → «146 PS» statt «145 PS»).
@@ -42,11 +43,11 @@ export function CountUp({ value, format, decimals, className }: CountUpProps) {
   );
 
   useEffect(() => {
-    if (!inView) return;
     if (reduceMotion) {
       current.jump(value);
       return;
     }
+    if (!inView) return;
     const controls = animate(current, value, { duration: 0.9, ease: ease.out });
     return () => controls.stop();
   }, [inView, value, reduceMotion, current]);
