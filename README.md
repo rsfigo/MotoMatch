@@ -38,6 +38,8 @@ Die Motorrad-Grafiken sind generische Silhouetten – keine Herstellerfotos, kei
   die Tabelle seitlich wischen.
 - **Match-Wizard** – sechs Fragen (Führerausweis, Körpergrösse, Budget, Einsatz, Erfahrung, Sound und
   Tuning), danach 3–5 Bikes mit Match-Prozent und kurzer Begründung.
+- **Daten aus JSON oder Supabase** – lokal direkt aus den JSON-Dateien im Repository, online aus
+  einer Supabase-Datenbank. Die Website liest nur; Schreiben ist per Row Level Security gesperrt.
 - **Gemacht für die Schweiz** – Preise im Format «CHF 12’490.–», Führerausweis-Kategorien nach
   Schweizer Recht, Texte in Schweizer Schreibweise.
 - **Qualität** – dunkles und helles Design, Animationen mit Motion (bei «Bewegung reduzieren» nur
@@ -59,16 +61,19 @@ Danach läuft die Seite auf <http://localhost:5173>.
 
 ## Skripte
 
-| Befehl                  | Zweck                                                    |
-| ----------------------- | -------------------------------------------------------- |
-| `npm run dev`           | Entwicklungsserver mit Hot Reload                        |
-| `npm run build`         | Typprüfung und Produktions-Build nach `dist/`            |
-| `npm run preview`       | Produktions-Build lokal ansehen                          |
-| `npm test`              | Unit-Tests (Vitest), `npm run test:watch` im Watch-Modus |
-| `npm run validate:data` | Prüft alle Bike-Daten (JSON) mit Zod                     |
-| `npm run lint`          | ESLint                                                   |
-| `npm run typecheck`     | TypeScript-Prüfung ohne Build                            |
-| `npm run format`        | Code mit Prettier formatieren (`format:check` prüft nur) |
+| Befehl                  | Zweck                                                                         |
+| ----------------------- | ----------------------------------------------------------------------------- |
+| `npm run dev`           | Entwicklungsserver mit Hot Reload                                             |
+| `npm run build`         | Typprüfung und Produktions-Build nach `dist/`                                 |
+| `npm run preview`       | Produktions-Build lokal ansehen                                               |
+| `npm test`              | Unit-Tests (Vitest), `npm run test:watch` im Watch-Modus                      |
+| `npm run validate:data` | Prüft alle Bike-Daten (JSON) mit Zod                                          |
+| `npm run seed`          | Schreibt die JSON-Daten nach Supabase (`npm run seed -- --dry-run` prüft nur) |
+| `npm run check:rls`     | Prüft, dass man mit dem öffentlichen Schlüssel nur lesen kann                 |
+| `npm run export:data`   | Schreibt die Daten aus Supabase zurück in die JSON-Dateien (Backup)           |
+| `npm run lint`          | ESLint                                                                        |
+| `npm run typecheck`     | TypeScript-Prüfung ohne Build                                                 |
+| `npm run format`        | Code mit Prettier formatieren (`format:check` prüft nur)                      |
 
 ## Tech-Stack
 
@@ -76,23 +81,30 @@ Danach läuft die Seite auf <http://localhost:5173>.
 - **React Router** (deklarativ, ein Chunk pro Seite)
 - **Tailwind CSS 4** mit Design-Tokens als CSS-Variablen (`src/styles/tokens.css`)
 - **Motion** für Animationen, **lucide-react** für Icons, Gauges und Radar als eigenes SVG
-- **Zod** zur Prüfung der Daten (nur beim Prüfen, nicht im Browser-Bundle)
+- **TanStack Query** für Laden, Caching und Fehlerzustände
+- **Supabase** (gehostetes PostgreSQL) als Datenbank, angesprochen über den schlanken offiziellen
+  Client `@supabase/postgrest-js`
+- **Zod** prüft die Daten: beim Prüfen der JSON-Dateien und im Supabase-Modus beim Laden (im
+  JSON-Modus nicht im Browser-Bundle)
 - **Vitest** für die Logik, **ESLint** und **Prettier**
 - Schriften **Inter** und **Space Grotesk**, selbst gehostet über Fontsource
 
 ## Projektstruktur
 
 ```
-docs/screenshots/       Bilder für dieses README
+docs/                   MASTER_PROMPT.md (Anforderungen), screenshots/ (Bilder für dieses README)
 public/                 favicon.svg, og-image.png (Vorschaubild beim Teilen)
-scripts/                validate-data.ts (Datenprüfung), seoPlugin.ts (Sitemap, kanonische URLs)
+scripts/                validate-data, seed, check-rls, export-data, seoPlugin (Sitemap, kanonische URLs)
+supabase/migrations/    Datenbankschema als SQL (Tabellen, Indizes, Row Level Security)
 src/
-  app/                  App, Routen (pages.ts), Seitenübergänge
+  app/                  App, Routen (pages.ts), Seitenübergänge, Lade- und Fehlerzustände
   pages/                eine Datei pro Seite (eigener Chunk)
   components/           ui, layout, bike, catalog, detail, compare, match, charts, home
   data/                 schema.ts (Zod), constants.ts, manufacturers.json, features.json, models/*.json
+  data/db/              Datenbankzeilen, Mapping Zeile ↔ Domain-Modell, Client für die Daten-API
   hooks/                Daten-, URL- und UI-Hooks
-  lib/                  reine Logik mit Tests (Führerausweis, Formatierung, Katalog, Vergleich, Match …)
+  lib/                  reine Logik mit Tests (Führerausweis, Katalog, Vergleich, Match …) und der
+                        Datenzugriff (data.ts, BikeRepository für JSON und Supabase, TanStack Query)
   i18n/de.ts            alle Texte der Oberfläche
   styles/               Tailwind und Design-Tokens
 ```
@@ -112,7 +124,65 @@ Weitere Dokumente: [STATUS.md](STATUS.md) (aktueller Stand), [DECISIONS.md](DECI
 - Die Wertungen 1–10 (Tuning, Sound, Einsatzprofil) sind redaktionelle Einschätzungen; die Skalen
   stehen in [DECISIONS.md](DECISIONS.md).
 
+## Datenbank (Supabase)
+
+Die Website liest ihre Daten aus einer von zwei Quellen. Die Umgebungsvariable `VITE_DATA_SOURCE`
+wählt sie beim Build:
+
+- `json` (Standard): die JSON-Dateien aus `src/data` – für Entwicklung und Tests, ohne Konto.
+- `supabase`: eine Supabase-Datenbank. Die Seite liest direkt über die Supabase-API mit dem
+  öffentlichen Schlüssel; Schreiben ist per Row Level Security gesperrt.
+
+Die Komponenten merken davon nichts: Beide Quellen erfüllen dasselbe Interface `BikeRepository`
+(`src/lib/repository.ts`). Was in welcher Tabelle steht, zeigt die Migration in
+`supabase/migrations/`.
+
+### Einrichten (einmalig)
+
+1. Auf [supabase.com](https://supabase.com) ein Konto und ein Projekt anlegen. Region: «Central
+   Europe (Zurich)», sonst «Central EU (Frankfurt)». Das Datenbank-Passwort im Passwort-Manager
+   ablegen – MotoMatch braucht es nicht.
+2. Im Dashboard den **SQL Editor** öffnen, den Inhalt von
+   `supabase/migrations/20261004120000_initial_schema.sql` einfügen und ausführen (oder mit der
+   Supabase-CLI `supabase db push`).
+3. `.env.example` nach `.env.local` kopieren und die Werte eintragen. Projekt-URL und öffentlicher
+   Schlüssel stehen im Dialog **Connect**, alle Schlüssel unter **Settings → API Keys** (fehlen
+   sie, dort zuerst erzeugen):
+   - `VITE_SUPABASE_URL` – die Projekt-URL
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` – der öffentliche Schlüssel (`sb_publishable_…`)
+   - `SUPABASE_SECRET_KEY` – der geheime Schlüssel (`sb_secret_…`), nur für `npm run seed`
+4. `npm run seed -- --dry-run` prüft die Daten, `npm run seed` schreibt sie in die Datenbank.
+5. `npm run check:rls` muss «Lesen erlaubt, Schreiben überall gesperrt» melden.
+6. In `.env.local` `VITE_DATA_SOURCE=supabase` setzen und `npm run dev` starten.
+
+`.env.local` steht in `.gitignore`. Schlüssel gehören nie ins Repository, in Issues oder in einen
+Chat. Der geheime Schlüssel bekommt nie das Präfix `VITE_`: Solche Variablen landen im Browser –
+der Build bricht deshalb ab, wenn er dort einen geheimen Schlüssel findet.
+
+### Pausiertes Projekt wieder aktivieren
+
+Im Gratis-Tarif pausiert Supabase ein Projekt, wenn die Datenbank eine Woche lang zu wenig genutzt
+wurde (laut Doku reichen ein paar Anfragen pro Tag). Die Website zeigt dann «Daten konnten nicht
+geladen werden».
+
+1. Im [Supabase-Dashboard](https://supabase.com/dashboard) die Organisation und das pausierte
+   Projekt wählen.
+2. **Resume project** klicken und bestätigen. Das Projekt kommt mit Daten und Einstellungen zurück.
+
+Laut [Supabase-Doku](https://supabase.com/docs/guides/platform/free-project-pausing) geht das bis
+zu ein Jahr nach dem Pausieren. Notfalls lässt sich ein neues Projekt anlegen und mit Migration und
+`npm run seed` wieder befüllen – die JSON-Dateien im Repository sind das Backup.
+
 ## Neues Bike hinzufügen
+
+Es gibt zwei Wege. Beide enden mit denselben Daten in JSON-Dateien und Datenbank.
+
+- **JSON und Seed** (empfohlen): Datei anlegen wie unten beschrieben, prüfen, dann mit
+  `npm run seed` in die Datenbank schreiben.
+- **Supabase-Tabelleneditor**: Zeilen direkt im Dashboard erfassen, danach mit
+  `npm run export:data` in die JSON-Dateien übernehmen (siehe unten).
+
+### Als JSON-Datei
 
 1. **Recherchieren.** Am besten die Schweizer Herstellerseite oder das offizielle Datenblatt; dazu den
    Schweizer Listenpreis mit Datum. Magazinwerte (z. B. 0–100 km/h) sind als Test oder Schätzung zu
@@ -141,9 +211,25 @@ Weitere Dokumente: [STATUS.md](STATUS.md) (aktueller Stand), [DECISIONS.md](DECI
    im Browser `/bikes/<id>` ansehen.
 9. **Unsicherheiten festhalten:** Wo Quellen sich widersprechen, `"dataStatus": "needsVerification"`
    setzen und den Grund in [DECISIONS.md](DECISIONS.md) notieren.
+10. **In die Datenbank übertragen:** `npm run seed` (vorher `npm run seed -- --dry-run`). Der Seed
+    ist beliebig oft ausführbar und löscht nie etwas.
 
 Ein neues Extra kommt in `src/data/features.json` (`key`, `label`, `group`, `icon`); erlaubte Icons
 stehen in `src/data/constants.ts`.
+
+### Im Supabase-Tabelleneditor
+
+1. Im Dashboard den **Table Editor** öffnen und die Zeilen in dieser Reihenfolge anlegen: falls
+   nötig `manufacturers`, dann `models`, `generations` (eine Zeile pro Generation),
+   `generation_features` (Extras) und `generation_sources` (Quellen – jede Angabe braucht eine, `position` ab
+   0). Spaltennamen und erlaubte Werte stehen in der Migration; es gelten dieselben Regeln wie für
+   JSON-Dateien.
+2. `npm run export:data -- --dry-run` zeigt, welche Dateien sich ändern würden, und meldet Fehler.
+3. `npm run export:data` schreibt die JSON-Dateien. Danach `npm run validate:data`, die Änderungen
+   mit `git diff` prüfen und committen – so bleibt die Datenhistorie in Git.
+
+Ein fehlerhaft erfasstes Modell legt die Website nicht lahm: Es fehlt im Katalog, und die
+Browser-Konsole nennt den Fehler.
 
 ## Veröffentlichen
 
@@ -151,6 +237,8 @@ stehen in `src/data/constants.ts`.
 
 - **Domain:** Mit der Umgebungsvariable `VITE_SITE_URL` (siehe [.env.example](.env.example)) ergänzt
   der Build kanonische URLs, das Vorschaubild für Open Graph und eine `sitemap.xml`.
+- **Daten aus Supabase:** Beim Hoster `VITE_DATA_SOURCE=supabase`, `VITE_SUPABASE_URL` und
+  `VITE_SUPABASE_PUBLISHABLE_KEY` eintragen – nie `SUPABASE_SECRET_KEY`.
 - **Weiterleitung:** MotoMatch ist eine Single-Page-App. Der Server muss alle unbekannten Pfade auf
   `index.html` umleiten (z. B. Netlify `/*  /index.html  200`, nginx `try_files $uri /index.html;`).
 
