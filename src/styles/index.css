@@ -27,6 +27,8 @@
   --color-negative: var(--mm-negative);
   --color-warning: var(--mm-warning);
   --color-glass: var(--mm-glass);
+  --color-silhouette: var(--mm-silhouette);
+  --color-silhouette-detail: var(--mm-silhouette-detail);
 
   --shadow-card: var(--mm-shadow-card);
   --shadow-raised: var(--mm-shadow-raised);

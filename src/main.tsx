@@ -17,7 +17,11 @@ if (!rootElement) throw new Error('Element #root fehlt in index.html');
 
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter>
+    {/*
+      useTransitions={false}: URL-Änderungen werden sofort gerendert. Nötig, weil Suchfeld
+      und Filter ihren Zustand direkt aus der URL lesen (sonst flackern Eingabefelder).
+    */}
+    <BrowserRouter useTransitions={false}>
       <App />
     </BrowserRouter>
   </StrictMode>,

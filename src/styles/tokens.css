@@ -47,8 +47,8 @@
   --mm-glass: rgb(11 12 15 / 0.72);
 
   /* Silhouetten-Platzhalter */
-  --mm-silhouette: #2a2e36;
-  --mm-silhouette-detail: #3a3f49;
+  --mm-silhouette: #2d3139;
+  --mm-silhouette-detail: #454b56;
 }
 
 [data-theme='light'] {
