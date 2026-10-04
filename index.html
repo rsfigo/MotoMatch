@@ -12,6 +12,26 @@
     <meta name="theme-color" content="#0B0C0F" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!--
+      Die beiden Schriften (lateinischer Zeichensatz) früh laden – parallel zum JavaScript.
+      Sonst fragt der Browser sie erst an, wenn React Text rendert. Vite ersetzt die Pfade
+      beim Build durch die Dateien mit Hash.
+    -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2"
+      crossorigin
+    />
+
     <!-- Open Graph (Vorschau beim Teilen) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MotoMatch" />
