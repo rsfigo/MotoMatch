@@ -499,6 +499,113 @@ export const de = {
     text: 'Diese Strasse führt ins Leere. Vielleicht hilft dir der Katalog weiter.',
   },
 
+  /**
+   * Rechtliches. Angaben in [eckigen Klammern] sind Platzhalter und werden vor dem Livegang
+   * ergänzt; beide Texte vorher von einer Fachperson prüfen lassen (siehe DECISIONS.md).
+   */
+  legal: {
+    draftNotice: 'Entwurf: Angaben in [eckigen Klammern] werden vor dem Livegang ergänzt.',
+    externalLink: 'öffnet in neuem Tab',
+    imprint: {
+      lead: 'Angaben zum Betreiber dieser Website.',
+      sections: [
+        {
+          title: 'Betreiber',
+          paragraphs: ['[Vorname Nachname oder Firma]', '[Strasse Nr.], [PLZ Ort], Schweiz'],
+        },
+        { title: 'Kontakt', paragraphs: ['E-Mail: [E-Mail-Adresse]'] },
+        {
+          title: 'Haftungsausschluss',
+          paragraphs: [
+            'Alle Angaben ohne Gewähr. Technische Daten und Preise stammen aus den Quellen, die bei jedem Bike genannt sind; Schätzungen sind als solche gekennzeichnet. Verbindlich sind die Angaben der Hersteller und Händler sowie der Fahrzeugausweis.',
+            'Die Führerausweis-Kategorien werden aus Hubraum, Leistung und Gewicht berechnet und sind ein Richtwert. Die Wertungen zu Tuning, Sound und Einsatzprofil sind redaktionelle Einschätzungen.',
+          ],
+        },
+        {
+          title: 'Links auf andere Websites',
+          paragraphs: [
+            'Für die Inhalte verlinkter Websites sind ausschliesslich deren Betreiber verantwortlich.',
+          ],
+        },
+        {
+          title: 'Marken und Grafiken',
+          paragraphs: [
+            'Marken- und Modellnamen gehören den jeweiligen Inhabern. MotoMatch steht in keiner Verbindung zu den Herstellern.',
+            'Die Motorrad-Grafiken sind generische Silhouetten und zeigen keine bestimmten Modelle.',
+          ],
+        },
+      ],
+    },
+    privacy: {
+      lead: 'Wie MotoMatch mit deinen Daten umgeht – kurz und verständlich.',
+      sections: [
+        {
+          title: 'Das Wichtigste in Kürze',
+          list: [
+            'Keine Cookies, kein Tracking, keine Werbung und kein Benutzerkonto.',
+            'Deine Einstellungen bleiben in deinem Browser.',
+            'YouTube wird erst geladen, wenn du ein Video startest.',
+          ],
+        },
+        {
+          title: 'Verantwortlich',
+          paragraphs: [
+            '[Vorname Nachname oder Firma], [Strasse Nr.], [PLZ Ort], Schweiz',
+            'E-Mail: [E-Mail-Adresse]',
+          ],
+        },
+        {
+          title: 'Speicherung in deinem Browser',
+          paragraphs: [
+            'MotoMatch speichert zwei Einstellungen im lokalen Speicher deines Browsers (localStorage): ob du das helle oder das dunkle Design gewählt hast und welche Bikes in deiner Vergleichsauswahl sind. Diese Angaben verlassen dein Gerät nicht.',
+            'Du kannst sie jederzeit löschen, indem du die Website-Daten in deinem Browser entfernst.',
+          ],
+        },
+        {
+          title: 'Match-Wizard und geteilte Links',
+          paragraphs: [
+            'Deine Antworten im Match-Wizard, zum Beispiel Körpergrösse und Budget, werden nur in deinem Browser ausgewertet. Sie stehen in der Adresse der Seite, damit «Zurück» und Neuladen funktionieren. Wenn du diesen Link teilst, sieht die andere Person deine Antworten. Dasselbe gilt für geteilte Vergleiche.',
+          ],
+        },
+        {
+          title: 'Hosting und Server-Logfiles',
+          paragraphs: [
+            'Die Website wird bei [Hosting-Anbieter, Land] betrieben. Beim Aufruf speichert der Server technisch notwendige Angaben wie IP-Adresse, Zeitpunkt, aufgerufene Seite und Browser. Sie dienen dem sicheren Betrieb und werden nach [Aufbewahrungsdauer] gelöscht.',
+          ],
+        },
+        {
+          title: 'Schriften',
+          paragraphs: [
+            'Die Schriften liegen auf demselben Server wie die Website. Es wird keine Verbindung zu Google Fonts oder anderen Schriftdiensten aufgebaut.',
+          ],
+        },
+        {
+          title: 'YouTube-Videos',
+          paragraphs: [
+            'Video-Reviews sind über youtube-nocookie.com eingebunden und werden erst geladen, wenn du auf «Abspielen» klickst. Erst dann werden Daten an YouTube bzw. Google übertragen, zum Beispiel deine IP-Adresse; YouTube kann dabei auch Cookies setzen. Es gilt die Datenschutzerklärung von Google.',
+          ],
+          link: {
+            label: 'Datenschutzerklärung von Google',
+            href: 'https://policies.google.com/privacy',
+          },
+        },
+        {
+          title: 'Links auf andere Websites',
+          paragraphs: [
+            'Quellen und Herstellerseiten sind verlinkt. Öffnest du einen solchen Link, gelten dort die Datenschutzbestimmungen des jeweiligen Betreibers.',
+          ],
+        },
+        {
+          title: 'Deine Rechte',
+          paragraphs: [
+            'Nach dem Schweizer Datenschutzgesetz (DSG) kannst du Auskunft über deine Daten verlangen sowie deren Berichtigung oder Löschung. Schreib dazu an die oben genannte E-Mail-Adresse.',
+          ],
+        },
+      ],
+      asOf: 'Stand: Oktober 2026',
+    },
+  },
+
   pages: {
     catalog: {
       title: 'Alle Bikes',
