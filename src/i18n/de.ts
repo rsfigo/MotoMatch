@@ -364,6 +364,136 @@ export const de = {
     vs: 'vs.',
   },
 
+  match: {
+    eyebrow: 'Match-Wizard',
+    title: 'Finde dein Bike in sechs Fragen',
+    lead: 'Beantworte ein paar Fragen – MotoMatch rechnet aus, welche Bikes am besten zu dir passen.',
+    progressLabel: 'Fortschritt',
+    progress: (step: number, total: number) => `Frage ${step} von ${total}`,
+    back: 'Zurück',
+    next: 'Weiter',
+    showResults: 'Matches anzeigen',
+    toResult: 'Zum Ergebnis',
+    steps: {
+      licence: {
+        title: 'Welchen Führerausweis hast du?',
+        hint: 'Bikes, die du damit nicht fahren darfst, schlagen wir nicht vor.',
+      },
+      height: {
+        title: 'Wie gross bist du?',
+        hint: 'Daraus schätzen wir, welche Sitzhöhe für dich bequem ist.',
+      },
+      budget: {
+        title: 'Wie viel darf das Bike kosten?',
+        hint: 'Listenpreis neu in CHF. Zubehör und Bekleidung kommen dazu.',
+      },
+      purpose: {
+        title: 'Wofür willst du das Bike vor allem?',
+        hint: 'Mehrere Antworten möglich.',
+      },
+      experience: {
+        title: 'Wie viel Fahrerfahrung hast du?',
+        hint: 'Damit das Bike dich fordert, aber nicht überfordert.',
+      },
+      preferences: {
+        title: 'Wie wichtig sind dir Sound und Tuning?',
+        hint: 'Beides sind redaktionelle Einschätzungen auf einer Skala von 1 bis 10.',
+      },
+    },
+    licenceOptions: {
+      A1: { badge: 'A1', label: 'A1', description: 'Bis 125 cm³ und 11 kW, ab 16 Jahren' },
+      A_LIMITED: {
+        badge: 'A35',
+        label: 'A beschränkt',
+        description: 'Bis 35 kW und 0.2 kW/kg, ab 18 Jahren',
+      },
+      A: { badge: 'A', label: 'A', description: 'Ohne Leistungsgrenze' },
+      none: {
+        badge: '?',
+        label: 'Noch offen',
+        description: 'Ich mache den Ausweis erst – zeig mir alle Bikes',
+      },
+    },
+    heightLess: 'Einen Zentimeter kleiner',
+    heightMore: 'Einen Zentimeter grösser',
+    heightValue: (cm: number) => `${cm} cm`,
+    heightHint: (inseam: string, seat: string) =>
+      `Geschätzte Schrittlänge: ca. ${inseam}. Bequem sind damit Sitzhöhen bis etwa ${seat}.`,
+    budgetValue: (chf: string) => `bis ${chf}`,
+    budgetUpTo: 'bis',
+    budgetAny: 'Budget spielt keine Rolle',
+    budgetAnyValue: 'Egal',
+    purposes: {
+      city: { label: 'Stadt & Pendeln', description: 'Wendig, sparsam, alltagstauglich' },
+      touring: { label: 'Touren & Reisen', description: 'Komfort und Reichweite für lange Tage' },
+      sport: { label: 'Kurven & Sport', description: 'Leistung, Handling und Fahrspass' },
+      offroad: { label: 'Schotter & Gelände', description: 'Auch abseits vom Asphalt unterwegs' },
+    },
+    experienceOptions: {
+      beginner: { label: 'Neu dabei', description: 'Prüfung frisch gemacht oder noch vor mir' },
+      intermediate: { label: 'Etwas Erfahrung', description: 'Ein bis drei Saisons gefahren' },
+      experienced: { label: 'Viel Erfahrung', description: 'Mehrere Jahre und verschiedene Bikes' },
+    },
+    importance: ['Egal', 'Etwas', 'Wichtig', 'Sehr wichtig'],
+    soundLabel: 'Sound',
+    tuningLabel: 'Tuning (Optik und Leistung)',
+    summary: {
+      licence: 'Ausweis',
+      height: 'Grösse',
+      budget: 'Budget',
+      purpose: 'Einsatz',
+      experience: 'Erfahrung',
+      preferences: 'Sound und Tuning',
+    },
+    preferencesValue: (sound: string, tuning: string) => `Sound ${sound}, Tuning ${tuning}`,
+    editAnswer: (question: string) => `${question} ändern`,
+    results: {
+      eyebrow: 'Deine Matches',
+      title: 'Diese Bikes passen zu dir',
+      lead: 'Sortiert nach Übereinstimmung mit deinen Antworten.',
+      answersTitle: 'Deine Antworten',
+      rank: (rank: number) => `Platz ${rank}`,
+      percentLabel: (percent: number) => `${percent} Prozent Übereinstimmung`,
+      details: 'Details',
+      compareTop: (count: number) => `Top ${count} vergleichen`,
+      restart: 'Neu starten',
+      fewResults: (count: number) =>
+        count === 1
+          ? 'Mit diesem Führerausweis passt im Moment nur ein Bike aus unserem Katalog.'
+          : `Mit diesem Führerausweis passen im Moment nur ${count} Bikes aus unserem Katalog.`,
+      noResults: 'Mit diesem Führerausweis passt im Moment kein Bike aus unserem Katalog.',
+      disclaimer:
+        'Die Prozente sind eine Orientierung, keine Kaufberatung. Am besten Probe fahren – und die Sitzhöhe beim Händler testen.',
+      howTitle: 'So rechnet MotoMatch',
+      how: [
+        'Führerausweis: Bikes, die du nicht fahren darfst, fallen weg. Mit «A beschränkt» zählen auch Bikes mit offizieller 35-kW-Drosselung.',
+        'Einsatz, Budget, Sitzhöhe, Erfahrung, Leistung, Sound und Tuning ergeben je einen Wert. Das Match ist ihr gewichteter Durchschnitt – Einsatz und Budget zählen am meisten.',
+        'Sitzhöhe: Wir schätzen die Schrittlänge auf 46 % der Körpergrösse. Bis 5 cm darüber gilt eine Sitzhöhe als bequem, ab 10 cm darüber als zu hoch.',
+        'Budget: Bis 25 % darüber gibt es noch Teilpunkte.',
+        'Einsatzprofil, Sound und Tuning sind redaktionelle Einschätzungen von 1 bis 10.',
+      ],
+    },
+    reasons: {
+      purpose: (purposes: string, score: number) => `Stark für ${purposes} (${score}/10)`,
+      purposeWeak: (purpose: string, score: number) => `${purpose}: nur ${score}/10`,
+      withinBudget: (price: string) => `Im Budget: ${price}`,
+      overBudget: (amount: string) => `${amount} über deinem Budget`,
+      seatFits: (seat: string) => `Sitzhöhe ${seat} passt zu deiner Grösse`,
+      seatHigh: (seat: string) => `Sitzhöhe ${seat} – eher hoch für dich`,
+      beginnerFriendly: (score: number) => `Einsteigerfreundlich (${score}/10)`,
+      forExperienced: (score: number) => `Eher für Erfahrene (Einsteiger ${score}/10)`,
+      power: (power: string) => `Kräftig: ${power}`,
+      sound: (score: number) => `Starker Sound (${score}/10)`,
+      tuning: (score: number) => `Viel Tuning-Potenzial (${score}/10)`,
+      throttle: (power: string) => `Für A beschränkt mit offizieller Drosselung auf ${power}`,
+    },
+    /** «Stadt», «Stadt und Touren», «Stadt, Touren und Sport» */
+    listAnd: (items: readonly string[]) =>
+      items.length < 2
+        ? items.join('')
+        : `${items.slice(0, -1).join(', ')} und ${items[items.length - 1] ?? ''}`,
+  },
+
   notFound: {
     title: 'Seite nicht gefunden',
     text: 'Diese Strasse führt ins Leere. Vielleicht hilft dir der Katalog weiter.',
