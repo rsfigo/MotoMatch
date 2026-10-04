@@ -1,0 +1,27 @@
+# Abhängigkeiten und Build-Ergebnisse
+node_modules
+dist
+dist-ssr
+coverage
+*.tsbuildinfo
+
+# Umgebungsvariablen und Geheimnisse – nie committen
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Editor, Werkzeuge und Betriebssystem
+.claude/
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.sw?
