@@ -1,0 +1,11 @@
+[
+  { "id": "aprilia", "name": "Aprilia", "country": "IT" },
+  { "id": "bmw", "name": "BMW", "country": "DE" },
+  { "id": "ducati", "name": "Ducati", "country": "IT" },
+  { "id": "honda", "name": "Honda", "country": "JP" },
+  { "id": "kawasaki", "name": "Kawasaki", "country": "JP" },
+  { "id": "ktm", "name": "KTM", "country": "AT" },
+  { "id": "royal-enfield", "name": "Royal Enfield", "country": "IN" },
+  { "id": "triumph", "name": "Triumph", "country": "GB" },
+  { "id": "yamaha", "name": "Yamaha", "country": "JP" }
+]

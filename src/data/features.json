@@ -1,0 +1,128 @@
+[
+  {
+    "key": "heated-grips",
+    "label": "Griffheizung",
+    "group": "comfort",
+    "icon": "flame",
+    "description": "Beheizte Lenkergriffe – angenehm bei kühlen Temperaturen."
+  },
+  {
+    "key": "heated-seat",
+    "label": "Sitzheizung",
+    "group": "comfort",
+    "icon": "armchair",
+    "description": "Beheizte Sitzbank für Fahrer und/oder Sozius."
+  },
+  {
+    "key": "cruise-control",
+    "label": "Tempomat",
+    "group": "comfort",
+    "icon": "gauge",
+    "description": "Hält die gewählte Geschwindigkeit, ohne dass du Gas geben musst – entlastet auf langen Strecken."
+  },
+  {
+    "key": "adjustable-windscreen",
+    "label": "Verstellbare Scheibe",
+    "group": "comfort",
+    "icon": "wind",
+    "description": "Windschild in der Höhe verstellbar, für weniger Winddruck."
+  },
+  {
+    "key": "keyless",
+    "label": "Keyless",
+    "group": "comfort",
+    "icon": "key-round",
+    "description": "Zündung und Lenkschloss ohne Schlüssel im Schloss – der Funkschlüssel bleibt in der Tasche."
+  },
+  {
+    "key": "centre-stand",
+    "label": "Zentralständer",
+    "group": "comfort",
+    "icon": "square-parking",
+    "description": "Stellt das Motorrad aufrecht ab – praktisch für Kettenpflege und Beladen."
+  },
+  {
+    "key": "usb-port",
+    "label": "USB-Anschluss",
+    "group": "comfort",
+    "icon": "usb",
+    "description": "Anschluss zum Laden von Handy oder Navi."
+  },
+  {
+    "key": "cornering-abs",
+    "label": "Kurven-ABS",
+    "group": "safety",
+    "icon": "shield-check",
+    "description": "ABS, das dank Neigungssensor auch in Schräglage regelt."
+  },
+  {
+    "key": "traction-control",
+    "label": "Schlupfregelung",
+    "group": "safety",
+    "icon": "activity",
+    "description": "Verhindert, dass das Hinterrad beim Beschleunigen durchdreht (Traktionskontrolle)."
+  },
+  {
+    "key": "cornering-light",
+    "label": "Kurvenlicht",
+    "group": "safety",
+    "icon": "lightbulb",
+    "description": "Leuchtet in Schräglage die Kurveninnenseite aus."
+  },
+  {
+    "key": "tyre-pressure-monitoring",
+    "label": "Reifendruckkontrolle",
+    "group": "safety",
+    "icon": "circle-gauge",
+    "description": "Überwacht den Luftdruck und warnt bei Druckverlust."
+  },
+  {
+    "key": "adjustable-suspension",
+    "label": "Verstellbares Fahrwerk",
+    "group": "chassis",
+    "icon": "sliders-horizontal",
+    "description": "Gabel und/oder Federbein lassen sich in der Dämpfung einstellen – nicht nur in der Federvorspannung."
+  },
+  {
+    "key": "electronic-suspension",
+    "label": "Elektronisches Fahrwerk",
+    "group": "chassis",
+    "icon": "cpu",
+    "description": "Die Dämpfung passt sich elektronisch an Fahrmodus und Strasse an (semi-aktiv)."
+  },
+  {
+    "key": "tft-display",
+    "label": "TFT-Display",
+    "group": "electronics",
+    "icon": "tablet",
+    "description": "Farbdisplay statt einfacher LCD-Anzeige."
+  },
+  {
+    "key": "smartphone-connectivity",
+    "label": "Smartphone-Anbindung",
+    "group": "electronics",
+    "icon": "smartphone",
+    "description": "Verbindet das Handy mit dem Cockpit, z. B. für Anrufe, Musik oder Navigation."
+  },
+  {
+    "key": "ride-modes",
+    "label": "Fahrmodi",
+    "group": "electronics",
+    "icon": "layers",
+    "description": "Vorgegebene Abstimmungen für Motor und Assistenzsysteme, z. B. Regen, Strasse, Sport."
+  },
+  {
+    "key": "slipper-clutch",
+    "label": "Anti-Hopping-Kupplung",
+    "group": "technology",
+    "icon": "cog",
+    "description": "Verhindert ein Stempeln des Hinterrads beim schnellen Runterschalten und macht die Kupplung leichtgängig."
+  },
+  {
+    "key": "automated-clutch",
+    "label": "Automatisierte Kupplung",
+    "group": "technology",
+    "icon": "bot",
+    "description": "Die Elektronik übernimmt das Kuppeln (z. B. Honda E-Clutch, Yamaha Y-AMT) – anfahren und schalten ohne Kupplungshebel."
+  }
+]
