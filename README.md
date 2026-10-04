@@ -4,8 +4,8 @@
 Leistung, Gewicht, Sitzhöhe, Preis in CHF, Führerausweis-Kategorie und Ausstattung auf einen Blick.
 
 > Status: in Entwicklung. Fertig sind Setup (M0), Datenmodell mit 12 recherchierten Bikes (M1),
-> Katalog mit Filtern (M2), Detailseite (M3) und Vergleich (M4). Match-Wizard (M5) und
-> Feinschliff (M6) folgen. Ausführliches README mit Screenshots folgt in M6.
+> Katalog mit Filtern (M2), Detailseite (M3), Vergleich (M4) und Match-Wizard (M5).
+> Der Feinschliff (M6) folgt. Ausführliches README mit Screenshots folgt in M6.
 
 ## Schnellstart
 
@@ -38,9 +38,9 @@ scripts/validate-data.ts   Prüft alle JSON-Daten (npm run validate:data)
 src/
   app/                     App, Routen, Seitenübergänge
   pages/                   Eine Datei pro Seite (lazy geladen)
-  components/              ui/, layout/, bike/, catalog/, detail/, compare/, charts/, home/
+  components/              ui/, layout/, bike/, catalog/, detail/, compare/, match/, charts/, home/
   data/                    schema.ts (Zod), manufacturers.json, features.json, models/*.json
-  lib/                     Reine Logik mit Tests (Führerausweis, Formatierung, Katalog, Vergleich …)
+  lib/                     Reine Logik mit Tests (Führerausweis, Formatierung, Katalog, Vergleich, Match …)
   hooks/                   React-Hooks (Theme, Filter in der URL, Vergleichsauswahl …)
   i18n/de.ts               Alle Texte der Oberfläche
   styles/                  Tailwind und Design-Tokens (tokens.css)
