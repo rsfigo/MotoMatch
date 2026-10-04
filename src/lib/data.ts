@@ -1,66 +1,47 @@
 /**
  * Datenzugriff
  * ------------
- * Die einzige Stelle, die weiss, woher die Daten kommen. Komponenten holen Daten nur
- * über diese Funktionen (bzw. die Hooks in src/hooks/useBikeData.ts).
+ * Die dünne Schicht zwischen App und Datenquelle. Alle Funktionen geben ein Promise
+ * zurück; dahinter steckt je nach VITE_DATA_SOURCE die JsonRepository (Dateien im Repo)
+ * oder die SupabaseRepository (Datenbank), siehe repository.ts.
  *
- * Phase 1: Die Daten liegen als JSON-Dateien im Repo und werden beim Build mitgebündelt.
- * Geprüft werden sie vorher mit Zod (`npm run validate:data` und die Tests) – deshalb
- * reicht hier eine Typ-Zusicherung, und Zod muss nicht in den Browser.
- *
- * Später: Dieselben Funktionen holen die Daten von einer API (z. B. MySQL dahinter).
- * Dann werden sie asynchron; die Hooks in useBikeData.ts kapseln diesen Wechsel.
+ * Komponenten rufen diese Funktionen nicht direkt auf, sondern nutzen die Hooks in
+ * src/hooks/useBikeData.ts (TanStack Query: Laden, Zwischenspeichern, Fehler).
  */
-import featuresJson from '@/data/features.json';
-import manufacturersJson from '@/data/manufacturers.json';
 import type { Feature, Manufacturer, Model } from '@/data/schema';
+import { getRepository } from './repository';
 
-// Alle Dateien in src/data/models werden automatisch eingelesen.
-const modelFiles = import.meta.glob<Model>('/src/data/models/*.json', {
-  eager: true,
-  import: 'default',
-});
-
-const manufacturers = manufacturersJson as Manufacturer[];
-const features = featuresJson as Feature[];
-const manufacturersById = new Map(
-  manufacturers.map((manufacturer) => [manufacturer.id, manufacturer]),
-);
-const featuresByKey = new Map(features.map((feature) => [feature.key, feature]));
-
-/** Voller Name, z. B. «Yamaha MT-07». */
-export function getModelFullName(model: Model): string {
-  const manufacturer = manufacturersById.get(model.manufacturerId);
-  return manufacturer ? `${manufacturer.name} ${model.name}` : model.name;
+/** Alle Modelle mit allen Generationen (Quellen je nach Datenquelle nur auf der Detailseite). */
+export async function getAllModels(): Promise<Model[]> {
+  return (await getRepository()).listModels();
 }
 
-const models: Model[] = Object.values(modelFiles).sort((a, b) =>
-  getModelFullName(a).localeCompare(getModelFullName(b), 'de-CH'),
-);
-const modelsById = new Map(models.map((model) => [model.id, model]));
-
-/** Alle Modelle, alphabetisch nach vollem Namen. */
-export function getAllModels(): readonly Model[] {
-  return models;
+/** Ein Modell vollständig, inklusive Quellen. null, wenn es das Modell nicht gibt. */
+export async function getModel(id: string): Promise<Model | null> {
+  return (await getRepository()).getModel(id);
 }
 
-export function getModel(id: string): Model | undefined {
-  return modelsById.get(id);
-}
-
-export function getManufacturers(): readonly Manufacturer[] {
-  return manufacturers;
-}
-
-export function getManufacturer(id: string): Manufacturer | undefined {
-  return manufacturersById.get(id);
+export async function getManufacturers(): Promise<Manufacturer[]> {
+  return (await getRepository()).listManufacturers();
 }
 
 /** Katalog aller möglichen Extras (Griffheizung, Tempomat, …). */
-export function getFeatures(): readonly Feature[] {
-  return features;
+export async function getFeatures(): Promise<Feature[]> {
+  return (await getRepository()).listFeatures();
 }
 
-export function getFeature(key: string): Feature | undefined {
-  return featuresByKey.get(key);
+/** Voller Name, z. B. «Yamaha MT-07». */
+export function modelFullName(model: Model, manufacturers: readonly Manufacturer[]): string {
+  const manufacturer = manufacturers.find((item) => item.id === model.manufacturerId);
+  return manufacturer ? `${manufacturer.name} ${model.name}` : model.name;
+}
+
+/** Modelle alphabetisch nach vollem Namen. */
+export function sortByFullName(
+  models: readonly Model[],
+  manufacturers: readonly Manufacturer[],
+): Model[] {
+  return [...models].sort((a, b) =>
+    modelFullName(a, manufacturers).localeCompare(modelFullName(b, manufacturers), 'de-CH'),
+  );
 }

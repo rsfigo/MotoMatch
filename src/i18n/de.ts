@@ -494,6 +494,13 @@ export const de = {
         : `${items.slice(0, -1).join(', ')} und ${items[items.length - 1] ?? ''}`,
   },
 
+  errors: {
+    loadTitle: 'Daten konnten nicht geladen werden',
+    loadText: 'Bitte prüfe deine Internetverbindung und versuche es noch einmal.',
+    retry: 'Erneut versuchen',
+    details: 'Technische Details',
+  },
+
   notFound: {
     title: 'Seite nicht gefunden',
     text: 'Diese Strasse führt ins Leere. Vielleicht hilft dir der Katalog weiter.',

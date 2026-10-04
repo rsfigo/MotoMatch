@@ -3,10 +3,10 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Link } from 'react-router';
 import { BikeSilhouette } from '@/components/bike/BikeSilhouette';
 import { Container } from '@/components/layout/Container';
+import { useManufacturerName, useModelFullName } from '@/hooks/useBikeData';
 import { t } from '@/i18n';
 import type { CompareItem } from '@/lib/compare';
 import { cn } from '@/lib/cn';
-import { getManufacturer, getModelFullName } from '@/lib/data';
 import { generationYears } from '@/lib/generations';
 import { duration, ease, spring } from '@/lib/motion';
 import type { ScrollEdges } from '@/hooks/useScrollSync';
@@ -32,6 +32,7 @@ function GenerationSelect({
   onChange: (generationId: string) => void;
 }) {
   const { model, generation } = item;
+  const fullName = useModelFullName();
   if (model.generations.length < 2) {
     return (
       <span className="mt-1 block text-xs text-ink-muted tabular-nums">
@@ -43,7 +44,7 @@ function GenerationSelect({
   return (
     <span className="relative mt-1 inline-flex max-w-full">
       <select
-        aria-label={t.compare.generationOf(getModelFullName(model))}
+        aria-label={t.compare.generationOf(fullName(model))}
         value={generation.id}
         onChange={(event) => onChange(event.target.value)}
         className="h-7 max-w-full min-w-0 appearance-none truncate rounded-full border border-line bg-surface-2 pr-7 pl-2.5 text-xs font-medium text-ink tabular-nums hover:border-line-strong"
@@ -72,7 +73,8 @@ function BikeColumnHead({
   onGenerationChange: (generationId: string) => void;
 }) {
   const { model } = item;
-  const name = getModelFullName(model);
+  const name = useModelFullName()(model);
+  const manufacturerName = useManufacturerName()(model.manufacturerId);
   const detailUrl = `/bikes/${model.id}`;
 
   return (
@@ -98,7 +100,7 @@ function BikeColumnHead({
             aria-hidden="true"
             className="hidden truncate text-[11px] font-semibold tracking-[0.12em] text-accent-ink uppercase sm:block"
           >
-            {getManufacturer(model.manufacturerId)?.name}
+            {manufacturerName}
           </p>
           <Link
             to={detailUrl}
@@ -106,7 +108,7 @@ function BikeColumnHead({
             data-compare-name
             className="block truncate text-sm leading-tight font-semibold hover:text-accent-ink lg:text-base"
           >
-            <span className="sr-only">{getManufacturer(model.manufacturerId)?.name} </span>
+            <span className="sr-only">{manufacturerName} </span>
             {model.name}
           </Link>
           <GenerationSelect item={item} onChange={onGenerationChange} />

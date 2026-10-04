@@ -4,11 +4,13 @@ import { useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 import { BikeSilhouette } from '@/components/bike/BikeSilhouette';
 import { Button, ButtonLink } from '@/components/ui/Button';
+import { useLoadedBikeData } from '@/hooks/useBikeData';
 import { useCompareSelection } from '@/hooks/useCompareSelection';
+import type { Manufacturer, Model } from '@/data/schema';
 import { t } from '@/i18n';
 import { compareUrl, MAX_COMPARE, MIN_COMPARE } from '@/lib/compareSelection';
 import { compareStore } from '@/lib/compareStore';
-import { getManufacturer, getModel, getModelFullName } from '@/lib/data';
+import { modelFullName } from '@/lib/data';
 import { duration, ease, spring } from '@/lib/motion';
 
 /** Feder für den Flug des Mini-Bilds von der Karte in die Leiste. */
@@ -19,8 +21,14 @@ const FLY = { type: 'spring', stiffness: 170, damping: 22, mass: 0.9 } as const;
  * an der Position der Karte und fliegt in seinen Platz: Es wird dort hin versetzt und
  * skaliert und federt dann zurück auf 0.
  */
-function CompareSlot({ id }: { id: string }) {
-  const model = getModel(id);
+function CompareSlot({
+  model,
+  manufacturers,
+}: {
+  model: Model;
+  manufacturers: readonly Manufacturer[];
+}) {
+  const id = model.id;
   const thumbRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -41,8 +49,8 @@ function CompareSlot({ id }: { id: string }) {
     return () => controls.forEach((control) => control.stop());
   }, [id, reduceMotion, x, y, scale]);
 
-  if (!model) return null;
-  const name = getModelFullName(model);
+  const name = modelFullName(model, manufacturers);
+  const manufacturerName = manufacturers.find((item) => item.id === model.manufacturerId)?.name;
 
   return (
     <motion.li
@@ -61,9 +69,7 @@ function CompareSlot({ id }: { id: string }) {
         <BikeSilhouette category={model.category} className="w-12" />
       </motion.div>
       <span className="hidden min-w-0 leading-tight sm:block">
-        <span className="block truncate text-[11px] text-ink-muted">
-          {getManufacturer(model.manufacturerId)?.name}
-        </span>
+        <span className="block truncate text-[11px] text-ink-muted">{manufacturerName}</span>
         <span className="block truncate text-sm font-semibold">{model.name}</span>
       </span>
       <button
@@ -90,8 +96,13 @@ function EmptySlot() {
 /** Leiste am unteren Rand: erscheint, sobald ein Bike zum Vergleich gewählt ist. */
 export function CompareBar() {
   const { ids, clear } = useCompareSelection();
+  const loaded = useLoadedBikeData();
   const { pathname } = useLocation();
-  const visible = ids.length > 0 && pathname !== '/compare';
+  // Erst zeigen, wenn die Modelle geladen sind (Namen und Bilder der Slots)
+  const visible = loaded !== undefined && ids.length > 0 && pathname !== '/compare';
+  const selected = loaded
+    ? ids.flatMap((id) => loaded.models.filter((model) => model.id === id))
+    : [];
   const canCompare = ids.length >= MIN_COMPARE;
 
   return (
@@ -113,8 +124,12 @@ export function CompareBar() {
               </p>
               <ul className="flex min-w-0 flex-1 items-center gap-2">
                 <AnimatePresence mode="popLayout" initial={false}>
-                  {ids.map((id) => (
-                    <CompareSlot key={id} id={id} />
+                  {selected.map((model) => (
+                    <CompareSlot
+                      key={model.id}
+                      model={model}
+                      manufacturers={loaded?.manufacturers ?? []}
+                    />
                   ))}
                 </AnimatePresence>
                 {Array.from({ length: MAX_COMPARE - ids.length }, (_, index) => (

@@ -12,10 +12,15 @@ import { SourcesSection } from '@/components/detail/SourcesSection';
 import { SpecList } from '@/components/detail/SpecList';
 import { WhatsNew } from '@/components/detail/WhatsNew';
 import { YouTubeReview } from '@/components/detail/YouTubeReview';
-import { useFeatures, useManufacturers, useModel, useModels } from '@/hooks/useBikeData';
+import {
+  useFeatures,
+  useManufacturers,
+  useModel,
+  useModelFullName,
+  useModels,
+} from '@/hooks/useBikeData';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { t } from '@/i18n';
-import { getModelFullName } from '@/lib/data';
 import { formatChf, formatPs, formatTorque } from '@/lib/format';
 import { findGeneration, generationYears, latestGeneration } from '@/lib/generations';
 
@@ -42,7 +47,8 @@ export default function BikeDetailPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const generation = model ? findGeneration(model, searchParams.get(GENERATION_PARAM)) : undefined;
-  const fullName = model ? getModelFullName(model) : '';
+  const modelName = useModelFullName();
+  const fullName = model ? modelName(model) : '';
 
   usePageMeta(
     model && generation

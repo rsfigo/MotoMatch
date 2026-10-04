@@ -9,8 +9,8 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Button, ButtonLink } from '@/components/ui/Button';
 import { useCompareItems } from '@/hooks/useCompareItems';
 import { usePageMeta } from '@/hooks/usePageMeta';
+import { useModelFullName } from '@/hooks/useBikeData';
 import { t } from '@/i18n';
-import { getModelFullName } from '@/lib/data';
 
 /** Noch kein Bike gewählt: Einstieg über die Suche, den Katalog oder einen beliebten Vergleich. */
 function EmptyCompare({ onAdd }: { onAdd: () => void }) {
@@ -75,7 +75,8 @@ function CompareTitle({ names }: { names: readonly string[] }) {
 export default function ComparePage() {
   const { items, sharePath, canAdd, add, remove, setGeneration } = useCompareItems();
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const names = items.map((item) => getModelFullName(item.model));
+  const fullName = useModelFullName();
+  const names = items.map((item) => fullName(item.model));
   const comparing = items.length >= 2;
 
   usePageMeta(

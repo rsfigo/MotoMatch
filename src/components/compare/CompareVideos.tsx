@@ -1,8 +1,8 @@
 import { YouTubeCard } from '@/components/detail/YouTubeReview';
 import { Section } from '@/components/ui/Section';
+import { useModelFullName } from '@/hooks/useBikeData';
 import { t } from '@/i18n';
 import type { CompareItem } from '@/lib/compare';
-import { getModelFullName } from '@/lib/data';
 import { youTubeEmbedUrl } from '@/lib/youtube';
 
 /**
@@ -10,6 +10,7 @@ import { youTubeEmbedUrl } from '@/lib/youtube';
  * Link gibt. Hat keines ein Video, entfällt der Abschnitt.
  */
 export function CompareVideos({ items }: { items: readonly CompareItem[] }) {
+  const fullName = useModelFullName();
   const videos = items.flatMap((item) => {
     const url = item.generation.youtubeReviewUrl;
     return url && youTubeEmbedUrl(url) ? [{ item, url }] : [];
@@ -23,7 +24,7 @@ export function CompareVideos({ items }: { items: readonly CompareItem[] }) {
           <YouTubeCard
             key={item.model.id}
             url={url}
-            name={getModelFullName(item.model)}
+            name={fullName(item.model)}
             category={item.model.category}
           />
         ))}

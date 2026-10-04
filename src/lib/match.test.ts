@@ -170,8 +170,11 @@ describe('matchBikes', () => {
   });
 });
 
+// Die Datenschicht ist asynchron (in den Tests: die JSON-Dateien)
+const realModels = await getAllModels();
+
 describe('matchBikes mit den echten Daten', () => {
-  const models = getAllModels();
+  const models = realModels;
 
   it('zeigt 3 bis 5 Treffer, wenn der Ausweis genug Bikes erlaubt', () => {
     const results = matchBikes(models, answers({ licence: 'A_LIMITED' }));

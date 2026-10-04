@@ -4,11 +4,10 @@ import { useState } from 'react';
 import { Container } from '@/components/layout/Container';
 import { Button } from '@/components/ui/Button';
 import { Switch } from '@/components/ui/Switch';
-import { useFeatures } from '@/hooks/useBikeData';
+import { useFeatures, useModelFullName } from '@/hooks/useBikeData';
 import { useScrollSync } from '@/hooks/useScrollSync';
 import { t } from '@/i18n';
 import { buildCompareRows, buildExtraRows, type CompareItem } from '@/lib/compare';
-import { getModelFullName } from '@/lib/data';
 import { spring } from '@/lib/motion';
 import { COMPARE_SECTIONS, SPECS } from '@/lib/specs';
 import { CompareHeader } from './CompareHeader';
@@ -85,7 +84,8 @@ export function CompareTable({
 
   const comparing = items.length >= 2;
   const generations = items.map((item) => item.generation);
-  const names = items.map((item) => getModelFullName(item.model));
+  const fullName = useModelFullName();
+  const names = items.map((item) => fullName(item.model));
   // Der Abschnitt «Extras» erscheint, sobald eines der Bikes Extras hat
   const hasExtras = buildExtraRows(generations, features).length > 0;
   const extraRows = buildExtraRows(generations, features, { onlyDifferences });

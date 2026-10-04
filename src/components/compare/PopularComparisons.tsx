@@ -3,14 +3,17 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { BikeSilhouette } from '@/components/bike/BikeSilhouette';
 import type { Model } from '@/data/schema';
+import { useModelFullName, useModels } from '@/hooks/useBikeData';
 import { t } from '@/i18n';
 import { compareUrl } from '@/lib/compareSelection';
-import { getModel, getModelFullName } from '@/lib/data';
 import { fadeUp, spring, staggerContainer } from '@/lib/motion';
 import { POPULAR_COMPARISONS } from '@/lib/popularComparisons';
 
 /** Kacheln «Beliebte Vergleiche» – auf der Startseite und im leeren Vergleich. */
 export function PopularComparisons() {
+  const allModels = useModels();
+  const fullName = useModelFullName();
+
   return (
     <motion.ul
       variants={staggerContainer()}
@@ -21,9 +24,9 @@ export function PopularComparisons() {
     >
       {POPULAR_COMPARISONS.map((comparison) => {
         const models = comparison.bikes
-          .map((id) => getModel(id))
+          .map((id) => allModels.find((model) => model.id === id))
           .filter((model): model is Model => model !== undefined);
-        const names = models.map(getModelFullName).join(` ${t.compare.vs} `);
+        const names = models.map(fullName).join(` ${t.compare.vs} `);
 
         return (
           <motion.li key={comparison.id} variants={fadeUp}>

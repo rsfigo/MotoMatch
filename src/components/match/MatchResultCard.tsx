@@ -6,9 +6,9 @@ import { CompareToggle } from '@/components/bike/CompareToggle';
 import { LicenceBadge } from '@/components/bike/LicenceBadge';
 import { Badge } from '@/components/ui/Badge';
 import { ButtonLink } from '@/components/ui/Button';
+import { useManufacturerName } from '@/hooks/useBikeData';
 import { t } from '@/i18n';
 import { cn } from '@/lib/cn';
-import { getManufacturer } from '@/lib/data';
 import { formatChf, formatPs, formatSeatHeight, formatWeight } from '@/lib/format';
 import { generationYears } from '@/lib/generations';
 import type { MatchReason, MatchResult } from '@/lib/match';
@@ -49,6 +49,7 @@ export function MatchResultCard({ result, rank }: MatchResultCardProps) {
   const { model, generation, percent, reasons } = result;
   const imageRef = useRef<HTMLDivElement>(null);
   const featured = rank === 1;
+  const manufacturerName = useManufacturerName()(model.manufacturerId);
   const facts = [
     formatPs(generation.engine.powerKw),
     formatWeight(generation.chassis.weightKg),
@@ -76,7 +77,7 @@ export function MatchResultCard({ result, rank }: MatchResultCardProps) {
             <p className="text-xs font-semibold tracking-[0.14em] text-accent-ink uppercase">
               {t.match.results.rank(rank)}
               <span className="text-ink-subtle"> · </span>
-              {getManufacturer(model.manufacturerId)?.name}
+              {manufacturerName}
             </p>
             <h3 className={cn('mt-1 font-bold', featured ? 'text-3xl' : 'text-2xl')}>
               {model.name}

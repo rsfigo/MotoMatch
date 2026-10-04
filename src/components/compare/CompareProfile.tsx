@@ -6,10 +6,10 @@ import {
 } from '@/components/charts/RadarChart';
 import { EditorialLabel } from '@/components/ui/EditorialLabel';
 import { Card, Section } from '@/components/ui/Section';
+import { useModelFullName } from '@/hooks/useBikeData';
 import { t } from '@/i18n';
 import type { CompareItem } from '@/lib/compare';
 import { cn } from '@/lib/cn';
-import { getModelFullName } from '@/lib/data';
 import { PROFILE_AXES, profileValues } from '@/lib/profile';
 
 /** Farbe pro Spalte: erstes Bike Akzent, zweites hell, drittes gestrichelt. */
@@ -23,9 +23,10 @@ const DOT: Record<RadarTone, string> = {
 
 /** Einsatzprofil aller Bikes übereinander (Radar-Overlay) und als kleine Tabelle. */
 export function CompareProfile({ items }: { items: readonly CompareItem[] }) {
+  const fullName = useModelFullName();
   const series: RadarSeries[] = items.map((item, index) => ({
     id: item.model.id,
-    name: getModelFullName(item.model),
+    name: fullName(item.model),
     values: profileValues(item.generation.scores),
     tone: TONES[index] ?? 'muted',
   }));
