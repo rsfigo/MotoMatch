@@ -163,7 +163,8 @@ function hasAvailability(value: Generation['quickshifter']): boolean {
   return value === 'standard' || value === 'optional';
 }
 
-function matchesQuery(entry: CatalogEntry, query: string): boolean {
+/** Passt ein Eintrag zur Suche? Alle Wörter müssen vorkommen. */
+export function matchesQuery(entry: CatalogEntry, query: string): boolean {
   const tokens = query.split(/\s+/).map(normalizeSearch).filter(Boolean);
   return tokens.every((token) => entry.searchText.includes(token));
 }
