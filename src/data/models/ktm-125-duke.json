@@ -1,0 +1,96 @@
+{
+  "id": "ktm-125-duke",
+  "manufacturerId": "ktm",
+  "name": "125 Duke",
+  "category": "naked",
+  "tagline": "Der scharfe Einstieg ab 16: viel Bike-Gefühl im A1-Format.",
+  "generations": [
+    {
+      "id": "ktm-125-duke-2024",
+      "yearFrom": 2024,
+      "yearTo": null,
+      "changes": [
+        "Neuer Einzylinder mit Ride-by-Wire und Anti-Hopping-Kupplung",
+        "Neuer zweiteiliger Rahmen und seitlich versetztes Federbein",
+        "Sitzhöhe 800 mm statt 830 mm, Tank 15 l statt 13,4 l",
+        "Kurven-ABS und 5-Zoll-TFT mit Smartphone-Anbindung",
+        "Quickshifter+ (hoch und runter ohne Kupplung) neu als Option"
+      ],
+      "engine": {
+        "displacementCc": 124.99,
+        "cylinders": 1,
+        "layout": "Einzylinder",
+        "cooling": "liquid",
+        "powerKw": 11,
+        "powerRpm": 10000,
+        "torqueNm": 11.5,
+        "torqueRpm": 7750
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 154,
+        "seatHeightMm": 800,
+        "tankL": 15,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": false,
+        "note": "Serienmässig im A1-Bereich (11 kW) – keine Drosselung nötig."
+      },
+      "quickshifter": "optional",
+      "blipper": "optional",
+      "price": {
+        "chf": 5390,
+        "asOf": "2026-10-04",
+        "note": "Listenpreis Modelljahr 2026 inkl. MwSt., exkl. Nebenkosten (CHF 310)."
+      },
+      "scores": {
+        "tuningVisual": 6,
+        "tuningPerformance": 2,
+        "sound": 3,
+        "profile": { "beginner": 10, "city": 9, "touring": 3, "sport": 4, "offroad": 1 }
+      },
+      "tuningNote": "Optik-Teile wie Kennzeichenhalter oder Blinker mit E-Zeichen sind gut erhältlich. Mehr Leistung ist tabu: Über 11 kW wäre es kein A1-Motorrad mehr.",
+      "sound": {
+        "description": "Hochdrehender Einzylinder: surrt eher, als dass er bollert – leise und unaufdringlich."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "Musik, Anrufe, Navigation über die KTMconnect-App"
+        },
+        { "key": "cornering-abs", "availability": "standard", "detail": "Inkl. Supermoto-ABS" },
+        { "key": "ride-modes", "availability": "standard", "detail": "Street und Track" },
+        { "key": "slipper-clutch", "availability": "standard", "detail": "PASC-Kupplung" },
+        { "key": "usb-port", "availability": "standard" }
+      ],
+      "sources": [
+        {
+          "label": "KTM Schweiz – 2026 KTM 125 Duke (Preis, Ausstattung)",
+          "url": "https://www.ktm.com/de-ch/models/naked-bike/2026-ktm-125-duke.html"
+        },
+        {
+          "label": "KTM Schweiz – 2026 KTM 125 Duke, Technische Spezifikationen",
+          "url": "https://www.ktm.com/de-ch/models/naked-bike/2026-ktm-125-duke/technische-spezifikationen.html"
+        },
+        {
+          "label": "KTM – Pressemappe Duke-Modelle 2024",
+          "url": "https://www.ktm.com/language-masters/en/segment-pages/naked/2024-naked/MY24%20KTM%20DUKE%20RANGE%20Press%20Kit%20(2).pdf"
+        },
+        {
+          "label": "MOTORRAD – KTM 125 Duke 2024 (Drehzahlen, Gewicht vollgetankt)",
+          "url": "https://www.motorradonline.de/naked-bike/ktm-125-duke-2024-preis/"
+        },
+        {
+          "label": "Motorrad & Reisen – Datenblatt KTM 125 Duke 2024 (Leistung in kW)",
+          "url": "https://www.motorradundreisen.de/motorraddatenbank/ktm/125-duke-2024-4646.html"
+        }
+      ],
+      "dataStatus": "needsVerification",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

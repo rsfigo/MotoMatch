@@ -1,0 +1,126 @@
+{
+  "id": "bmw-r-1300-gs",
+  "manufacturerId": "bmw",
+  "name": "R 1300 GS",
+  "category": "adventure",
+  "tagline": "Die Reise-Referenz: Boxer-Kraft, viel Komfort und Technik für jede Strasse.",
+  "generations": [
+    {
+      "id": "bmw-r-1300-gs-2025",
+      "yearFrom": 2025,
+      "yearTo": null,
+      "changes": [
+        "Automatisierter Schaltassistent (ASA) neu als Sonderausstattung",
+        "Heckkollisionswarnung neu als Sonderausstattung",
+        "Abgasnorm Euro 5+"
+      ],
+      "colors": ["Lightwhite uni", "Racingred uni"],
+      "engine": {
+        "displacementCc": 1300,
+        "cylinders": 2,
+        "layout": "Boxer-Zweizylinder",
+        "cooling": "liquid",
+        "powerKw": 107,
+        "powerRpm": 7750,
+        "torqueNm": 149,
+        "torqueRpm": 6500
+      },
+      "performance": {
+        "accel0to100s": { "value": 3.39, "kind": "official" }
+      },
+      "chassis": {
+        "weightKg": 237,
+        "seatHeightMm": 850,
+        "tankL": 19,
+        "consumptionL100km": 4.8,
+        "gears": 6,
+        "drive": "shaft"
+      },
+      "throttle": {
+        "available": false,
+        "note": "Keine offizielle 35-kW-Version."
+      },
+      "quickshifter": "optional",
+      "blipper": "optional",
+      "price": {
+        "chf": 19870,
+        "asOf": "2026-05-13",
+        "note": "Ab-Preis Modelljahr 2026 inkl. MwSt., ohne Überführung (archivierte Seite von BMW Motorrad Schweiz)."
+      },
+      "scores": {
+        "tuningVisual": 8,
+        "tuningPerformance": 3,
+        "sound": 6,
+        "profile": { "beginner": 4, "city": 6, "touring": 10, "sport": 6, "offroad": 8 }
+      },
+      "tuningNote": "Riesiges Reisezubehör (Koffer, Schutz, Komfort). Leistungstuning ist wegen der vernetzten Elektronik kaum sinnvoll; typgenehmigte Auspuffanlagen ohne Abnahme.",
+      "sound": {
+        "description": "Boxer-Zweizylinder: sattes, tiefes Brummen und das typische Schütteln im Stand."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "6,5-Zoll-TFT" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "Mit Pfeilnavigation"
+        },
+        { "key": "cornering-abs", "availability": "standard", "detail": "ABS Pro" },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Dynamische Traktionskontrolle"
+        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Eco, Rain, Road, Enduro" },
+        { "key": "slipper-clutch", "availability": "standard" },
+        {
+          "key": "cruise-control",
+          "availability": "standard",
+          "detail": "Mit Bremsfunktion; Abstandsregelung optional"
+        },
+        { "key": "tyre-pressure-monitoring", "availability": "standard" },
+        { "key": "keyless", "availability": "standard" },
+        { "key": "heated-grips", "availability": "standard" },
+        { "key": "usb-port", "availability": "standard", "detail": "Im Smartphone-Ladefach" },
+        {
+          "key": "adjustable-windscreen",
+          "availability": "standard",
+          "detail": "Manuell; elektrisch als Option"
+        },
+        { "key": "heated-seat", "availability": "optional" },
+        { "key": "cornering-light", "availability": "optional", "detail": "Headlight Pro" },
+        {
+          "key": "electronic-suspension",
+          "availability": "optional",
+          "detail": "Dynamic Suspension Adjustment (semi-aktiv)"
+        },
+        { "key": "centre-stand", "availability": "optional" },
+        {
+          "key": "automated-clutch",
+          "availability": "optional",
+          "detail": "Automatisierter Schaltassistent (ASA)"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=EUDpa3NH0_E",
+      "sources": [
+        {
+          "label": "BMW Motorrad Schweiz – R 1300 GS, Daten und Ausstattung (archiviert Juni 2026)",
+          "url": "https://web.archive.org/web/20260606112611/https://www.bmw-motorrad.ch/de/models/adventure/r1300gs/technicaldata.html"
+        },
+        {
+          "label": "BMW Motorrad Schweiz – R 1300 GS mit Preis (archiviert Mai 2026)",
+          "url": "https://web.archive.org/web/20260513033812/https://www.bmw-motorrad.ch/de/models/adventure/r1300gs.html"
+        },
+        {
+          "label": "BMW Group PressClub – Pressemappe R 1300 GS (2023, Beschleunigung)",
+          "url": "https://www.press.bmwgroup.com/deutschland/article/attachment/T0437059DE/607567"
+        },
+        {
+          "label": "BMW Group PressClub – Pressemappe R 1300 GS Adventure (2024, ASA ab Modelljahr 2025)",
+          "url": "https://www.press.bmwgroup.com/deutschland/article/attachment/T0443335DE/619179"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

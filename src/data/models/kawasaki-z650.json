@@ -1,0 +1,103 @@
+{
+  "id": "kawasaki-z650",
+  "manufacturerId": "kawasaki",
+  "name": "Z650",
+  "category": "naked",
+  "tagline": "Unkompliziert, günstig und drosselbar – der Allrounder für Ein- und Umsteiger.",
+  "generations": [
+    {
+      "id": "kawasaki-z650-2023",
+      "yearFrom": 2023,
+      "yearTo": null,
+      "changes": [
+        "Traktionskontrolle KTRC serienmässig (2 Modi, abschaltbar)",
+        "LED-Blinker – Beleuchtung jetzt komplett in LED",
+        "Neues Zündschloss"
+      ],
+      "colors": ["Metallic Matte Dark Gray / Metallic Spark Black"],
+      "engine": {
+        "displacementCc": 649,
+        "cylinders": 2,
+        "layout": "Reihen-Zweizylinder",
+        "cooling": "liquid",
+        "powerKw": 50.2,
+        "powerRpm": 8000,
+        "torqueNm": 64,
+        "torqueRpm": 6700
+      },
+      "performance": {
+        "topSpeedKmh": { "value": 190, "kind": "estimate" },
+        "accel0to100s": { "value": 3.9, "kind": "estimate" }
+      },
+      "chassis": {
+        "weightKg": 188,
+        "seatHeightMm": 790,
+        "tankL": 15,
+        "consumptionL100km": 4.4,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Ab Werk auch als 35-kW-Version erhältlich."
+      },
+      "quickshifter": "none",
+      "blipper": "none",
+      "price": {
+        "chf": 7700,
+        "asOf": "2026-10-04",
+        "note": "Ab-Preis Modelljahr 2025 laut Kawasaki Schweiz. Nachfolger ist die Z650 S (Modelljahr 2027)."
+      },
+      "scores": {
+        "tuningVisual": 7,
+        "tuningPerformance": 5,
+        "sound": 5,
+        "profile": { "beginner": 9, "city": 8, "touring": 5, "sport": 6, "offroad": 1 }
+      },
+      "tuningNote": "Breiter Teilemarkt für die Optik. Typgenehmigte Auspuffanlagen ohne Abnahme; Luftfilter- oder Mapping-Änderungen müssen beim Strassenverkehrsamt abgenommen werden.",
+      "sound": {
+        "description": "Reihen-Zweizylinder mit gleichmässigem, eher sachlichem Klang – drehfreudig, aber ohne grosses Spektakel."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "TFT-Farbdisplay" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "Bluetooth, Rideology-App"
+        },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "KTRC, 2 Modi, abschaltbar"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard",
+          "detail": "Assist- und Rutschkupplung"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=8Iqqg2kaXtg",
+      "sources": [
+        {
+          "label": "Kawasaki Schweiz – Z650 (Modelljahr 2025), Technische Daten und Preis",
+          "url": "https://www.kawasaki.ch/de_ch/Motorcycles/A2_Bikes/z650_2025.html"
+        },
+        {
+          "label": "MOTORRAD – Kawasaki Z 650 2023: Traktionskontrolle und neue Farben",
+          "url": "https://www.motorradonline.de/naked-bike/kawasaki-z-650-2023-neue-farben-und-traktionskontrolle/"
+        },
+        {
+          "label": "MOTORRAD – Kawasaki Z 650 2025: technisch unverändert",
+          "url": "https://www.motorradonline.de/naked-bike/kawasaki-z650-2025-u1/"
+        },
+        {
+          "label": "1000PS – Kawasaki Z650 im Test 2023 (Fahrleistungen, ungefähre Werte)",
+          "url": "https://www.1000ps.de/testbericht-id-3010082-wie-geil-geht-s-guenstig-kawasaki-z650-im-test-2023"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

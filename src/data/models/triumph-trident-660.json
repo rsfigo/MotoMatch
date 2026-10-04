@@ -1,0 +1,363 @@
+{
+  "id": "triumph-trident-660",
+  "manufacturerId": "triumph",
+  "name": "Trident 660",
+  "category": "naked",
+  "tagline": "Britischer Dreizylinder mit viel Charakter und viel Ausstattung fürs Geld.",
+  "generations": [
+    {
+      "id": "triumph-trident-660-2021",
+      "yearFrom": 2021,
+      "yearTo": 2024,
+      "engine": {
+        "displacementCc": 660,
+        "cylinders": 3,
+        "layout": "Reihen-Dreizylinder",
+        "cooling": "liquid",
+        "powerKw": 60,
+        "powerRpm": 10250,
+        "torqueNm": 64,
+        "torqueRpm": 6250
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 189,
+        "seatHeightMm": 805,
+        "tankL": 14,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "A2-Kit als Original-Zubehör: 35 kW (47 PS)."
+      },
+      "quickshifter": "optional",
+      "blipper": "optional",
+      "price": {
+        "chf": 8990,
+        "asOf": "2020-11-01",
+        "note": "Schweizer Einführungspreis Modelljahr 2021 laut SPEEDWEEK – keine offizielle Triumph-Quelle gefunden."
+      },
+      "scores": {
+        "tuningVisual": 7,
+        "tuningPerformance": 5,
+        "sound": 8,
+        "profile": {
+          "beginner": 8,
+          "city": 8,
+          "touring": 5,
+          "sport": 6,
+          "offroad": 1
+        }
+      },
+      "tuningNote": "Viel Original-Zubehör. Auspuff mit Genehmigung für diesen Typ ohne Abnahme; Leistungsänderungen nur mit Nachweis beim Strassenverkehrsamt.",
+      "sound": {
+        "description": "Reihen-Dreizylinder: rauchiges Fauchen im Keller, heiseres Heulen obenraus – der typische Triple-Sound."
+      },
+      "extras": [
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Abschaltbar, in die Fahrmodi integriert"
+        },
+        {
+          "key": "ride-modes",
+          "availability": "standard",
+          "detail": "Road und Rain"
+        },
+        {
+          "key": "tft-display",
+          "availability": "standard",
+          "detail": "Rundinstrument mit Farb-TFT"
+        },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "optional",
+          "detail": "My-Triumph-Modul als Zubehör"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard"
+        },
+        {
+          "key": "heated-grips",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "usb-port",
+          "availability": "optional",
+          "detail": "Unter dem Sitz, Original-Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=BXA1keMHiZM",
+      "sources": [
+        {
+          "label": "Triumph Media Kit – Trident 660 (2021), Spezifikationen und Zubehör",
+          "url": "https://triumph-mediakits.com/en/all-motorcycles/roadsters/2021-trident-660.html"
+        },
+        {
+          "label": "SPEEDWEEK – Triumph Trident 660 (Schweizer Einführungspreis)",
+          "url": "https://www.speedweek.com/katalog/news/167462/Triumph-Trident-660-Dreizylinder-Preisschlager.html"
+        },
+        {
+          "label": "Motorrad & Reisen – Trident 660, alle Baujahre (bis 2024 technisch unverändert)",
+          "url": "https://www.motorradundreisen.de/motorraddatenbank/triumph/trident-660-11342.html"
+        }
+      ],
+      "dataStatus": "needsVerification",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "triumph-trident-660-2025",
+      "yearFrom": 2025,
+      "yearTo": 2025,
+      "changes": [
+        "Kurven-ABS und Kurven-Traktionskontrolle mit 6-Achsen-IMU serienmässig",
+        "Schaltassistent (Quickshifter hoch und runter) serienmässig statt Zubehör",
+        "Tempomat serienmässig",
+        "Dritter Fahrmodus «Sport»",
+        "Smartphone-Anbindung serienmässig statt Zubehör",
+        "Gabel neu mit Big-Piston-Dämpfung"
+      ],
+      "engine": {
+        "displacementCc": 660,
+        "cylinders": 3,
+        "layout": "Reihen-Dreizylinder",
+        "cooling": "liquid",
+        "powerKw": 59.6,
+        "powerRpm": 10250,
+        "torqueNm": 64,
+        "torqueRpm": 6250
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 190,
+        "seatHeightMm": 805,
+        "tankL": 14,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielles A2-Kit (max. 35 kW) über den Triumph-Händler; die genaue gedrosselte Leistung ist nicht publiziert – gerechnet wird mit dem Maximum von 35 kW."
+      },
+      "quickshifter": "standard",
+      "blipper": "standard",
+      "price": {
+        "chf": 8995,
+        "asOf": "2026-10-04",
+        "note": "Ab-Preis Modelljahr 2025 laut Triumph Schweiz (Vorjahresmodelle)."
+      },
+      "scores": {
+        "tuningVisual": 7,
+        "tuningPerformance": 5,
+        "sound": 8,
+        "profile": {
+          "beginner": 8,
+          "city": 8,
+          "touring": 6,
+          "sport": 7,
+          "offroad": 1
+        }
+      },
+      "tuningNote": "Viel Original-Zubehör. Auspuff mit Genehmigung für diesen Typ ohne Abnahme; Leistungsänderungen nur mit Nachweis beim Strassenverkehrsamt.",
+      "sound": {
+        "description": "Reihen-Dreizylinder: rauchiges Fauchen im Keller, heiseres Heulen obenraus – der typische Triple-Sound."
+      },
+      "extras": [
+        {
+          "key": "cornering-abs",
+          "availability": "standard",
+          "detail": "Mit 6-Achsen-IMU"
+        },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Schräglagenabhängig, abschaltbar"
+        },
+        {
+          "key": "ride-modes",
+          "availability": "standard",
+          "detail": "Sport, Road, Rain"
+        },
+        {
+          "key": "cruise-control",
+          "availability": "standard"
+        },
+        {
+          "key": "tft-display",
+          "availability": "standard",
+          "detail": "Instrument mit Farb-TFT"
+        },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "Navigation, Anrufe, Musik"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard"
+        },
+        {
+          "key": "heated-grips",
+          "availability": "optional"
+        },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional"
+        },
+        {
+          "key": "usb-port",
+          "availability": "optional"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=X03DY68jTsQ",
+      "sources": [
+        {
+          "label": "Triumph Schweiz – Trident 660 Modelljahr 2025 (Daten und Preis)",
+          "url": "https://de.triumphmotorcycles.ch/bikes/previous-model-year/models/trident-660-2025"
+        },
+        {
+          "label": "Triumph Media Kit – Trident 660 (2025)",
+          "url": "https://triumph-mediakits.com/en/all-motorcycles/roadsters/2025-trident-660.html"
+        },
+        {
+          "label": "1000PS – Triumph Trident 660 2025 im Test",
+          "url": "https://www.1000ps.at/testbericht-id-3012860-triumph-trident-660-2025-im-test-zurueck-an-der-spitze"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "triumph-trident-660-2026",
+      "yearFrom": 2026,
+      "yearTo": null,
+      "changes": [
+        "Überarbeiteter Motor: 70 kW (95 PS) und 68 Nm statt 60 kW und 64 Nm",
+        "Drei Einzeldrosselklappen, grössere Airbox, höhere Drehzahlgrenze",
+        "Neue Getriebeübersetzung, Schaltassistent neu abgestimmt",
+        "Überarbeiteter Rahmen und Federbein mit einstellbarer Zugstufe",
+        "Neues Design mit breiterem Tank und geteilter Sitzbank",
+        "Sitzhöhe 810 mm statt 805 mm, Gewicht 195 kg statt 190 kg"
+      ],
+      "colors": ["Snowdonia White", "Cosmic Yellow", "Stone Grey"],
+      "engine": {
+        "displacementCc": 660,
+        "cylinders": 3,
+        "layout": "Reihen-Dreizylinder",
+        "cooling": "liquid",
+        "powerKw": 70,
+        "powerRpm": 11250,
+        "torqueNm": 68,
+        "torqueRpm": 8250
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 195,
+        "seatHeightMm": 810,
+        "tankL": 14,
+        "consumptionL100km": 4.9,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielles A2-Kit (max. 35 kW) über den Triumph-Händler; die genaue gedrosselte Leistung ist nicht publiziert – gerechnet wird mit dem Maximum von 35 kW."
+      },
+      "quickshifter": "standard",
+      "blipper": "standard",
+      "price": {
+        "chf": 8795,
+        "asOf": "2026-10-04",
+        "note": "Ab-Preis Modelljahr 2026 laut Triumph Schweiz; Farbaufpreise nicht ausgewiesen."
+      },
+      "scores": {
+        "tuningVisual": 7,
+        "tuningPerformance": 5,
+        "sound": 8,
+        "profile": {
+          "beginner": 7,
+          "city": 8,
+          "touring": 6,
+          "sport": 8,
+          "offroad": 1
+        }
+      },
+      "tuningNote": "Viel Original-Zubehör. Auspuff mit Genehmigung für diesen Typ ohne Abnahme; Leistungsänderungen nur mit Nachweis beim Strassenverkehrsamt.",
+      "sound": {
+        "description": "Reihen-Dreizylinder mit drei Drosselklappen: heiseres Ansauggrollen und ein Heulen, das bis über 12’000 U/min reicht."
+      },
+      "extras": [
+        {
+          "key": "cornering-abs",
+          "availability": "standard",
+          "detail": "Mit IMU"
+        },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Schräglagenabhängig, abschaltbar"
+        },
+        {
+          "key": "ride-modes",
+          "availability": "standard",
+          "detail": "Sport, Strasse, Regen"
+        },
+        {
+          "key": "cruise-control",
+          "availability": "standard"
+        },
+        {
+          "key": "tft-display",
+          "availability": "standard",
+          "detail": "Instrument mit Farb-TFT"
+        },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "My Triumph"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard"
+        },
+        {
+          "key": "adjustable-suspension",
+          "availability": "standard",
+          "detail": "Showa-Federbein mit einstellbarer Zugstufe und Vorspannung"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=8LsBMc7Qnxc",
+      "sources": [
+        {
+          "label": "Triumph Schweiz – Trident 660 (Modelljahr 2026), Daten und Preis",
+          "url": "https://de.triumphmotorcycles.ch/bikes/roadsters/trident/trident-660"
+        },
+        {
+          "label": "Triumph Media Kit – Trident 660 (2026)",
+          "url": "https://triumph-mediakits.com/en/all-motorcycles/roadsters/2026-trident-660.html"
+        },
+        {
+          "label": "Triumph – Pressemitteilung zu den Änderungen 2026",
+          "url": "https://triumph-mediakits.com/en/news-articles/triumph-introduces-major-2026-updates-to-trident-660-and-tiger-sport-660.html"
+        },
+        {
+          "label": "MOTORRAD – Neue Triumph Trident 660 (2026)",
+          "url": "https://www.motorradonline.de/naked-bike/neue-triumph-trident-660-deutlich-staerker-und-kaum-teurer/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

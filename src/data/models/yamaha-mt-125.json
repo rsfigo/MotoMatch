@@ -1,0 +1,91 @@
+{
+  "id": "yamaha-mt-125",
+  "manufacturerId": "yamaha",
+  "name": "MT-125",
+  "category": "naked",
+  "tagline": "Erwachsene Optik im A1-Format – sparsam, wendig und mit Farbdisplay.",
+  "generations": [
+    {
+      "id": "yamaha-mt-125-2025",
+      "yearFrom": 2025,
+      "yearTo": null,
+      "changes": [
+        "Motor nach Euro 5+ (11 kW und 11,5 Nm unverändert)",
+        "Navigation, Musiksteuerung und Wetter über die MyRide-App auf dem 5-Zoll-TFT",
+        "Normverbrauch 2,0 statt 2,1 l/100 km"
+      ],
+      "colors": ["Ice Storm", "Icon Blue", "Tech Black"],
+      "engine": {
+        "displacementCc": 125,
+        "cylinders": 1,
+        "layout": "Einzylinder",
+        "cooling": "liquid",
+        "powerKw": 11,
+        "powerRpm": 10000,
+        "torqueNm": 11.5,
+        "torqueRpm": 8000
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 142,
+        "seatHeightMm": 810,
+        "tankL": 10,
+        "consumptionL100km": 2,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": false,
+        "note": "Serienmässig im A1-Bereich (11 kW) – keine Drosselung nötig."
+      },
+      "quickshifter": "none",
+      "blipper": "none",
+      "price": {
+        "chf": 5890,
+        "asOf": "2026-10-04",
+        "note": "Listenpreis Modelljahr 2026 inkl. MwSt. und CHF 180 Nebenkosten."
+      },
+      "scores": {
+        "tuningVisual": 7,
+        "tuningPerformance": 2,
+        "sound": 3,
+        "profile": { "beginner": 10, "city": 9, "touring": 3, "sport": 3, "offroad": 1 }
+      },
+      "tuningNote": "Riesige Auswahl an Optik-Teilen. Mehr Leistung ist ausgeschlossen: Über 11 kW wäre es kein A1-Motorrad mehr.",
+      "sound": {
+        "description": "Einzylinder mit hellem, gedämpftem Klang – angenehm unauffällig im Stadtverkehr."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "MyRide-App mit Navigation, Musik und Wetter"
+        },
+        { "key": "traction-control", "availability": "standard" },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard",
+          "detail": "Assist-&-Slipper-Kupplung"
+        },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" }
+      ],
+      "sources": [
+        {
+          "label": "Yamaha Schweiz – MT-125 (2026)",
+          "url": "https://www.yamaha-motor.eu/ch/de/motorcycles/hyper-naked/pdp/mt-125-2026/"
+        },
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-125 2026 (PDF)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2026/MT125A/Factsheets/2026-MT125A_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha Schweiz – Neuheiten 2025",
+          "url": "https://www.yamaha-motor.eu/ch/de/news/2024/2025-yamaha-motorcycles-and-scooters/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

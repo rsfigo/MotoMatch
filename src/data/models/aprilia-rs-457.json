@@ -1,0 +1,102 @@
+{
+  "id": "aprilia-rs-457",
+  "manufacturerId": "aprilia",
+  "name": "RS 457",
+  "category": "sport",
+  "tagline": "Supersport-Look mit Rennsport-Genen – ohne Drosselung für «A beschränkt».",
+  "generations": [
+    {
+      "id": "aprilia-rs-457-2024",
+      "yearFrom": 2024,
+      "yearTo": null,
+      "colors": ["Arsenic Yellow", "Coral Light Blue"],
+      "engine": {
+        "displacementCc": 457,
+        "cylinders": 2,
+        "layout": "Reihen-Zweizylinder",
+        "cooling": "liquid",
+        "powerKw": 35,
+        "powerRpm": 9400,
+        "torqueNm": 43.5,
+        "torqueRpm": 6700
+      },
+      "performance": {
+        "topSpeedKmh": { "value": 190, "kind": "official" },
+        "accel0to100s": { "value": 4.99, "kind": "tested" }
+      },
+      "chassis": {
+        "weightKg": 175,
+        "seatHeightMm": 800,
+        "tankL": 13,
+        "consumptionL100km": 4.1,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": false,
+        "note": "Serienmässig 35 kW bei 175 kg – genau an der Grenze für «A beschränkt» (0,2 kW/kg)."
+      },
+      "quickshifter": "optional",
+      "blipper": "optional",
+      "price": {
+        "chf": 6495,
+        "asOf": "2026-10-04",
+        "note": "Modelljahr 2026 beim Schweizer Importeur, inkl. MwSt. und Transport, exkl. Ablieferungspauschale. Version GP Replica mit Quickshifter: CHF 6’995."
+      },
+      "scores": {
+        "tuningVisual": 5,
+        "tuningPerformance": 3,
+        "sound": 5,
+        "profile": { "beginner": 8, "city": 5, "touring": 4, "sport": 8, "offroad": 1 }
+      },
+      "tuningNote": "Zubehör-Auspuff mit Typgenehmigung ohne Abnahme möglich. Mehr als 35 kW würde «A beschränkt» ausschliessen; Mapping ist melde- und prüfpflichtig.",
+      "sound": {
+        "description": "Reihen-Zweizylinder mit 270°-Kurbelwelle: unregelmässiges, V2-ähnliches Pulsieren, im Serientrim zurückhaltend."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-Farb-TFT" },
+        { "key": "ride-modes", "availability": "standard", "detail": "Eco, Sport, Rain" },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "3 Stufen, abschaltbar"
+        },
+        { "key": "slipper-clutch", "availability": "standard" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "optional",
+          "detail": "Aprilia MIA als Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=RyUQ1iuW7Jg",
+      "sources": [
+        {
+          "label": "Piaggio Group – Aprilia RS 457 (Pressemitteilung 2024)",
+          "url": "https://press.piaggiogroup.com/en_EN/post/show/274835/aprilia-rs-457-a-new-chapter-i.html"
+        },
+        {
+          "label": "Piaggio Group – Aprilia RS 457 GP Replica (Gewicht vollgetankt, 2026)",
+          "url": "https://wide.piaggiogroup.com/en/articles/products/meet-the-new-adrenaline-aprilia-rs-457-gp-replica/index.html"
+        },
+        {
+          "label": "Piaggio Group – EICMA 2023: Aprilia RS 457 (Höchstgeschwindigkeit)",
+          "url": "https://wide.piaggiogroup.com/en/articles/products/eicma-23-aprilia-rs-457-a-new-chapter-in-the-aprilia-rs-saga/index.html"
+        },
+        {
+          "label": "OFRAG Retail (Importeur Schweiz) – Aprilia RS 457, Daten und Preise",
+          "url": "https://www.ofrag-retail.ch/de/aprilia-rs-457-technische-daten-videos-bilder-accessoires-preise"
+        },
+        {
+          "label": "ADAC Motorradkatalog – Aprilia RS 457 (Tank, Verbrauch)",
+          "url": "https://www.adac.de/rund-ums-fahrzeug/zweirad/motorrad-roller/motorradkatalog/marken/aprilia/aprilia-rs-457-10775/"
+        },
+        {
+          "label": "Autocar India – Aprilia RS 457 Road Test (0–100 km/h gemessen)",
+          "url": "https://www.autocarindia.com/bike-reviews/aprilia-rs-457-road-test-review-431201"
+        }
+      ],
+      "dataStatus": "needsVerification",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

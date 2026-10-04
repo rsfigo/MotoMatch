@@ -1,0 +1,188 @@
+{
+  "id": "ducati-monster",
+  "manufacturerId": "ducati",
+  "name": "Monster",
+  "category": "naked",
+  "tagline": "Die Ikone unter den Naked Bikes: italienischer V2, leicht und voller Elektronik.",
+  "generations": [
+    {
+      "id": "ducati-monster-2021",
+      "yearFrom": 2021,
+      "yearTo": 2025,
+      "colors": ["Ducati Red", "Aviator Grey", "Dark Stealth", "Iceberg White"],
+      "engine": {
+        "displacementCc": 937,
+        "cylinders": 2,
+        "layout": "V2 (90°)",
+        "cooling": "liquid",
+        "powerKw": 81.6,
+        "powerRpm": 9250,
+        "torqueNm": 93,
+        "torqueRpm": 6500
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 188,
+        "seatHeightMm": 820,
+        "tankL": 14,
+        "consumptionL100km": 5.2,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielle 35-kW-Version ab Werk (2021: CHF 11’390)."
+      },
+      "quickshifter": "standard",
+      "blipper": "standard",
+      "price": {
+        "chf": 13390,
+        "asOf": "2025-08-08",
+        "note": "Letzter Schweizer Listenpreis (Modelljahr 2025, Ducati Red) inkl. MwSt., exkl. Transport und Ablieferung. Einführungspreis 2021: CHF 12’390."
+      },
+      "scores": {
+        "tuningVisual": 8,
+        "tuningPerformance": 6,
+        "sound": 8,
+        "profile": { "beginner": 5, "city": 7, "touring": 5, "sport": 8, "offroad": 1 }
+      },
+      "tuningNote": "Grosses Angebot an Performance-Zubehör. Auspuff nur mit Genehmigung für diesen Typ ohne Abnahme; Leistungssteigerungen sind melde- und prüfpflichtig.",
+      "sound": {
+        "description": "90°-V2 (Testastretta): dumpfes, kerniges Bollern mit dem typischen Ducati-Klang."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "4,3-Zoll-TFT" },
+        { "key": "cornering-abs", "availability": "standard" },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "8 Stufen, dazu Wheelie-Kontrolle"
+        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Sport, Touring, Urban" },
+        { "key": "slipper-clutch", "availability": "standard" },
+        { "key": "usb-port", "availability": "standard" },
+        { "key": "heated-grips", "availability": "optional", "detail": "Zubehör" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "optional",
+          "detail": "Ducati Multimedia System als Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=JCrGxJNiOU0",
+      "sources": [
+        {
+          "label": "Ducati Schweiz – Monster 2021, archivierte Seite (Daten, Preise, 35-kW-Version)",
+          "url": "https://web.archive.org/web/20210414134904/https://www.ducati.com/ch/de/motorrader/monster/monster"
+        },
+        {
+          "label": "Ducati Schweiz – Monster 937, archivierte Seite vom August 2025 (Daten, Preise)",
+          "url": "https://web.archive.org/web/20250808014646/https://www.ducati.com/ch/de/motorrader/monster/monster-937"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "ducati-monster-2026",
+      "yearFrom": 2026,
+      "yearTo": null,
+      "changes": [
+        "Neuer 890-cm³-V2 mit variabler Einlass-Steuerung, ohne Desmodromik",
+        "Gleiche Leistung (81,6 kW) bei 9’000 statt 9’250 U/min; 91,1 statt 93 Nm",
+        "Rund 4 kg leichter, Sitzhöhe 815 statt 820 mm",
+        "Quickshifter hoch und runter serienmässig (Version 2.0)",
+        "5-Zoll-TFT statt 4,3 Zoll, neu mit Motorbremsregelung",
+        "Vorbereitet für Tempomat und Reifendruckkontrolle; USB nur noch als Zubehör"
+      ],
+      "colors": ["Ducati Red", "Iceberg White", "Sport Livery"],
+      "engine": {
+        "displacementCc": 890,
+        "cylinders": 2,
+        "layout": "V2 (90°)",
+        "cooling": "liquid",
+        "powerKw": 81.6,
+        "powerRpm": 9000,
+        "torqueNm": 91.1,
+        "torqueRpm": 7250
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 175,
+        "weightNote": "Herstellerangabe ohne Kraftstoff – vollgetankt ist das Bike schwerer.",
+        "seatHeightMm": 815,
+        "tankL": 14,
+        "consumptionL100km": 5.2,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielle 35-kW-Version; die genaue Leistung nennt Ducati nicht (1000PS misst 43,5 PS) – gerechnet wird mit dem Maximum von 35 kW."
+      },
+      "quickshifter": "standard",
+      "blipper": "standard",
+      "price": {
+        "chf": 13490,
+        "asOf": "2026-06-17",
+        "note": "Ab-Preis Modelljahr 2026 (Ducati Red) inkl. MwSt., exkl. Transport und Ablieferung. Iceberg White: CHF 13’690, Sport Livery: CHF 14’090."
+      },
+      "scores": {
+        "tuningVisual": 8,
+        "tuningPerformance": 6,
+        "sound": 8,
+        "profile": { "beginner": 6, "city": 7, "touring": 5, "sport": 8, "offroad": 1 }
+      },
+      "tuningNote": "Grosses Angebot an Performance-Zubehör. Auspuff nur mit Genehmigung für diesen Typ ohne Abnahme; Leistungssteigerungen sind melde- und prüfpflichtig.",
+      "sound": {
+        "description": "Neuer 90°-V2: kerniges, tiefes Pochen – unverkennbar Ducati."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
+        { "key": "cornering-abs", "availability": "standard" },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "8 Stufen, dazu Wheelie-Kontrolle und Motorbremsregelung"
+        },
+        {
+          "key": "ride-modes",
+          "availability": "standard",
+          "detail": "4 Fahrmodi und 4 Leistungsstufen"
+        },
+        { "key": "slipper-clutch", "availability": "standard" },
+        { "key": "cruise-control", "availability": "optional", "detail": "Zubehör" },
+        { "key": "tyre-pressure-monitoring", "availability": "optional", "detail": "Zubehör" },
+        { "key": "heated-grips", "availability": "optional", "detail": "Zubehör" },
+        { "key": "usb-port", "availability": "optional", "detail": "Zubehör" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "optional",
+          "detail": "Ducati Multimedia System mit Navigation als Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=7P9-C2BsCy0",
+      "sources": [
+        {
+          "label": "Ducati Schweiz – Monster 2026, archivierte Seite vom Juni 2026 (Daten, Preise)",
+          "url": "https://web.archive.org/web/20260617163518/https://www.ducati.com/ch/de/motorrader/monster/monster-v2"
+        },
+        {
+          "label": "Ducati Schweiz – Monster 2026, archivierte Lancierungsseite (35-kW-Version)",
+          "url": "https://web.archive.org/web/20251024002033/https://www.ducati.com/ch/de/motorrader/monster/monster-v2"
+        },
+        {
+          "label": "MOTORRAD – Neue Ducati Monster überrascht (2025)",
+          "url": "https://www.motorradonline.de/naked-bike/neue-ducati-monster-ueberrascht/"
+        },
+        {
+          "label": "1000PS – Ducati Monster 2026 im Test (35-kW-Version)",
+          "url": "https://www.1000ps.de/testbericht-id-3013752-ducati-monster-2026-neue-v2-power-und-rueckkehr-zur-essenz"
+        }
+      ],
+      "dataStatus": "needsVerification",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "royal-enfield-interceptor-650",
+  "manufacturerId": "royal-enfield",
+  "name": "Interceptor 650",
+  "category": "retro",
+  "tagline": "Klassischer Twin im Retro-Look – entspannt, ehrlich und ohne Drosselung für «A beschränkt».",
+  "generations": [
+    {
+      "id": "royal-enfield-interceptor-650-2023",
+      "yearFrom": 2023,
+      "yearTo": null,
+      "changes": [
+        "LED-Scheinwerfer",
+        "USB-Ladebuchse serienmässig",
+        "Neue Lenkerschalter aus Aluminium",
+        "Geschwärzte Varianten mit Leichtmetall-Gussrädern und schlauchlosen Reifen"
+      ],
+      "colors": ["Sunset Strip", "Mark 2", "Barcelona Blue", "Black Ray"],
+      "engine": {
+        "displacementCc": 648,
+        "cylinders": 2,
+        "layout": "Reihen-Zweizylinder",
+        "cooling": "air-oil",
+        "powerKw": 34.9,
+        "powerRpm": 7250,
+        "torqueNm": 52.3,
+        "torqueRpm": 5150
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 217,
+        "seatHeightMm": 805,
+        "tankL": 13.7,
+        "consumptionL100km": 4.2,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": false,
+        "note": "Serienmässig 34,9 kW bei 217 kg – passt ohne Drosselung zu «A beschränkt»."
+      },
+      "quickshifter": "none",
+      "blipper": "none",
+      "price": {
+        "chf": 9090,
+        "asOf": "2026-10-04",
+        "note": "Ab-Preis (Farbe Sunset Strip) inkl. Überführungskosten; Mark 2: CHF 9’390."
+      },
+      "scores": {
+        "tuningVisual": 8,
+        "tuningPerformance": 4,
+        "sound": 7,
+        "profile": { "beginner": 8, "city": 7, "touring": 6, "sport": 3, "offroad": 1 }
+      },
+      "tuningNote": "Beliebt zum Customizing (Lenker, Sitzbank, Spiegel). Auspuffanlagen mit Genehmigung für diesen Typ ohne Abnahme; mehr als 35 kW würde «A beschränkt» ausschliessen.",
+      "sound": {
+        "description": "Luft-/ölgekühlter Reihen-Zweizylinder mit zwei Endtöpfen: sonores, warmes Blubbern schon bei tiefen Drehzahlen.",
+        "noiseDbA": 89
+      },
+      "extras": [
+        { "key": "usb-port", "availability": "standard" },
+        { "key": "slipper-clutch", "availability": "standard" }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=HA1STuUi24Y",
+      "sources": [
+        {
+          "label": "Royal Enfield Schweiz – Interceptor 650 (Preise und Farben)",
+          "url": "https://www.royalenfield.com/ch/de/motorcycles/interceptor/"
+        },
+        {
+          "label": "Royal Enfield Schweiz – Interceptor 650, Technische Spezifikationen (PDF)",
+          "url": "https://www.royalenfield.com/content/dam/royal-enfield/switzerland/motorcycles/technical-specifications/royal-enfield-intereceptor-tech-specs-switzerland-german.pdf"
+        },
+        {
+          "label": "Royal Enfield Schweiz – Interceptor 650, archivierte Seite vom März 2023 (Update)",
+          "url": "https://web.archive.org/web/20230324181837/https://www.royalenfield.com/ch/de/motorcycles/interceptor/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

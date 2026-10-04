@@ -1,0 +1,108 @@
+{
+  "id": "ktm-390-duke",
+  "manufacturerId": "ktm",
+  "name": "390 Duke",
+  "category": "naked",
+  "tagline": "Leicht, giftig, voll ausgestattet – der Spassmacher für «A beschränkt».",
+  "generations": [
+    {
+      "id": "ktm-390-duke-2024",
+      "yearFrom": 2024,
+      "yearTo": null,
+      "changes": [
+        "Neuer Motor mit 398,7 cm³ statt 373 cm³, 33 kW und 39 Nm",
+        "Neuer Rahmen, Gabel in Druck- und Zugstufe einstellbar",
+        "Kurven-ABS, Kurven-Traktionskontrolle und Fahrmodi serienmässig",
+        "5-Zoll-TFT mit Smartphone-Anbindung serienmässig",
+        "Tank 15 l statt 13,4 l"
+      ],
+      "engine": {
+        "displacementCc": 398.7,
+        "cylinders": 1,
+        "layout": "Einzylinder",
+        "cooling": "liquid",
+        "powerKw": 33,
+        "powerRpm": 8500,
+        "torqueNm": 39,
+        "torqueRpm": 7000
+      },
+      "performance": {
+        "accel0to100s": { "value": 5.21, "kind": "tested" }
+      },
+      "chassis": {
+        "weightKg": 165,
+        "seatHeightMm": 820,
+        "tankL": 15,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": false,
+        "note": "Serienmässig 33 kW – passt ohne Drosselung zu «A beschränkt» (genau 0,2 kW/kg)."
+      },
+      "quickshifter": "optional",
+      "blipper": "optional",
+      "price": {
+        "chf": 6590,
+        "asOf": "2026-10-04",
+        "note": "Listenpreis Modelljahr 2026 inkl. MwSt., exkl. Nebenkosten (CHF 310)."
+      },
+      "scores": {
+        "tuningVisual": 7,
+        "tuningPerformance": 3,
+        "sound": 5,
+        "profile": { "beginner": 8, "city": 9, "touring": 4, "sport": 7, "offroad": 1 }
+      },
+      "tuningNote": "Auspuffanlagen mit Genehmigung für diesen Typ sind ohne Abnahme erlaubt. Leistungssteigerungen sind melde- und prüfpflichtig – und das Bike passt danach nicht mehr zu «A beschränkt».",
+      "sound": {
+        "description": "Kerniger Einzylinder mit trockenem Stakkato, der obenraus rau und giftig wird."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "Musik, Anrufe, Navigation über die KTMconnect-App"
+        },
+        { "key": "cornering-abs", "availability": "standard", "detail": "Inkl. Supermoto-ABS" },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Schräglagenabhängig, abschaltbar"
+        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Street, Rain, Track" },
+        {
+          "key": "adjustable-suspension",
+          "availability": "standard",
+          "detail": "Gabel Druck- und Zugstufe, Federbein Zugstufe und Vorspannung"
+        },
+        { "key": "usb-port", "availability": "standard" }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=M6c-5Tv0PI0",
+      "sources": [
+        {
+          "label": "KTM Schweiz – 2026 KTM 390 Duke (Preis, Ausstattung)",
+          "url": "https://www.ktm.com/de-ch/models/naked-bike/2026-ktm-390-duke.html"
+        },
+        {
+          "label": "KTM Schweiz – 2026 KTM 390 Duke, Technische Spezifikationen",
+          "url": "https://www.ktm.com/de-ch/models/naked-bike/2026-ktm-390-duke/technische-spezifikationen.html"
+        },
+        {
+          "label": "KTM Japan – Pressemitteilung 390 Duke 2026 (kW, Drehzahlen, Gewicht inkl. Kraftstoff)",
+          "url": "https://press.ktm.com/news-wpktm-390-duke-2026?id=245364&menueid=7004&l=japan"
+        },
+        {
+          "label": "KTM – Pressemappe Duke-Modelle 2024",
+          "url": "https://www.ktm.com/language-masters/en/segment-pages/naked/2024-naked/MY24%20KTM%20DUKE%20RANGE%20Press%20Kit%20(2).pdf"
+        },
+        {
+          "label": "Autocar India – Beschleunigung 0–100 km/h gemessen",
+          "url": "https://www.autocarindia.com/auto-features/quickest-india-made-bikes-as-tested-with-0-100kph-acceleration-439579"
+        }
+      ],
+      "dataStatus": "needsVerification",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

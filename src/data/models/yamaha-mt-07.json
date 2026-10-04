@@ -1,0 +1,289 @@
+{
+  "id": "yamaha-mt-07",
+  "manufacturerId": "yamaha",
+  "name": "MT-07",
+  "category": "naked",
+  "tagline": "Der Dauerbrenner: drehmomentstark, leicht und der Klassiker für den Aufstieg in die Mittelklasse.",
+  "generations": [
+    {
+      "id": "yamaha-mt-07-2021",
+      "yearFrom": 2021,
+      "yearTo": 2022,
+      "colors": ["Storm Fluo", "Cyan Storm", "Icon Blue", "Tech Black"],
+      "engine": {
+        "displacementCc": 689,
+        "cylinders": 2,
+        "layout": "Reihen-Zweizylinder",
+        "cooling": "liquid",
+        "powerKw": 54,
+        "powerRpm": 8750,
+        "torqueNm": 67,
+        "torqueRpm": 6500
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 184,
+        "seatHeightMm": 805,
+        "tankL": 14,
+        "consumptionL100km": 4.2,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielle 35-kW-Version «MT-07 35kW»."
+      },
+      "quickshifter": "none",
+      "blipper": "none",
+      "price": {
+        "chf": 7790,
+        "asOf": "2021-01-20",
+        "note": "Listenpreis Modelljahr 2021 inkl. MwSt. und Nebenkosten (archivierte Seite von Yamaha Schweiz). Modelljahr 2022: CHF 7’990."
+      },
+      "scores": {
+        "tuningVisual": 9,
+        "tuningPerformance": 6,
+        "sound": 7,
+        "profile": { "beginner": 8, "city": 8, "touring": 4, "sport": 6, "offroad": 1 }
+      },
+      "tuningNote": "Einer der grössten Zubehörmärkte überhaupt. Auspuffanlagen mit Genehmigung für diesen Typ ohne Abnahme; bei der 35-kW-Version muss die Drosselung bleiben.",
+      "sound": {
+        "description": "Reihen-Zweizylinder mit 270°-Kurbelwelle: bulliges, unregelmässiges Stampfen, das an einen V2 erinnert."
+      },
+      "extras": [
+        {
+          "key": "adjustable-suspension",
+          "availability": "standard",
+          "detail": "Federbein mit einstellbarer Zugstufe (Gabel nicht einstellbar)"
+        },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" },
+        { "key": "usb-port", "availability": "optional", "detail": "Original-Zubehör" },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=Av4dujEtBCA",
+      "sources": [
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-07 2021 (PDF)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2021/MT07/Factsheets/2021-MT07_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha Schweiz – MT-07 2021, archivierte Produktseite (Preis)",
+          "url": "https://web.archive.org/web/20210120195409/https://www.yamaha-motor.eu/ch/de/products/motorcycles/hyper-naked/mt-07-2021/"
+        },
+        {
+          "label": "Yamaha Schweiz – MT-07 2022, archivierte Produktseite (Preis)",
+          "url": "https://web.archive.org/web/20230601184614/https://www.yamaha-motor.eu/ch/de/products/motorcycles/hyper-naked/mt-07-2022/"
+        },
+        {
+          "label": "MOTORRAD – Yamaha MT-07 (2021) Fahrbericht",
+          "url": "https://www.motorradonline.de/naked-bike/yamaha-mt-07-2021-fahrbericht/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "yamaha-mt-07-2023",
+      "yearFrom": 2023,
+      "yearTo": 2024,
+      "changes": [
+        "5-Zoll-TFT statt LCD-Cockpit",
+        "Smartphone-Anbindung über die MyRide-App",
+        "Vorbereitet für einen Quickshifter (Original-Zubehör, nur Hochschalten)"
+      ],
+      "colors": ["Cyan Storm", "Midnight Cyan", "Icon Blue", "Tech Black"],
+      "engine": {
+        "displacementCc": 689,
+        "cylinders": 2,
+        "layout": "Reihen-Zweizylinder",
+        "cooling": "liquid",
+        "powerKw": 54,
+        "powerRpm": 8750,
+        "torqueNm": 67,
+        "torqueRpm": 6500
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 184,
+        "seatHeightMm": 805,
+        "tankL": 14,
+        "consumptionL100km": 4.2,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielle 35-kW-Version."
+      },
+      "quickshifter": "optional",
+      "blipper": "none",
+      "price": {
+        "chf": 8490,
+        "asOf": "2023-02-05",
+        "note": "Listenpreis Modelljahr 2023 inkl. MwSt. und CHF 180 Nebenkosten (archivierte Seite von Yamaha Schweiz)."
+      },
+      "scores": {
+        "tuningVisual": 9,
+        "tuningPerformance": 6,
+        "sound": 7,
+        "profile": { "beginner": 8, "city": 8, "touring": 5, "sport": 6, "offroad": 1 }
+      },
+      "tuningNote": "Einer der grössten Zubehörmärkte überhaupt. Auspuffanlagen mit Genehmigung für diesen Typ ohne Abnahme; bei der 35-kW-Version muss die Drosselung bleiben.",
+      "sound": {
+        "description": "Reihen-Zweizylinder mit 270°-Kurbelwelle: bulliges, unregelmässiges Stampfen, das an einen V2 erinnert."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "MyRide-App: Anrufe und Nachrichten"
+        },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" },
+        { "key": "usb-port", "availability": "optional", "detail": "Original-Zubehör" },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=5ULk5hpxEH0",
+      "sources": [
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-07 2023 (PDF)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2023/MT07A/Factsheets/2023-MT07A_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha Schweiz – MT-07 2023, archivierte Produktseite (Preis)",
+          "url": "https://web.archive.org/web/20230205171902/https://www.yamaha-motor.eu/ch/de/products/motorcycles/hyper-naked/mt-07-2023/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "yamaha-mt-07-2025",
+      "yearFrom": 2025,
+      "yearTo": null,
+      "changes": [
+        "Komplett neues Design mit neuem LED-Scheinwerfer",
+        "Ride-by-Wire mit Fahrmodi und einstellbarer Traktionskontrolle",
+        "68 statt 67 Nm, Verbrauch 4,1 statt 4,2 l/100 km",
+        "Neue Upside-down-Gabel, Federbein in Vorspannung und Zugstufe einstellbar",
+        "5-Zoll-TFT mit Navigation über die MyRide-App",
+        "Optional als Y-AMT mit automatisiertem Getriebe und Tempomat",
+        "Quickshifter-Zubehör jetzt für Hoch- und Runterschalten"
+      ],
+      "colors": ["Ice Storm", "Icon Blue", "Tech Black"],
+      "engine": {
+        "displacementCc": 689,
+        "cylinders": 2,
+        "layout": "Reihen-Zweizylinder",
+        "cooling": "liquid",
+        "powerKw": 54,
+        "powerRpm": 8750,
+        "torqueNm": 68,
+        "torqueRpm": 6500
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 183,
+        "seatHeightMm": 805,
+        "tankL": 14,
+        "consumptionL100km": 4.1,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielle Version «MT-07 35kW» zum gleichen Preis, auch als Y-AMT."
+      },
+      "quickshifter": "optional",
+      "blipper": "optional",
+      "price": {
+        "chf": 8590,
+        "asOf": "2026-10-04",
+        "note": "Aktueller Listenpreis (Modelljahr 2025, kein Modelljahr 2026) inkl. MwSt. und CHF 180 Nebenkosten. Y-AMT: CHF 8’990."
+      },
+      "scores": {
+        "tuningVisual": 9,
+        "tuningPerformance": 6,
+        "sound": 7,
+        "profile": { "beginner": 9, "city": 9, "touring": 5, "sport": 7, "offroad": 1 }
+      },
+      "tuningNote": "Einer der grössten Zubehörmärkte überhaupt. Auspuffanlagen mit Genehmigung für diesen Typ ohne Abnahme; bei der 35-kW-Version muss die Drosselung bleiben.",
+      "sound": {
+        "description": "Reihen-Zweizylinder mit 270°-Kurbelwelle: bulliges, unregelmässiges Stampfen, das an einen V2 erinnert."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "MyRide-App mit Navigation"
+        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Zwei Motor-Mappings" },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Einstellbar, abschaltbar"
+        },
+        {
+          "key": "adjustable-suspension",
+          "availability": "standard",
+          "detail": "Federbein in Vorspannung und Zugstufe einstellbar"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard",
+          "detail": "Assist-&-Slipper-Kupplung"
+        },
+        {
+          "key": "automated-clutch",
+          "availability": "optional",
+          "detail": "Y-AMT (automatisiertes Getriebe), CHF 8’990"
+        },
+        {
+          "key": "cruise-control",
+          "availability": "optional",
+          "detail": "Nur bei der Y-AMT-Version"
+        },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" },
+        { "key": "usb-port", "availability": "optional", "detail": "Original-Zubehör" },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=6Wjiq2NcjlE",
+      "sources": [
+        {
+          "label": "Yamaha Schweiz – MT-07 (2025)",
+          "url": "https://www.yamaha-motor.eu/ch/de/motorcycles/hyper-naked/pdp/mt-07-2025/"
+        },
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-07 2025 (PDF)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2025/MT07A/Factsheets/2025-MT07A_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha USA – MT-07 Features (Anti-Hopping-Kupplung, 270°-Kurbelwelle)",
+          "url": "https://yamahamotorsports.com/models/mt-07/features"
+        },
+        {
+          "label": "moto.ch – Neue Yamaha MT-07 mit Y-AMT",
+          "url": "https://www.moto.ch/neue-yamaha-mt-07-mit-mehr-performance-und-y-amt/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

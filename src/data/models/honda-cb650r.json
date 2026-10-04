@@ -1,0 +1,190 @@
+{
+  "id": "honda-cb650r",
+  "manufacturerId": "honda",
+  "name": "CB650R",
+  "category": "naked",
+  "tagline": "Vierzylinder-Klang im Neo-Retro-Kleid – mit E-Clutch auch ohne Kupplungshebel.",
+  "generations": [
+    {
+      "id": "honda-cb650r-2021",
+      "yearFrom": 2021,
+      "yearTo": 2023,
+      "changes": [
+        "Neue Showa-Upside-down-Gabel mit Big-Piston-Technik",
+        "Motor auf Euro 5 angepasst (weiterhin 70 kW)",
+        "USB-Ladebuchse unter dem Sitz"
+      ],
+      "engine": {
+        "displacementCc": 649,
+        "cylinders": 4,
+        "layout": "Reihen-Vierzylinder",
+        "cooling": "liquid",
+        "powerKw": 70,
+        "powerRpm": 12000,
+        "torqueNm": 63,
+        "torqueRpm": 9500
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 202.5,
+        "seatHeightMm": 810,
+        "tankL": 15.4,
+        "consumptionL100km": 4.9,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Umrüstung auf 35 kW (48 PS) für «A beschränkt» erhältlich."
+      },
+      "quickshifter": "optional",
+      "blipper": "none",
+      "price": {
+        "chf": 9490,
+        "asOf": "2021-11-23",
+        "note": "Offizieller Schweizer Preis Modelljahr 2022 (Honda-Pressemitteilung). Modelljahr 2021: CHF 9’380."
+      },
+      "scores": {
+        "tuningVisual": 6,
+        "tuningPerformance": 5,
+        "sound": 8,
+        "profile": { "beginner": 6, "city": 7, "touring": 5, "sport": 7, "offroad": 1 }
+      },
+      "tuningNote": "Typgenehmigte Auspuffanlagen ohne Abnahme (Bestätigung mitführen). Steuergeräte-Tuning ist melde- und prüfpflichtig; ein gedrosseltes Bike muss gedrosselt bleiben.",
+      "sound": {
+        "description": "Reihen-Vierzylinder: seidig im Drehzahlkeller, mit klassischem Vierzylinder-Kreischen bis über 12’000 U/min."
+      },
+      "extras": [
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Honda Selectable Torque Control, abschaltbar"
+        },
+        { "key": "slipper-clutch", "availability": "standard" },
+        { "key": "usb-port", "availability": "standard", "detail": "USB-C unter dem Sitz" },
+        { "key": "heated-grips", "availability": "optional", "detail": "Im Comfort-Paket" }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=K-Cq0FxG8WM",
+      "sources": [
+        {
+          "label": "Honda Schweiz – Pressemitteilung 2021 Honda CB650R (Daten, Preis)",
+          "url": "https://hondanews.eu/ch/de/motorcycles/media/pressreleases/309775/2021-honda-cb650r"
+        },
+        {
+          "label": "Honda Schweiz – Pressemitteilung Honda CB650R Modelljahr 2022 (Daten, Preis)",
+          "url": "https://hondanews.eu/ch/de/motorcycles/media/pressreleases/360201/22ym-honda-cb650r"
+        },
+        {
+          "label": "Honda Europe – Pressemappe CB650R Modelljahr 2023 (Zubehörpakete)",
+          "url": "https://hondanews.eu/eu/en/motorcycles/media/pressreleases/418411/23ym-honda-cb650r-40"
+        },
+        {
+          "label": "MotoScout24 Schweiz – Honda CB650R im Test (Quickshifter nur zum Hochschalten)",
+          "url": "https://guide.motoscout24.ch/de/honda-cb650r-im-test/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "honda-cb650r-2024",
+      "yearFrom": 2024,
+      "yearTo": null,
+      "changes": [
+        "Überarbeitetes Design von Scheinwerfer bis Heck",
+        "5-Zoll-TFT-Farbdisplay mit Honda RoadSync statt LCD",
+        "Honda E-Clutch erhältlich: anfahren und schalten ohne Kupplungshebel",
+        "Gewicht vollgetankt 205 kg statt 202,5 kg"
+      ],
+      "colors": ["Matte Gunpowder Black Metallic", "Matte Jeans Blue Metallic", "Grand Prix Red"],
+      "engine": {
+        "displacementCc": 649,
+        "cylinders": 4,
+        "layout": "Reihen-Vierzylinder",
+        "cooling": "liquid",
+        "powerKw": 70,
+        "powerRpm": 12000,
+        "torqueNm": 63,
+        "torqueRpm": 9500
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 205,
+        "seatHeightMm": 810,
+        "tankL": 15.4,
+        "consumptionL100km": 4.9,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Drosselung auf 35 kW (48 PS) durch den Honda-Händler."
+      },
+      "quickshifter": "optional",
+      "blipper": "none",
+      "price": {
+        "chf": 9190,
+        "asOf": "2026-10-04",
+        "note": "Ab-Preis der CB650R E-Clutch, Modelljahr 2026 – in der Schweiz aktuell die einzige gelistete Version. Modelljahr 2024: CHF 9’590 ohne, CHF 9’990 mit E-Clutch."
+      },
+      "scores": {
+        "tuningVisual": 6,
+        "tuningPerformance": 5,
+        "sound": 8,
+        "profile": { "beginner": 7, "city": 8, "touring": 5, "sport": 7, "offroad": 1 }
+      },
+      "tuningNote": "Typgenehmigte Auspuffanlagen ohne Abnahme (Bestätigung mitführen). Steuergeräte-Tuning ist melde- und prüfpflichtig; ein gedrosseltes Bike muss gedrosselt bleiben.",
+      "sound": {
+        "description": "Reihen-Vierzylinder: seidig im Drehzahlkeller, mit klassischem Vierzylinder-Kreischen bis über 12’000 U/min."
+      },
+      "extras": [
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "Honda RoadSync"
+        },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Honda Selectable Torque Control, abschaltbar"
+        },
+        { "key": "slipper-clutch", "availability": "standard" },
+        { "key": "usb-port", "availability": "standard", "detail": "USB-C unter dem Sitz" },
+        { "key": "heated-grips", "availability": "optional", "detail": "Im Komfort-Paket" },
+        {
+          "key": "automated-clutch",
+          "availability": "optional",
+          "detail": "Honda E-Clutch (+2 kg); in der Schweiz ab Modelljahr 2026 nur noch mit E-Clutch"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=Tr6vqP0QbVc",
+      "sources": [
+        {
+          "label": "Honda Schweiz – CB650R, Technische Daten und Preis",
+          "url": "https://www.de.honda.ch/motorcycles/range/street/cb650r/specifications-and-price.html"
+        },
+        {
+          "label": "Honda Schweiz – CB650R Modellseite (35 kW, E-Clutch, Zubehör)",
+          "url": "https://www.de.honda.ch/motorcycles/range/street/cb650r.html"
+        },
+        {
+          "label": "Honda Österreich – Pressemitteilung CB650R Modelljahr 2026 (Daten)",
+          "url": "https://hondanews.eu/at/de/motorcycles/media/pressreleases/552478/honda-cb650r-modelljahrgang-2026"
+        },
+        {
+          "label": "Honda Europe – Pressemappe CB650R Modelljahr 2024",
+          "url": "https://hondanews.eu/eu/en/motorcycles/media/pressreleases/457025/24ym-honda-cb650r"
+        },
+        {
+          "label": "moto.ch – Die E-Clutch kann was! (Schweizer Preise 2024)",
+          "url": "https://www.moto.ch/die-e-clutch-kann-was/"
+        }
+      ],
+      "dataStatus": "needsVerification",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "id": "yamaha-mt-09",
+  "manufacturerId": "yamaha",
+  "name": "MT-09",
+  "category": "naked",
+  "tagline": "Der Crossplane-Dreizylinder: brachialer Antritt, viel Elektronik und Lust auf Wheelies.",
+  "generations": [
+    {
+      "id": "yamaha-mt-09-2021",
+      "yearFrom": 2021,
+      "yearTo": 2021,
+      "colors": ["Storm Fluo", "Icon Blue", "Tech Black"],
+      "engine": {
+        "displacementCc": 890,
+        "cylinders": 3,
+        "layout": "Reihen-Dreizylinder",
+        "cooling": "liquid",
+        "powerKw": 87.5,
+        "powerRpm": 10000,
+        "torqueNm": 93,
+        "torqueRpm": 7000
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 189,
+        "seatHeightMm": 825,
+        "tankL": 14,
+        "consumptionL100km": 5,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": false,
+        "note": "Für Modelljahr 2021 gab es keine offizielle 35-kW-Version."
+      },
+      "quickshifter": "standard",
+      "blipper": "standard",
+      "price": {
+        "chf": 9990,
+        "asOf": "2021-01-25",
+        "note": "Listenpreis Modelljahr 2021 inkl. MwSt. und Nebenkosten (archivierte Seite von Yamaha Schweiz)."
+      },
+      "scores": {
+        "tuningVisual": 9,
+        "tuningPerformance": 7,
+        "sound": 9,
+        "profile": {
+          "beginner": 4,
+          "city": 7,
+          "touring": 5,
+          "sport": 9,
+          "offroad": 1
+        }
+      },
+      "tuningNote": "Sehr grosser Zubehörmarkt. Typgenehmigte Auspuffanlagen ohne Abnahme; Mapping und Luftfilter sind melde- und prüfpflichtig.",
+      "sound": {
+        "description": "Crossplane-Dreizylinder (CP3): kehliges Ansaugfauchen und ein rauer, unverwechselbarer Klang."
+      },
+      "extras": [
+        {
+          "key": "tft-display",
+          "availability": "standard",
+          "detail": "3,5-Zoll-TFT"
+        },
+        {
+          "key": "cornering-abs",
+          "availability": "standard",
+          "detail": "Mit 6-Achsen-IMU"
+        },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Schräglagenabhängig, mit Slide- und Wheelie-Kontrolle"
+        },
+        {
+          "key": "ride-modes",
+          "availability": "standard",
+          "detail": "Vier Fahrmodi"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard",
+          "detail": "Assist-&-Slipper-Kupplung"
+        },
+        {
+          "key": "adjustable-suspension",
+          "availability": "standard",
+          "detail": "Voll einstellbare Gabel, Federbein in Vorspannung und Zugstufe"
+        },
+        {
+          "key": "heated-grips",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "usb-port",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=VHSCNp56H-o",
+      "sources": [
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-09 2021 (PDF)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2021/MT09/Factsheets/2021-MT09_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha Schweiz – MT-09 2021, archivierte Produktseite (Preis)",
+          "url": "https://web.archive.org/web/20210125073410/https://www.yamaha-motor.eu/ch/de/products/motorcycles/hyper-naked/mt-09-2021/"
+        },
+        {
+          "label": "MOTORRAD – Yamaha MT-09 alt und neu im Vergleich (Fahrmodi)",
+          "url": "https://www.motorradonline.de/naked-bike/yamaha-mt-09-alt-neu-im-vergleich/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "yamaha-mt-09-2022",
+      "yearFrom": 2022,
+      "yearTo": 2023,
+      "changes": [
+        "Erstmals als offizielle 35-kW-Version für «A beschränkt» erhältlich (entdrosselt 70 kW)"
+      ],
+      "colors": ["Cyan Storm", "Icon Blue", "Tech Black"],
+      "engine": {
+        "displacementCc": 890,
+        "cylinders": 3,
+        "layout": "Reihen-Dreizylinder",
+        "cooling": "liquid",
+        "powerKw": 87.5,
+        "powerRpm": 10000,
+        "torqueNm": 93,
+        "torqueRpm": 7000
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 189,
+        "seatHeightMm": 825,
+        "tankL": 14,
+        "consumptionL100km": 5,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielle 35-kW-Version; sie lässt sich nur auf 70 kW entdrosseln, nicht auf die vollen 87,5 kW."
+      },
+      "quickshifter": "standard",
+      "blipper": "standard",
+      "price": {
+        "chf": 10490,
+        "asOf": "2022-01-17",
+        "note": "Listenpreis Modelljahr 2022 inkl. MwSt. und CHF 180 Nebenkosten (archivierte Seite von Yamaha Schweiz)."
+      },
+      "scores": {
+        "tuningVisual": 9,
+        "tuningPerformance": 7,
+        "sound": 9,
+        "profile": {
+          "beginner": 5,
+          "city": 7,
+          "touring": 5,
+          "sport": 9,
+          "offroad": 1
+        }
+      },
+      "tuningNote": "Sehr grosser Zubehörmarkt. Typgenehmigte Auspuffanlagen ohne Abnahme; die 35-kW-Version lässt sich nur auf 70 kW entdrosseln.",
+      "sound": {
+        "description": "Crossplane-Dreizylinder (CP3): kehliges Ansaugfauchen und ein rauer, unverwechselbarer Klang."
+      },
+      "extras": [
+        {
+          "key": "tft-display",
+          "availability": "standard",
+          "detail": "3,5-Zoll-TFT"
+        },
+        {
+          "key": "cornering-abs",
+          "availability": "standard",
+          "detail": "Mit 6-Achsen-IMU"
+        },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Schräglagenabhängig, mit Slide- und Wheelie-Kontrolle"
+        },
+        {
+          "key": "ride-modes",
+          "availability": "standard",
+          "detail": "Vier Fahrmodi"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard",
+          "detail": "Assist-&-Slipper-Kupplung"
+        },
+        {
+          "key": "adjustable-suspension",
+          "availability": "standard",
+          "detail": "Voll einstellbare Gabel, Federbein in Vorspannung und Zugstufe"
+        },
+        {
+          "key": "heated-grips",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "usb-port",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-09 2022 (PDF, inkl. 35-kW-Version)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2022/MT09/Factsheets/2022-MT09_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha Schweiz – MT-09 2022, archivierte Produktseite (Preis)",
+          "url": "https://web.archive.org/web/20220117221230/https://www.yamaha-motor.eu/ch/de/products/motorcycles/hyper-naked/mt-09-2022/"
+        },
+        {
+          "label": "Motorrad & Reisen – Yamaha MT-03 und MT-09: neue A2-Modelle für 2022",
+          "url": "https://www.motorradundreisen.de/motorraeder/yamaha-mt-03-mt-09-a2-modelle-2022/6305/"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    },
+    {
+      "id": "yamaha-mt-09-2024",
+      "yearFrom": 2024,
+      "yearTo": null,
+      "changes": [
+        "Neue Verkleidung, neuer Tank und zweiteilige Sitzbank; sportlichere Sitzposition",
+        "5-Zoll-TFT statt 3,5 Zoll, mit MyRide-App und Navigation",
+        "Tempomat serienmässig",
+        "Quickshifter der dritten Generation",
+        "Gewicht 193 statt 189 kg",
+        "Ab Mitte 2024 optional als Y-AMT mit Smart Key"
+      ],
+      "colors": ["Midnight Cyan", "Ice Storm", "Icon Blue", "Tech Black"],
+      "engine": {
+        "displacementCc": 890,
+        "cylinders": 3,
+        "layout": "Reihen-Dreizylinder",
+        "cooling": "liquid",
+        "powerKw": 87.5,
+        "powerRpm": 10000,
+        "torqueNm": 93,
+        "torqueRpm": 7000
+      },
+      "performance": {},
+      "chassis": {
+        "weightKg": 193,
+        "seatHeightMm": 825,
+        "tankL": 14,
+        "consumptionL100km": 5,
+        "gears": 6,
+        "drive": "chain"
+      },
+      "throttle": {
+        "available": true,
+        "throttledPowerKw": 35,
+        "note": "Offizielle Version «MT-09 35kW» zum gleichen Preis; entdrosselt 70 kW."
+      },
+      "quickshifter": "standard",
+      "blipper": "standard",
+      "price": {
+        "chf": 11290,
+        "asOf": "2026-10-04",
+        "note": "Aktueller Listenpreis (Modelljahr 2025, kein Modelljahr 2026) inkl. MwSt. und CHF 180 Nebenkosten. Y-AMT: CHF 11’990."
+      },
+      "scores": {
+        "tuningVisual": 9,
+        "tuningPerformance": 7,
+        "sound": 9,
+        "profile": {
+          "beginner": 5,
+          "city": 7,
+          "touring": 6,
+          "sport": 9,
+          "offroad": 1
+        }
+      },
+      "tuningNote": "Sehr grosser Zubehörmarkt. Typgenehmigte Auspuffanlagen ohne Abnahme; die 35-kW-Version lässt sich nur auf 70 kW entdrosseln.",
+      "sound": {
+        "description": "Crossplane-Dreizylinder (CP3): kehliges Ansaugfauchen und ein rauer, unverwechselbarer Klang."
+      },
+      "extras": [
+        {
+          "key": "tft-display",
+          "availability": "standard",
+          "detail": "5-Zoll-TFT"
+        },
+        {
+          "key": "smartphone-connectivity",
+          "availability": "standard",
+          "detail": "MyRide-App mit Navigation"
+        },
+        {
+          "key": "cruise-control",
+          "availability": "standard"
+        },
+        {
+          "key": "cornering-abs",
+          "availability": "standard",
+          "detail": "Mit 6-Achsen-IMU"
+        },
+        {
+          "key": "traction-control",
+          "availability": "standard",
+          "detail": "Schräglagenabhängig, mit Slide- und Wheelie-Kontrolle"
+        },
+        {
+          "key": "ride-modes",
+          "availability": "standard",
+          "detail": "Sport, Street, Rain plus zwei eigene Modi"
+        },
+        {
+          "key": "slipper-clutch",
+          "availability": "standard"
+        },
+        {
+          "key": "adjustable-suspension",
+          "availability": "standard",
+          "detail": "Voll einstellbare Gabel, einstellbares Federbein"
+        },
+        {
+          "key": "automated-clutch",
+          "availability": "optional",
+          "detail": "Y-AMT (automatisiertes Getriebe), CHF 11’990"
+        },
+        {
+          "key": "keyless",
+          "availability": "optional",
+          "detail": "Smart Key nur bei der Y-AMT-Version"
+        },
+        {
+          "key": "heated-grips",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "usb-port",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        },
+        {
+          "key": "tyre-pressure-monitoring",
+          "availability": "optional",
+          "detail": "Original-Zubehör"
+        }
+      ],
+      "youtubeReviewUrl": "https://www.youtube.com/watch?v=JpkhT408s0Q",
+      "sources": [
+        {
+          "label": "Yamaha Schweiz – MT-09 (2025)",
+          "url": "https://www.yamaha-motor.eu/ch/de/motorcycles/hyper-naked/pdp/mt-09-2025/"
+        },
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-09 2025 (PDF)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2025/MT09A/Factsheets/2025-MT09A_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha Schweiz – Datenblatt MT-09 2024 (PDF)",
+          "url": "https://cdn2.yamaha-motor.eu/prod/product-assets/2024/MT09/Factsheets/2024-MT09_de-CH.pdf"
+        },
+        {
+          "label": "Yamaha USA – MT-09 Features (CP3-Motor)",
+          "url": "https://yamahamotorsports.com/models/mt-09/features"
+        }
+      ],
+      "dataStatus": "verified",
+      "lastChecked": "2026-10-04"
+    }
+  ]
+}
