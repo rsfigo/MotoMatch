@@ -43,13 +43,7 @@
         "tuningVisual": 7,
         "tuningPerformance": 5,
         "sound": 8,
-        "profile": {
-          "beginner": 8,
-          "city": 8,
-          "touring": 5,
-          "sport": 6,
-          "offroad": 1
-        }
+        "profile": { "beginner": 8, "city": 8, "touring": 5, "sport": 6, "offroad": 1 }
       },
       "tuningNote": "Viel Original-Zubehör. Auspuff mit Genehmigung für diesen Typ ohne Abnahme; Leistungsänderungen nur mit Nachweis beim Strassenverkehrsamt.",
       "sound": {
@@ -61,11 +55,7 @@
           "availability": "standard",
           "detail": "Abschaltbar, in die Fahrmodi integriert"
         },
-        {
-          "key": "ride-modes",
-          "availability": "standard",
-          "detail": "Road und Rain"
-        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Road und Rain" },
         {
           "key": "tft-display",
           "availability": "standard",
@@ -76,15 +66,8 @@
           "availability": "optional",
           "detail": "My-Triumph-Modul als Zubehör"
         },
-        {
-          "key": "slipper-clutch",
-          "availability": "standard"
-        },
-        {
-          "key": "heated-grips",
-          "availability": "optional",
-          "detail": "Original-Zubehör"
-        },
+        { "key": "slipper-clutch", "availability": "standard" },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" },
         {
           "key": "tyre-pressure-monitoring",
           "availability": "optional",
@@ -160,64 +143,31 @@
         "tuningVisual": 7,
         "tuningPerformance": 5,
         "sound": 8,
-        "profile": {
-          "beginner": 8,
-          "city": 8,
-          "touring": 6,
-          "sport": 7,
-          "offroad": 1
-        }
+        "profile": { "beginner": 8, "city": 8, "touring": 6, "sport": 7, "offroad": 1 }
       },
       "tuningNote": "Viel Original-Zubehör. Auspuff mit Genehmigung für diesen Typ ohne Abnahme; Leistungsänderungen nur mit Nachweis beim Strassenverkehrsamt.",
       "sound": {
         "description": "Reihen-Dreizylinder: rauchiges Fauchen im Keller, heiseres Heulen obenraus – der typische Triple-Sound."
       },
       "extras": [
-        {
-          "key": "cornering-abs",
-          "availability": "standard",
-          "detail": "Mit 6-Achsen-IMU"
-        },
+        { "key": "cornering-abs", "availability": "standard", "detail": "Mit 6-Achsen-IMU" },
         {
           "key": "traction-control",
           "availability": "standard",
           "detail": "Schräglagenabhängig, abschaltbar"
         },
-        {
-          "key": "ride-modes",
-          "availability": "standard",
-          "detail": "Sport, Road, Rain"
-        },
-        {
-          "key": "cruise-control",
-          "availability": "standard"
-        },
-        {
-          "key": "tft-display",
-          "availability": "standard",
-          "detail": "Instrument mit Farb-TFT"
-        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Sport, Road, Rain" },
+        { "key": "cruise-control", "availability": "standard" },
+        { "key": "tft-display", "availability": "standard", "detail": "Instrument mit Farb-TFT" },
         {
           "key": "smartphone-connectivity",
           "availability": "standard",
           "detail": "Navigation, Anrufe, Musik"
         },
-        {
-          "key": "slipper-clutch",
-          "availability": "standard"
-        },
-        {
-          "key": "heated-grips",
-          "availability": "optional"
-        },
-        {
-          "key": "tyre-pressure-monitoring",
-          "availability": "optional"
-        },
-        {
-          "key": "usb-port",
-          "availability": "optional"
-        }
+        { "key": "slipper-clutch", "availability": "standard" },
+        { "key": "heated-grips", "availability": "optional" },
+        { "key": "tyre-pressure-monitoring", "availability": "optional" },
+        { "key": "usb-port", "availability": "optional" }
       ],
       "youtubeReviewUrl": "https://www.youtube.com/watch?v=X03DY68jTsQ",
       "sources": [
@@ -285,52 +235,24 @@
         "tuningVisual": 7,
         "tuningPerformance": 5,
         "sound": 8,
-        "profile": {
-          "beginner": 7,
-          "city": 8,
-          "touring": 6,
-          "sport": 8,
-          "offroad": 1
-        }
+        "profile": { "beginner": 7, "city": 8, "touring": 6, "sport": 8, "offroad": 1 }
       },
       "tuningNote": "Viel Original-Zubehör. Auspuff mit Genehmigung für diesen Typ ohne Abnahme; Leistungsänderungen nur mit Nachweis beim Strassenverkehrsamt.",
       "sound": {
         "description": "Reihen-Dreizylinder mit drei Drosselklappen: heiseres Ansauggrollen und ein Heulen, das bis über 12’000 U/min reicht."
       },
       "extras": [
-        {
-          "key": "cornering-abs",
-          "availability": "standard",
-          "detail": "Mit IMU"
-        },
+        { "key": "cornering-abs", "availability": "standard", "detail": "Mit IMU" },
         {
           "key": "traction-control",
           "availability": "standard",
           "detail": "Schräglagenabhängig, abschaltbar"
         },
-        {
-          "key": "ride-modes",
-          "availability": "standard",
-          "detail": "Sport, Strasse, Regen"
-        },
-        {
-          "key": "cruise-control",
-          "availability": "standard"
-        },
-        {
-          "key": "tft-display",
-          "availability": "standard",
-          "detail": "Instrument mit Farb-TFT"
-        },
-        {
-          "key": "smartphone-connectivity",
-          "availability": "standard",
-          "detail": "My Triumph"
-        },
-        {
-          "key": "slipper-clutch",
-          "availability": "standard"
-        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Sport, Strasse, Regen" },
+        { "key": "cruise-control", "availability": "standard" },
+        { "key": "tft-display", "availability": "standard", "detail": "Instrument mit Farb-TFT" },
+        { "key": "smartphone-connectivity", "availability": "standard", "detail": "My Triumph" },
+        { "key": "slipper-clutch", "availability": "standard" },
         {
           "key": "adjustable-suspension",
           "availability": "standard",

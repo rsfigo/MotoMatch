@@ -25,9 +25,7 @@
         "torqueNm": 149,
         "torqueRpm": 6500
       },
-      "performance": {
-        "accel0to100s": { "value": 3.39, "kind": "official" }
-      },
+      "performance": { "accel0to100s": { "value": 3.39, "kind": "official" } },
       "chassis": {
         "weightKg": 237,
         "seatHeightMm": 850,
@@ -36,10 +34,7 @@
         "gears": 6,
         "drive": "shaft"
       },
-      "throttle": {
-        "available": false,
-        "note": "Keine offizielle 35-kW-Version."
-      },
+      "throttle": { "available": false, "note": "Keine offizielle 35-kW-Version." },
       "quickshifter": "optional",
       "blipper": "optional",
       "price": {

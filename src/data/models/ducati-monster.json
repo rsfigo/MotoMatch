@@ -135,9 +135,7 @@
         "profile": { "beginner": 6, "city": 7, "touring": 5, "sport": 8, "offroad": 1 }
       },
       "tuningNote": "Grosses Angebot an Performance-Zubehör. Auspuff nur mit Genehmigung für diesen Typ ohne Abnahme; Leistungssteigerungen sind melde- und prüfpflichtig.",
-      "sound": {
-        "description": "Neuer 90°-V2: kerniges, tiefes Pochen – unverkennbar Ducati."
-      },
+      "sound": { "description": "Neuer 90°-V2: kerniges, tiefes Pochen – unverkennbar Ducati." },
       "extras": [
         { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
         { "key": "cornering-abs", "availability": "standard" },

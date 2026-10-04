@@ -26,9 +26,7 @@
         "torqueNm": 39,
         "torqueRpm": 7000
       },
-      "performance": {
-        "accel0to100s": { "value": 5.21, "kind": "tested" }
-      },
+      "performance": { "accel0to100s": { "value": 5.21, "kind": "tested" } },
       "chassis": {
         "weightKg": 165,
         "seatHeightMm": 820,

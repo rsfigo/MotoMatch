@@ -44,39 +44,21 @@
         "tuningVisual": 9,
         "tuningPerformance": 7,
         "sound": 9,
-        "profile": {
-          "beginner": 4,
-          "city": 7,
-          "touring": 5,
-          "sport": 9,
-          "offroad": 1
-        }
+        "profile": { "beginner": 4, "city": 7, "touring": 5, "sport": 9, "offroad": 1 }
       },
       "tuningNote": "Sehr grosser Zubehörmarkt. Typgenehmigte Auspuffanlagen ohne Abnahme; Mapping und Luftfilter sind melde- und prüfpflichtig.",
       "sound": {
         "description": "Crossplane-Dreizylinder (CP3): kehliges Ansaugfauchen und ein rauer, unverwechselbarer Klang."
       },
       "extras": [
-        {
-          "key": "tft-display",
-          "availability": "standard",
-          "detail": "3.5-Zoll-TFT"
-        },
-        {
-          "key": "cornering-abs",
-          "availability": "standard",
-          "detail": "Mit 6-Achsen-IMU"
-        },
+        { "key": "tft-display", "availability": "standard", "detail": "3.5-Zoll-TFT" },
+        { "key": "cornering-abs", "availability": "standard", "detail": "Mit 6-Achsen-IMU" },
         {
           "key": "traction-control",
           "availability": "standard",
           "detail": "Schräglagenabhängig, mit Slide- und Wheelie-Kontrolle"
         },
-        {
-          "key": "ride-modes",
-          "availability": "standard",
-          "detail": "Vier Fahrmodi"
-        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Vier Fahrmodi" },
         {
           "key": "slipper-clutch",
           "availability": "standard",
@@ -87,16 +69,8 @@
           "availability": "standard",
           "detail": "Voll einstellbare Gabel, Federbein in Vorspannung und Zugstufe"
         },
-        {
-          "key": "heated-grips",
-          "availability": "optional",
-          "detail": "Original-Zubehör"
-        },
-        {
-          "key": "usb-port",
-          "availability": "optional",
-          "detail": "Original-Zubehör"
-        },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" },
+        { "key": "usb-port", "availability": "optional", "detail": "Original-Zubehör" },
         {
           "key": "tyre-pressure-monitoring",
           "availability": "optional",
@@ -164,39 +138,21 @@
         "tuningVisual": 9,
         "tuningPerformance": 7,
         "sound": 9,
-        "profile": {
-          "beginner": 5,
-          "city": 7,
-          "touring": 5,
-          "sport": 9,
-          "offroad": 1
-        }
+        "profile": { "beginner": 5, "city": 7, "touring": 5, "sport": 9, "offroad": 1 }
       },
       "tuningNote": "Sehr grosser Zubehörmarkt. Typgenehmigte Auspuffanlagen ohne Abnahme; die 35-kW-Version lässt sich nur auf 70 kW entdrosseln.",
       "sound": {
         "description": "Crossplane-Dreizylinder (CP3): kehliges Ansaugfauchen und ein rauer, unverwechselbarer Klang."
       },
       "extras": [
-        {
-          "key": "tft-display",
-          "availability": "standard",
-          "detail": "3.5-Zoll-TFT"
-        },
-        {
-          "key": "cornering-abs",
-          "availability": "standard",
-          "detail": "Mit 6-Achsen-IMU"
-        },
+        { "key": "tft-display", "availability": "standard", "detail": "3.5-Zoll-TFT" },
+        { "key": "cornering-abs", "availability": "standard", "detail": "Mit 6-Achsen-IMU" },
         {
           "key": "traction-control",
           "availability": "standard",
           "detail": "Schräglagenabhängig, mit Slide- und Wheelie-Kontrolle"
         },
-        {
-          "key": "ride-modes",
-          "availability": "standard",
-          "detail": "Vier Fahrmodi"
-        },
+        { "key": "ride-modes", "availability": "standard", "detail": "Vier Fahrmodi" },
         {
           "key": "slipper-clutch",
           "availability": "standard",
@@ -207,16 +163,8 @@
           "availability": "standard",
           "detail": "Voll einstellbare Gabel, Federbein in Vorspannung und Zugstufe"
         },
-        {
-          "key": "heated-grips",
-          "availability": "optional",
-          "detail": "Original-Zubehör"
-        },
-        {
-          "key": "usb-port",
-          "availability": "optional",
-          "detail": "Original-Zubehör"
-        },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" },
+        { "key": "usb-port", "availability": "optional", "detail": "Original-Zubehör" },
         {
           "key": "tyre-pressure-monitoring",
           "availability": "optional",
@@ -288,38 +236,21 @@
         "tuningVisual": 9,
         "tuningPerformance": 7,
         "sound": 9,
-        "profile": {
-          "beginner": 5,
-          "city": 7,
-          "touring": 6,
-          "sport": 9,
-          "offroad": 1
-        }
+        "profile": { "beginner": 5, "city": 7, "touring": 6, "sport": 9, "offroad": 1 }
       },
       "tuningNote": "Sehr grosser Zubehörmarkt. Typgenehmigte Auspuffanlagen ohne Abnahme; die 35-kW-Version lässt sich nur auf 70 kW entdrosseln.",
       "sound": {
         "description": "Crossplane-Dreizylinder (CP3): kehliges Ansaugfauchen und ein rauer, unverwechselbarer Klang."
       },
       "extras": [
-        {
-          "key": "tft-display",
-          "availability": "standard",
-          "detail": "5-Zoll-TFT"
-        },
+        { "key": "tft-display", "availability": "standard", "detail": "5-Zoll-TFT" },
         {
           "key": "smartphone-connectivity",
           "availability": "standard",
           "detail": "MyRide-App mit Navigation"
         },
-        {
-          "key": "cruise-control",
-          "availability": "standard"
-        },
-        {
-          "key": "cornering-abs",
-          "availability": "standard",
-          "detail": "Mit 6-Achsen-IMU"
-        },
+        { "key": "cruise-control", "availability": "standard" },
+        { "key": "cornering-abs", "availability": "standard", "detail": "Mit 6-Achsen-IMU" },
         {
           "key": "traction-control",
           "availability": "standard",
@@ -330,10 +261,7 @@
           "availability": "standard",
           "detail": "Sport, Street, Rain plus zwei eigene Modi"
         },
-        {
-          "key": "slipper-clutch",
-          "availability": "standard"
-        },
+        { "key": "slipper-clutch", "availability": "standard" },
         {
           "key": "adjustable-suspension",
           "availability": "standard",
@@ -349,16 +277,8 @@
           "availability": "optional",
           "detail": "Smart Key nur bei der Y-AMT-Version"
         },
-        {
-          "key": "heated-grips",
-          "availability": "optional",
-          "detail": "Original-Zubehör"
-        },
-        {
-          "key": "usb-port",
-          "availability": "optional",
-          "detail": "Original-Zubehör"
-        },
+        { "key": "heated-grips", "availability": "optional", "detail": "Original-Zubehör" },
+        { "key": "usb-port", "availability": "optional", "detail": "Original-Zubehör" },
         {
           "key": "tyre-pressure-monitoring",
           "availability": "optional",
