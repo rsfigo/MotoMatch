@@ -2,6 +2,7 @@ import { ArrowRight, Sparkles, Wand2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useRef } from 'react';
 import { Tachometer } from '@/components/charts/Tachometer';
+import { PopularComparisons } from '@/components/compare/PopularComparisons';
 import { CategoryTiles } from '@/components/home/CategoryTiles';
 import { HomeSearch } from '@/components/home/HomeSearch';
 import { Container } from '@/components/layout/Container';
@@ -106,6 +107,13 @@ export default function HomePage() {
           >
             <Tachometer scrollTarget={heroRef} label={t.home.gaugeLabel} />
           </motion.div>
+        </Container>
+      </section>
+
+      <section className="py-12 sm:py-16">
+        <Container>
+          <SectionHeading title={t.compare.popularTitle} lead={t.compare.popularLead} />
+          <PopularComparisons />
         </Container>
       </section>
 
