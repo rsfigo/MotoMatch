@@ -111,9 +111,13 @@ export function staggerContainer(step: number = staggerStep.base, startDelay = 0
   };
 }
 
-/** Seitenwechsel: neue Seite gleitet sanft ein, alte blendet schnell aus. */
+/**
+ * Seitenwechsel: Die alte Seite blendet schnell aus, die neue gleitet kurz danach ein.
+ * Beide existieren kurz gleichzeitig (AnimatePresence mode="popLayout"); die kleine
+ * Verzögerung verhindert, dass sich die Inhalte sichtbar überlagern.
+ */
 export const pageVariants: Variants = {
   initial: { opacity: 0, y: 12 },
-  enter: { opacity: 1, y: 0, transition: { duration: duration.base, ease: ease.out } },
-  exit: { opacity: 0, y: -6, transition: { duration: duration.instant, ease: ease.in } },
+  enter: { opacity: 1, y: 0, transition: { duration: duration.base, ease: ease.out, delay: 0.1 } },
+  exit: { opacity: 0, transition: { duration: 0.12, ease: ease.in } },
 };
