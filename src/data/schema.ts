@@ -85,6 +85,8 @@ export const performanceSchema = z.strictObject({
 export const chassisSchema = z.strictObject({
   /** Fahrbereit laut Hersteller, ohne Fahrer */
   weightKg: z.number().positive(),
+  /** Hinweis, falls der Hersteller das Gewicht anders definiert (z. B. «ohne Kraftstoff») */
+  weightNote: z.string().min(1).optional(),
   seatHeightMm: z.int().positive(),
   tankL: z.number().positive(),
   /** Verbrauch nach WMTC in l/100 km */
@@ -94,8 +96,9 @@ export const chassisSchema = z.strictObject({
 });
 
 export const throttleSchema = z.strictObject({
-  /** Gibt es eine offizielle Drosselung (z. B. auf 35 kW)? */
+  /** Gibt es eine offizielle Drosselung des Herstellers (35-kW-Version oder A2-Kit)? */
   available: z.boolean(),
+  /** Leistung gedrosselt. Nennt der Hersteller nur «max. 35 kW», steht hier 35. */
   throttledPowerKw: z.number().positive().optional(),
   note: z.string().min(1).optional(),
 });

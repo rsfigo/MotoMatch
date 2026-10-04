@@ -16,9 +16,9 @@ describe('requiredLicence', () => {
     );
   });
 
-  it('A1 verlangt höchstens 0.1 kW/kg', () => {
-    // 11 kW bei 100 kg = 0.11 kW/kg
-    expect(requiredLicence({ displacementCc: 125, powerKw: 11, weightKg: 100 })).toBe('A_LIMITED');
+  it('A1 hat in der Schweiz keine kW/kg-Grenze (anders als in der EU)', () => {
+    // 11 kW bei 100 kg = 0.11 kW/kg – in der EU zu viel für A1, in der Schweiz erlaubt
+    expect(requiredLicence({ displacementCc: 125, powerKw: 11, weightKg: 100 })).toBe('A1');
   });
 
   it('Grenzfall: genau 35 kW bei 175 kg (= 0.2 kW/kg) ist A beschränkt', () => {
@@ -66,7 +66,20 @@ describe('licenceWithThrottle', () => {
     ).toBeNull();
   });
 
-  it('Serienleistung über 70 kW → keine Drosselung auf A beschränkt', () => {
+  it('Grenzfall: gedrosselt genau 35 kW bei 175 kg (= 0.2 kW/kg) ist A beschränkt', () => {
+    expect(
+      licenceWithThrottle({
+        displacementCc: 890,
+        powerKw: 81.6,
+        weightKg: 175,
+        throttle: { available: true, throttledPowerKw: 35 },
+      }),
+    ).toBe('A_LIMITED');
+  });
+
+  it('offizielle 35-kW-Version eines starken Bikes (z. B. MT-09 mit 87.5 kW) → A beschränkt', () => {
+    // Die Regel «höchstens doppelte Leistung» (VTS Art. 145a) erfüllt der Hersteller mit der
+    // Typengenehmigung der 35-kW-Version – darum zählt hier nur die gedrosselte Leistung.
     expect(
       licenceWithThrottle({
         displacementCc: 890,
@@ -74,6 +87,12 @@ describe('licenceWithThrottle', () => {
         weightKg: 193,
         throttle: { available: true, throttledPowerKw: 35 },
       }),
+    ).toBe('A_LIMITED');
+  });
+
+  it('gedrosselt über 35 kW → nicht A beschränkt', () => {
+    expect(
+      licenceWithThrottle({ ...base, throttle: { available: true, throttledPowerKw: 40 } }),
     ).toBeNull();
   });
 
