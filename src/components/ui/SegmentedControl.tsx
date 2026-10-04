@@ -63,7 +63,7 @@ export function SegmentedControl<T extends string>({
             tabIndex={selected ? 0 : -1}
             onClick={() => onChange(option.value)}
             className={cn(
-              'relative min-w-0 flex-1 rounded-full px-2 py-1.5 text-[13px] font-medium whitespace-nowrap',
+              'relative min-w-0 flex-auto rounded-full px-2 py-1.5 text-[13px] font-medium whitespace-nowrap',
               selected ? 'text-ink' : 'text-ink-muted hover:text-ink',
             )}
           >
