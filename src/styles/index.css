@@ -87,6 +87,9 @@
 
   body {
     min-height: 100dvh;
+    /* Sicherheitsnetz: nichts darf seitlich überstehen (sonst zoomen Handys heraus).
+       clip statt hidden, damit position: sticky weiter funktioniert. */
+    overflow-x: clip;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
