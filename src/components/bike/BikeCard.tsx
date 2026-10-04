@@ -81,6 +81,8 @@ export function BikeCard({ entry }: { entry: CatalogEntry }) {
           <h3 className="mt-1 text-2xl leading-tight font-semibold">
             <Link
               to={`/bikes/${model.id}`}
+              // Merkt sich, dass wir aus der App kommen: «Zurück» führt dann zum Katalog mit Filtern
+              state={{ fromApp: true }}
               className="rounded-sm after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
             >
               {model.name}
