@@ -4,25 +4,12 @@ import { useRef, useState } from 'react';
 import { RadarChart } from '@/components/charts/RadarChart';
 import { RingGauge } from '@/components/charts/RingGauge';
 import { Button } from '@/components/ui/Button';
-import { InfoTooltip } from '@/components/ui/InfoTooltip';
+import { EditorialLabel } from '@/components/ui/EditorialLabel';
 import { Card, Section } from '@/components/ui/Section';
-import type { Generation, ProfileKey } from '@/data/schema';
+import type { Generation } from '@/data/schema';
 import { t } from '@/i18n';
 import { formatDecibel } from '@/lib/format';
-
-const PROFILE_KEYS: readonly ProfileKey[] = ['beginner', 'city', 'touring', 'sport', 'offroad'];
-
-/** Kennzeichnung «Redaktionelle Einschätzung» mit Erklärung. */
-function EditorialLabel() {
-  return (
-    <span className="inline-flex items-center gap-1 text-xs font-medium text-ink-muted">
-      {t.editorial.label}
-      <InfoTooltip label={t.editorial.label} align="end">
-        {t.editorial.hint}
-      </InfoTooltip>
-    </span>
-  );
-}
+import { PROFILE_AXES, profileValues } from '@/lib/profile';
 
 function CardHeading({ title }: { title: string }) {
   return (
@@ -88,11 +75,7 @@ function SoundPlayer({ src }: { src: string }) {
 /** Einsatzprofil, Tuning und Sound – alles redaktionelle Einschätzungen. */
 export function CharacterSection({ generation }: { generation: Generation }) {
   const { scores, sound } = generation;
-  const profileValues = PROFILE_KEYS.map((key) => ({
-    key,
-    label: t.profile[key],
-    value: scores.profile[key],
-  }));
+  const values = profileValues(scores);
 
   return (
     <Section title={t.detail.character}>
@@ -101,16 +84,17 @@ export function CharacterSection({ generation }: { generation: Generation }) {
           <CardHeading title={t.detail.profileTitle} />
           <div className="mx-auto w-full max-w-[19rem] px-4">
             <RadarChart
-              values={profileValues}
+              axes={PROFILE_AXES}
+              series={[{ id: generation.id, name: t.detail.profileTitle, values, tone: 'accent' }]}
               label={t.detail.profileTitle}
               animationKey={generation.id}
             />
           </div>
           <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
-            {profileValues.map((item) => (
-              <li key={item.key} className="flex justify-between gap-2">
-                <span className="text-ink-muted">{item.label}</span>
-                <span className="font-medium tabular-nums">{item.value}/10</span>
+            {PROFILE_AXES.map((axis, index) => (
+              <li key={axis.key} className="flex justify-between gap-2">
+                <span className="text-ink-muted">{axis.label}</span>
+                <span className="font-medium tabular-nums">{values[index]}/10</span>
               </li>
             ))}
           </ul>
