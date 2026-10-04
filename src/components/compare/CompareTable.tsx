@@ -32,10 +32,13 @@ interface CompareTableProps {
   onGenerationChange: (modelId: string, generationId: string) => void;
 }
 
-/** Punkte zum Einrasten beim Wischen: je einer am Anfang jeder Bike-Spalte. */
+/**
+ * Punkte zum Einrasten beim Wischen: je einer am Anfang jeder Bike-Spalte.
+ * 1 px hoch, weil manche Browser leere Flächen beim Einrasten ignorieren.
+ */
 function SnapPoints({ count }: { count: number }) {
   return (
-    <div aria-hidden="true" className="grid h-0" style={rowColumns(count)}>
+    <div aria-hidden="true" className="grid h-px" style={rowColumns(count)}>
       <span />
       {Array.from({ length: count }, (_, index) => (
         <span key={index} className="snap-start" />
