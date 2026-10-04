@@ -1,4 +1,5 @@
 import { MotionConfig } from 'motion/react';
+import { CompareBar } from '@/components/layout/CompareBar';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { t } from '@/i18n';
@@ -20,6 +21,7 @@ export function App() {
           <AppRoutes />
         </main>
         <Footer />
+        <CompareBar />
       </div>
     </MotionConfig>
   );

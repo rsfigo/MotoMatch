@@ -2,21 +2,50 @@ import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router';
+import { useCompareSelection } from '@/hooks/useCompareSelection';
 import { t } from '@/i18n';
 import { cn } from '@/lib/cn';
+import { compareUrl } from '@/lib/compareSelection';
 import { duration, ease, spring } from '@/lib/motion';
 import { Container } from './Container';
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 
-const NAV_ITEMS = [
-  { to: '/bikes', label: t.nav.bikes },
-  { to: '/compare', label: t.nav.compare },
-  { to: '/match', label: t.nav.match },
-] as const;
+interface NavItem {
+  to: string;
+  label: string;
+  /** Kleine Zahl neben dem Eintrag, z. B. Anzahl Bikes im Vergleich */
+  count?: number;
+}
+
+/** Zähler-Bubble mit federndem Erscheinen. */
+function CountBadge({ count }: { count: number }) {
+  return (
+    <AnimatePresence initial={false}>
+      {count > 0 && (
+        <motion.span
+          key={count}
+          initial={{ scale: 0.4, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.4, opacity: 0 }}
+          transition={spring.bouncy}
+          className="relative ml-1.5 inline-grid size-5 place-items-center rounded-full bg-accent text-[11px] font-bold text-on-accent tabular-nums"
+        >
+          {count}
+        </motion.span>
+      )}
+    </AnimatePresence>
+  );
+}
 
 /** Kopfzeile: bleibt oben kleben, mit Glas-Effekt (Blur) und animiertem Aktiv-Indikator. */
 export function Header() {
+  const { ids: compareIds } = useCompareSelection();
+  const NAV_ITEMS: NavItem[] = [
+    { to: '/bikes', label: t.nav.bikes },
+    { to: compareUrl(compareIds), label: t.nav.compare, count: compareIds.length },
+    { to: '/match', label: t.nav.match },
+  ];
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLElement>(null);
@@ -54,10 +83,10 @@ export function Header() {
         <nav aria-label={t.a11y.mainNavigation} className="hidden md:block">
           <ul className="flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
-              <li key={item.to}>
+              <li key={item.label}>
                 <NavLink
                   to={item.to}
-                  className="relative block rounded-full px-4 py-2 text-sm font-medium"
+                  className="relative flex items-center rounded-full px-4 py-2 text-sm font-medium"
                 >
                   {({ isActive }) => (
                     <>
@@ -76,6 +105,7 @@ export function Header() {
                       >
                         {item.label}
                       </span>
+                      <CountBadge count={item.count ?? 0} />
                     </>
                   )}
                 </NavLink>
@@ -113,18 +143,19 @@ export function Header() {
             <Container className="py-3">
               <ul className="flex flex-col">
                 {NAV_ITEMS.map((item) => (
-                  <li key={item.to}>
+                  <li key={item.label}>
                     <NavLink
                       to={item.to}
                       onClick={() => setMenuOpen(false)}
                       className={({ isActive }) =>
                         cn(
-                          'flex items-center justify-between rounded-control px-3 py-3 font-display text-xl font-medium',
+                          'flex items-center rounded-control px-3 py-3 font-display text-xl font-medium',
                           isActive ? 'text-accent-ink' : 'text-ink',
                         )
                       }
                     >
                       {item.label}
+                      <CountBadge count={item.count ?? 0} />
                     </NavLink>
                   </li>
                 ))}
