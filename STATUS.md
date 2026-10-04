@@ -1,6 +1,6 @@
 # Projektstatus MotoMatch
 
-**Stand: 4. Oktober 2026** · Branch `main`, synchron mit GitHub · letzter Code-Commit `80c1127`
+**Stand: 4. Oktober 2026** · Branch `main`, synchron mit GitHub · letzter Code-Commit `d19e09d`
 
 Diese Datei hält den aktuellen Stand fest. Sie wird zu Beginn jeder Sitzung gelesen und
 nach jedem Meilenstein aktualisiert (siehe `CLAUDE.md`). Alle Angaben stammen aus Code, Daten
@@ -8,26 +8,25 @@ und Git-Historie; was sich daraus nicht belegen lässt, ist als offen markiert.
 
 ## 1. Kurzfazit
 
-MotoMatch läuft als reine Frontend-App ohne Backend (Phase 1): Katalog, Detailseite, Vergleich
-und Match-Wizard sind fertig, und `build`, `test` und `validate:data` laufen grün. Meilenstein 6
-(Feinschliff) ist in Arbeit: Barrierefreiheit und Performance sind geprüft, Rechtliches, ein Teil
-der SEO-Arbeit und das README mit Screenshots fehlen noch. Für Phase 2 (Supabase) gibt es noch
-keinen Code, und die neue Fassung des Master Prompts (`docs/MASTER_PROMPT.md`) liegt noch nicht im
-Repository.
+Phase 1 ist abgeschlossen: Die Meilensteine M0–M6 sind erledigt. MotoMatch läuft als reine
+Frontend-App ohne Backend mit Katalog, Detailseite, Vergleich und Match-Wizard, und `build`, `test`
+und `validate:data` laufen grün. Für den Livegang fehlen noch Domain, echte Angaben im Impressum und
+die Prüfung einzelner Daten. Für Phase 2 (Supabase) gibt es noch keinen Code, und die neue Fassung
+des Master Prompts (`docs/MASTER_PROMPT.md`) liegt noch nicht im Repository.
 
 ## 2. Meilensteine
 
-| Meilenstein       | Status    | Stand                                                                                                                                                                                                      |
-| ----------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| M0 – Setup        | erledigt  | Vite, React, TypeScript, Tailwind, React Router, Motion, ESLint, Prettier und Vitest eingerichtet; Design-Tokens, Layout und Theme-Umschalter; mit GitHub verbunden.                                       |
-| M1 – Datenmodell  | erledigt  | Zod-Schema, 12 Modelle mit 20 Generationen aus belegten Quellen, Logik für Führerausweis, PS und Formatierung mit Tests.                                                                                   |
-| M2 – Katalog      | erledigt  | Suche, Sortierung und alle Filter (inkl. Führerausweis mit «drosselbare einschliessen») in der URL, Karten mit Layout-Animationen, Vergleichsleiste.                                                       |
-| M3 – Detailseite  | erledigt  | Generationen-Umschalter mit «Was ist neu?», Kerndaten mit Count-up, bedingte Extras, Tuning-Gauges, Sound, Profil-Radar, ähnliche Bikes, YouTube ganz unten.                                               |
-| M4 – Vergleich    | erledigt  | 2–3 Bikes mit Generation pro Bike, Bestwerte, Differenz-Chips, «Nur Unterschiede», Radar-Overlay, Teilen-Link; auf dem Handy seitlich wischen mit Einrasten.                                               |
-| M5 – Match-Wizard | erledigt  | Sechs Fragen, getestete Bewertung in `src/lib/match.ts`, 3–5 Treffer mit Match-Prozent und Begründung, Antworten in der URL.                                                                               |
-| M6 – Feinschliff  | in Arbeit | Erledigt: axe-Prüfung ohne Befund, Lighthouse Mobile Performance 91–94, `robots.txt`. Offen: Impressum und Datenschutz, README mit Screenshots, SEO-Rest (Vorschaubild, kanonische URLs), Schluss-Prüfung. |
-| M7                | offen     | Inhalt unbekannt: M7 ist im neuen Master Prompt definiert, der noch nicht im Repository liegt. Laut Hinweis betrifft die neue Fassung Phase 2 mit Supabase.                                                |
-| M8                | offen     | Inhalt unbekannt, aus demselben Grund wie M7.                                                                                                                                                              |
+| Meilenstein       | Status   | Stand                                                                                                                                                                                              |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| M0 – Setup        | erledigt | Vite, React, TypeScript, Tailwind, React Router, Motion, ESLint, Prettier und Vitest eingerichtet; Design-Tokens, Layout und Theme-Umschalter; mit GitHub verbunden.                               |
+| M1 – Datenmodell  | erledigt | Zod-Schema, 12 Modelle mit 20 Generationen aus belegten Quellen, Logik für Führerausweis, PS und Formatierung mit Tests.                                                                           |
+| M2 – Katalog      | erledigt | Suche, Sortierung und alle Filter (inkl. Führerausweis mit «drosselbare einschliessen») in der URL, Karten mit Layout-Animationen, Vergleichsleiste.                                               |
+| M3 – Detailseite  | erledigt | Generationen-Umschalter mit «Was ist neu?», Kerndaten mit Count-up, bedingte Extras, Tuning-Gauges, Sound, Profil-Radar, ähnliche Bikes, YouTube ganz unten.                                       |
+| M4 – Vergleich    | erledigt | 2–3 Bikes mit Generation pro Bike, Bestwerte, Differenz-Chips, «Nur Unterschiede», Radar-Overlay, Teilen-Link; auf dem Handy seitlich wischen mit Einrasten.                                       |
+| M5 – Match-Wizard | erledigt | Sechs Fragen, getestete Bewertung in `src/lib/match.ts`, 3–5 Treffer mit Match-Prozent und Begründung, Antworten in der URL.                                                                       |
+| M6 – Feinschliff  | erledigt | Barrierefreiheit (axe ohne Befund, Tastatur geprüft), Lighthouse Mobile Performance 92–95, SEO über `VITE_SITE_URL`, Vorschaubild, Impressum und Datenschutz als Entwürfe, README mit Screenshots. |
+| M7                | offen    | Inhalt unbekannt: M7 ist im neuen Master Prompt definiert, der noch nicht im Repository liegt. Laut Hinweis betrifft die neue Fassung Phase 2 mit Supabase.                                        |
+| M8                | offen    | Inhalt unbekannt, aus demselben Grund wie M7.                                                                                                                                                      |
 
 ## 3. Daten
 
@@ -92,18 +91,19 @@ Preis mit Stand-Datum, Drosselbarkeit, Wertungen und mindestens eine Quelle.
 ## 4. Aufbau
 
 ```
-public/          favicon.svg, robots.txt
-scripts/         validate-data.ts
+docs/screenshots/  Bilder für das README
+public/            favicon.svg, og-image.png (Vorschaubild beim Teilen)
+scripts/           validate-data.ts (Datenprüfung), seoPlugin.ts (Sitemap, kanonische URLs, robots.txt)
 src/
-  app/           App, Routen (pages.ts), Seitenübergänge, vorladbare Seiten (lazyPage)
-  pages/         eine Datei pro Seite – je ein eigener Chunk
-  components/    ui, layout, bike, catalog, detail, compare, match, charts, home
-  data/          Schema, Konstanten, Prüfung und JSON-Daten
-  hooks/         Daten-, URL- und UI-Hooks
-  lib/           reine Logik mit Tests
-  i18n/          de.ts – alle Texte der Oberfläche
-  styles/        index.css (Tailwind), tokens.css (Design-Tokens)
-  test/          Testdaten (fixtures.ts)
+  app/             App, Routen (pages.ts), Seitenübergänge, vorladbare Seiten (lazyPage)
+  pages/           eine Datei pro Seite – je ein eigener Chunk
+  components/      ui, layout, bike, catalog, detail, compare, match, charts, home
+  data/            Schema, Konstanten, Prüfung und JSON-Daten
+  hooks/           Daten-, URL- und UI-Hooks
+  lib/             reine Logik mit Tests
+  i18n/            de.ts – alle Texte der Oberfläche, auch Impressum und Datenschutz
+  styles/          index.css (Tailwind), tokens.css (Design-Tokens)
+  test/            Testdaten (fixtures.ts)
 ```
 
 **Wichtige Dateien**
@@ -114,13 +114,15 @@ src/
 - `src/lib/compare.ts`, `src/lib/match.ts`, `src/lib/matchAnswers.ts`, `src/lib/catalog.ts` – Logik von Vergleich, Wizard und Katalog
 - `src/lib/motion.ts` – zentrale Animations-Tokens
 - `src/app/pages.ts` – Routentabelle; der Chunk der ersten Seite wird vor dem ersten Rendern geladen
-- `DECISIONS.md` – alle Entscheidungen und Annahmen, `README.md` – Einstieg und Setup
+- `vite.config.ts` mit `scripts/seoPlugin.ts` – SEO-Angaben beim Build, gesteuert über `VITE_SITE_URL`
+- `.env.example` – Vorlage der Umgebungsvariablen (nur Namen, keine Werte)
+- `README.md` – Einstieg, Screenshots, Anleitung «Neues Bike hinzufügen»; `DECISIONS.md` – alle Entscheidungen
 
 **npm-Skripte**
 
 | Skript                  | Zweck                            | Stand 4.10.2026                               |
 | ----------------------- | -------------------------------- | --------------------------------------------- |
-| `npm run dev`           | Entwicklungsserver               | läuft                                         |
+| `npm run dev`           | Entwicklungsserver               | läuft, ohne Konsolenfehler                    |
 | `npm run build`         | Typprüfung und Produktions-Build | grün                                          |
 | `npm run preview`       | Produktions-Build lokal ansehen  | läuft                                         |
 | `npm test`              | Unit-Tests (Vitest)              | grün – 15 Testdateien, 135 Tests              |
@@ -136,9 +138,11 @@ mitgebündelt (`import.meta.glob`). Die Hooks in `src/hooks/useBikeData.ts` kaps
 die Seiten stecken bereits in Suspense-Grenzen. Für eine asynchrone Quelle müssen vor allem diese
 beiden Dateien angepasst werden.
 
-**Grösse (Produktions-Build):** Haupt-Bundle 95 kB gzip (inkl. React, Router und Daten), Motion 54 kB
-gzip, CSS 12 kB gzip, jede Seite 0.4–10 kB gzip. Lighthouse Mobile (lokal auf `npm run preview`,
-5 Seiten): Performance 91–94, Barrierefreiheit, Best Practices und SEO je 100.
+**Qualität (zum Abschluss von M6):** Haupt-Bundle 141 kB gzip (inkl. React, Router, Motion und
+Daten), CSS 12 kB gzip, jede Seite 0.4–10 kB gzip. Lighthouse Mobile auf `npm run preview`
+(7 Seiten): Performance 92–95, Barrierefreiheit, Best Practices und SEO je 100. axe-core
+(WCAG 2.2 AA): keine Befunde auf 16 Seiten in 360/768/1280 px, dunkel und hell. Tastatur: alle
+Fokuszustände sichtbar.
 
 ## 5. Abweichungen vom Master Prompt
 
@@ -160,6 +164,7 @@ ausführlich in `DECISIONS.md`.
 | Vergleich                 | «Bike hinzufügen» über der Beschriftungsspalte statt als leere Spalte                     | Kein leerer Tabellenbereich, besonders auf dem Handy.                                            |
 | Match-Wizard              | mit A1 nur 2 Treffer statt 3–5                                                            | Im Datensatz sind nur 2 A1-Bikes; Bikes, die man nicht fahren darf, werden nie vorgeschlagen.    |
 | Animationen               | Ring-Gauges animieren `pathLength`; beim ersten Laden keine Einblendung der Seite         | Ein Ring lässt sich nicht anders füllen; die erste Seite soll sofort sichtbar sein (LCP).        |
+| SEO                       | Kanonische URLs, absolutes Vorschaubild und Sitemap nur mit `VITE_SITE_URL`               | Die Domain steht noch nicht fest; Open Graph und Sitemaps verlangen absolute Adressen.           |
 
 ## 6. Bekannte Probleme und offene Fragen
 
@@ -170,47 +175,48 @@ ausführlich in `DECISIONS.md`.
 - 6 von 20 Generationen sind als `needsVerification` markiert (Gründe in `DECISIONS.md`, M1).
 - Führerausweis-Grenzwerte müssen vor dem Livegang gegen die Angaben der Strassenverkehrsämter
   geprüft werden; zwei Rechtsfragen sind offen (Details in `DECISIONS.md`, «Offen»).
-- Impressum und Datenschutz sind Platzhalter.
+- Impressum und Datenschutz sind Entwürfe: Betreiber, Adresse, E-Mail, Hosting-Anbieter und
+  Aufbewahrungsdauer fehlen noch (Platzhalter in eckigen Klammern); beide Texte vor dem Livegang
+  von einer Fachperson prüfen lassen.
 - Top Speed und 0–100 km/h fehlen bei den meisten Bikes und erscheinen als «k. A.».
 - Mit A1 schlägt der Match-Wizard nur 2 Bikes vor (zu wenige A1-Modelle im Datensatz).
 - Beim Ducati Monster 2026 ist das Gewicht ohne Kraftstoff angegeben und wird trotzdem verglichen
   (Hinweis in der Zelle).
 - Im Vergleich steht eine ältere Generation nur in der URL; die Vergleichsleiste merkt sich nur das Modell.
-- Keine Domain festgelegt: Es fehlen kanonische URLs, ein Vorschaubild für Open Graph und eine
-  Sitemap. Beim Hosting braucht die Single-Page-App eine Fallback-Regel auf `index.html`.
-- Keine CI (kein `.github`-Ordner). Die Prüfskripte für axe, Lighthouse und Screenshots lagen
-  nur im temporären Arbeitsordner der Sitzung und sind nicht im Repository.
-- Lighthouse wurde lokal gemessen; die Vergleichsseite liegt mit 91 knapp über dem Ziel von 90.
+- Ohne `VITE_SITE_URL` enthält der Build keine kanonischen URLs, kein Vorschaubild für Open Graph und
+  keine Sitemap. Beim Hosting braucht die Single-Page-App eine Weiterleitung aller Pfade auf
+  `index.html`.
+- Keine CI (kein `.github`-Ordner). Die Prüfskripte für axe, Lighthouse, Tastatur und Screenshots
+  liegen nur im temporären Arbeitsordner der Sitzung und nicht im Repository.
+- Keine Lizenzdatei: Ohne Lizenz darf niemand den öffentlichen Code weiterverwenden.
 
 **Offene Fragen an dich**
 
 1. Kannst du den neuen Master Prompt als `docs/MASTER_PROMPT.md` ablegen? Danach ergänze ich M7, M8
    und die Abweichungen zu Phase 2.
-2. Unter welcher Domain und bei welchem Hosting soll MotoMatch laufen (für kanonische URLs,
-   Vorschaubild und Fallback-Regel)?
+2. Unter welcher Domain und bei welchem Hosting soll MotoMatch laufen?
 3. Welche Angaben sollen ins Impressum? Achtung: Sie werden im öffentlichen Repository und auf der
    Website sichtbar.
-4. Soll M6 abgeschlossen werden, bevor Phase 2 beginnt?
-5. Sollen die Prüfskripte (axe, Lighthouse) ins Repository und als CI auf GitHub laufen?
-6. Sollen weitere Bikes recherchiert werden, vor allem für A1 und A beschränkt?
+4. Sollen die Prüfskripte (axe, Lighthouse) ins Repository und als CI auf GitHub laufen?
+5. Sollen weitere Bikes recherchiert werden, vor allem für A1 und A beschränkt?
+6. Soll das Repository eine Lizenz bekommen, und wenn ja, welche?
 
 ## 7. Supabase
 
 **noch nichts** – kein Schema, kein Seed-Skript, keine Repository-Schicht, kein Supabase-Paket in
-`package.json`. Der Code liest keine Umgebungsvariablen (`import.meta.env` wird nicht verwendet),
-und es gibt keine `.env`-Dateien. `.gitignore` schliesst `.env` und `.env.*` aus (erlaubt nur eine
-künftige `.env.example`).
+`package.json`.
+
+Umgebungsvariablen: bisher nur `VITE_SITE_URL` (optional, öffentliche Adresse für die SEO-Angaben),
+beschrieben in `.env.example`. Es gibt keine `.env`-Dateien im Repository; `.gitignore` schliesst
+`.env` und `.env.*` aus (ausser `.env.example`).
 
 ## 8. Nächste Schritte
 
 1. `docs/MASTER_PROMPT.md` ins Repository legen; danach `STATUS.md` und `CLAUDE.md` an M7/M8 anpassen.
-2. M6 abschliessen: Impressum und Datenschutz (Text mit Platzhaltern), README mit Screenshots und
-   der Anleitung «Neues Bike hinzufügen», Entscheidungen zu M6, Schluss-Prüfung bei 360, 768 und
-   1280 px inkl. reduzierter Bewegung, Push.
-3. SEO-Rest, sobald die Domain feststeht: kanonische URLs, Vorschaubild, Sitemap, Fallback-Regel
-   beim Hosting.
-4. Daten pflegen: `needsVerification` klären, Preise aktualisieren, Grenzwerte prüfen, eventuell
-   weitere A1- und A35-Bikes.
-5. Phase 2 nach dem neuen Master Prompt. Aus Sicht des Codes beginnt die Umstellung bei der
+2. Phase 2 nach dem neuen Master Prompt. Aus Sicht des Codes beginnt die Umstellung bei der
    Datenschicht (`src/lib/data.ts`, `src/hooks/useBikeData.ts`); die Reihenfolge der Schritte
    (Schema, Seed-Skript, Repository-Schicht) richtet sich nach M7 und M8.
+3. Vor dem Livegang (Liste «Offen» in `DECISIONS.md`): Domain festlegen und `VITE_SITE_URL` setzen,
+   Weiterleitung beim Hosting, Impressum und Datenschutz ergänzen und prüfen lassen,
+   `needsVerification` klären, Führerausweis-Grenzwerte prüfen, Preise aktualisieren.
+4. Optional: Prüfskripte und CI ins Repository, weitere A1- und A35-Bikes, Lizenz.
