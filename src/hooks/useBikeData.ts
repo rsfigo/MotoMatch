@@ -17,7 +17,7 @@ import {
 } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import type { Feature, Manufacturer, Model } from '@/data/schema';
-import { modelFullName, sortByFullName } from '@/lib/data';
+import { modelFullName, sortByFullName } from '@/lib/names';
 import { bikeQueries } from '@/lib/queries';
 
 /** Alle Modelle, alphabetisch nach vollem Namen. */

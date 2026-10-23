@@ -1,4 +1,5 @@
-import { de } from './de';
+// Relativer Import mit .ts-Endung: Die Texte braucht auch der Build (scripts/seoPlugin.ts).
+import { de } from './de.ts';
 
 /**
  * Aktive Sprache. Heute gibt es nur Deutsch (Schweiz).

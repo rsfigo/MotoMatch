@@ -29,19 +29,3 @@ export async function getManufacturers(): Promise<Manufacturer[]> {
 export async function getFeatures(): Promise<Feature[]> {
   return (await getRepository()).listFeatures();
 }
-
-/** Voller Name, z. B. «Yamaha MT-07». */
-export function modelFullName(model: Model, manufacturers: readonly Manufacturer[]): string {
-  const manufacturer = manufacturers.find((item) => item.id === model.manufacturerId);
-  return manufacturer ? `${manufacturer.name} ${model.name}` : model.name;
-}
-
-/** Modelle alphabetisch nach vollem Namen. */
-export function sortByFullName(
-  models: readonly Model[],
-  manufacturers: readonly Manufacturer[],
-): Model[] {
-  return [...models].sort((a, b) =>
-    modelFullName(a, manufacturers).localeCompare(modelFullName(b, manufacturers), 'de-CH'),
-  );
-}

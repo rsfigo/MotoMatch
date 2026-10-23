@@ -1,9 +1,10 @@
 /**
  * Hilfsfunktionen rund um Generationen (alle Baujahre, in denen ein Modell technisch gleich ist).
  * Generationen sind in den Daten chronologisch sortiert: die älteste zuerst.
+ * Läuft auch beim Build (scripts/seoPlugin.ts) – deshalb relative Importe mit .ts-Endung.
  */
-import type { Generation, Model } from '@/data/schema';
-import { formatYearRange } from './format';
+import type { Generation, Model } from '../data/schema.ts';
+import { formatYearRange } from './format.ts';
 
 /** Neueste Generation eines Modells (die letzte in der Liste). */
 export function latestGeneration(model: Model): Generation {

@@ -7,8 +7,9 @@
  * - Zwischen Zahl und Einheit steht ein geschütztes Leerzeichen (kein Zeilenumbruch).
  *
  * Bewusst ohne Intl.NumberFormat: So ist das Ergebnis in jedem Browser gleich und testbar.
+ * Läuft auch beim Build (scripts/seoPlugin.ts) – deshalb relative Importe mit .ts-Endung.
  */
-import { kwToPs } from './units';
+import { kwToPs } from './units.ts';
 
 /** Geschütztes Leerzeichen zwischen Zahl und Einheit. */
 export const NBSP = '\u00A0';

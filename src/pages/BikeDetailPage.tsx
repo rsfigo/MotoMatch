@@ -21,8 +21,8 @@ import {
 } from '@/hooks/useBikeData';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { t } from '@/i18n';
-import { formatChf, formatPs, formatTorque } from '@/lib/format';
-import { findGeneration, generationYears, latestGeneration } from '@/lib/generations';
+import { findGeneration, latestGeneration } from '@/lib/generations';
+import { bikePageMeta } from '@/lib/pageMeta';
 
 /** URL-Parameter für die gewählte Generation, z. B. /bikes/yamaha-mt-07?generation=yamaha-mt-07-2021 */
 const GENERATION_PARAM = 'generation';
@@ -52,16 +52,8 @@ export default function BikeDetailPage() {
 
   usePageMeta(
     model && generation
-      ? {
-          title: `${fullName} (${generationYears(generation)})`,
-          description: [
-            model.tagline,
-            `${formatPs(generation.engine.powerKw)}, ${formatTorque(generation.engine.torqueNm)}, ${formatChf(generation.price.chf)}.`,
-          ]
-            .filter(Boolean)
-            .join(' '),
-        }
-      : { title: t.detail.notFoundTitle },
+      ? bikePageMeta(fullName, model, generation)
+      : { title: t.detail.notFoundTitle, noindex: true },
   );
 
   if (!model || !generation) return <NotFound />;

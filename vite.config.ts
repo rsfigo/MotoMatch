@@ -38,7 +38,6 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
       seoPlugin({
         siteUrl: VITE_SITE_URL,
-        modelsDir: fileURLToPath(new URL('./src/data/models', import.meta.url)),
         imageAlt: 'MotoMatch – Motorräder für die Schweiz vergleichen',
       }),
       preloadDataPlugin({
@@ -50,8 +49,8 @@ export default defineConfig(({ mode }) => {
       alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
     },
     test: {
-      // Getestet wird nur reine Logik (src/lib, src/data) – dafür reicht die Node-Umgebung.
-      include: ['src/**/*.test.ts'],
+      // Getestet wird nur reine Logik (src/lib, src/data, scripts/lib) – dafür reicht Node.
+      include: ['src/**/*.test.ts', 'scripts/**/*.test.ts'],
       environment: 'node',
     },
   };

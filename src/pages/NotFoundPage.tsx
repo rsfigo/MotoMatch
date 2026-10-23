@@ -5,7 +5,7 @@ import { usePageMeta } from '@/hooks/usePageMeta';
 import { t } from '@/i18n';
 
 export default function NotFoundPage() {
-  usePageMeta({ title: t.notFound.title });
+  usePageMeta({ title: t.notFound.title, noindex: true });
   return (
     <Container className="py-16 sm:py-24">
       <PageHeader eyebrow="404" title={t.notFound.title} lead={t.notFound.text} />

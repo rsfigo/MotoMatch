@@ -10,8 +10,8 @@ import type { Manufacturer, Model } from '@/data/schema';
 import { t } from '@/i18n';
 import { compareUrl, MAX_COMPARE, MIN_COMPARE } from '@/lib/compareSelection';
 import { compareStore } from '@/lib/compareStore';
-import { modelFullName } from '@/lib/data';
 import { duration, ease, spring } from '@/lib/motion';
+import { modelFullName } from '@/lib/names';
 
 /** Feder für den Flug des Mini-Bilds von der Karte in die Leiste. */
 const FLY = { type: 'spring', stiffness: 170, damping: 22, mass: 0.9 } as const;

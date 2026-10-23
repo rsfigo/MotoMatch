@@ -1,23 +1,69 @@
 /**
  * SEO beim Build
  * --------------
- * Ist die Umgebungsvariable VITE_SITE_URL gesetzt (öffentliche Adresse ohne «/» am Ende),
- * ergänzt dieses Vite-Plugin beim Build:
- * - in index.html die kanonische URL, og:url und das Vorschaubild mit absoluter Adresse,
- * - eine sitemap.xml mit allen Seiten und Bikes,
- * - in robots.txt den Verweis auf die Sitemap.
+ * - Prerendering der Kopfdaten: Aus der fertigen index.html entsteht für jede Seite ohne
+ *   Parameter und für jedes Bike eine eigene HTML-Datei mit Titel, Beschreibung und
+ *   Open-Graph-Angaben (z. B. dist/bikes/yamaha-mt-07.html). Suchmaschinen und Vorschauen
+ *   beim Teilen sehen so die richtigen Angaben, auch ohne JavaScript. Den Inhalt baut weiterhin
+ *   React im Browser (Entscheid in DECISIONS.md, M8).
+ * - robots.txt.
+ * - Nur mit VITE_SITE_URL (öffentliche Adresse ohne «/» am Ende): kanonische URLs, og:url,
+ *   Vorschaubild mit absoluter Adresse und sitemap.xml. Open Graph und Sitemaps verlangen
+ *   absolute Adressen, und die Domain steht noch nicht fest.
  *
- * Ohne VITE_SITE_URL fallen diese Angaben weg: Open Graph und Sitemaps verlangen absolute
- * Adressen, und die Domain steht noch nicht fest. robots.txt entsteht immer.
+ * Die Bikes stammen aus den JSON-Dateien in src/data, geprüft wie mit validate:data. Titel und
+ * Beschreibungen kommen aus src/lib/pageMeta.ts – dieselben, die die App im Browser setzt.
  */
-import { readdirSync } from 'node:fs';
 import type { HtmlTagDescriptor, Plugin } from 'vite';
-
-/** Seiten ohne Parameter (Bikes kommen aus src/data/models). */
-const STATIC_PATHS = ['/', '/bikes', '/compare', '/match', '/impressum', '/datenschutz'];
+import { validateDataset, type ValidDataset } from '../src/data/validateDataset.ts';
+import { latestGeneration } from '../src/lib/generations.ts';
+import { modelFullName } from '../src/lib/names.ts';
+import {
+  bikePageMeta,
+  pageDescription,
+  pageTitle,
+  STATIC_PAGES,
+  type PageMeta,
+} from '../src/lib/pageMeta.ts';
+import { readRawDataset } from './lib/dataset.ts';
+import { applyPageMeta } from './lib/pageHtml.ts';
 
 /** Vorschaubild in public/ (1200 × 630 px). */
 const OG_IMAGE = { path: '/og-image.png', width: 1200, height: 630 };
+
+interface Page {
+  path: string;
+  meta: PageMeta;
+}
+
+function loadDataset(): ValidDataset {
+  const { errors, data } = validateDataset(readRawDataset());
+  if (!data || errors.length > 0) {
+    throw new Error(
+      `Ungültige Bike-Daten (Details: npm run validate:data):\n- ${errors.join('\n- ')}`,
+    );
+  }
+  return data;
+}
+
+/** Alle Seiten ohne Parameter: die festen Seiten und pro Modell die Detailseite. */
+function allPages(data: ValidDataset): Page[] {
+  const bikePages = data.models
+    .map((model) => ({
+      path: `/bikes/${model.id}`,
+      meta: bikePageMeta(modelFullName(model, data.manufacturers), model, latestGeneration(model)),
+    }))
+    .sort((a, b) => a.path.localeCompare(b.path));
+  return [...STATIC_PAGES, ...bikePages];
+}
+
+/**
+ * Datei, die der Server für einen Pfad ausliefert: «/bikes» → bikes.html,
+ * «/bikes/yamaha-mt-07» → bikes/yamaha-mt-07.html (Adressen ohne «/» am Ende).
+ */
+function htmlFileFor(path: string): string {
+  return path === '/' ? 'index.html' : `${path.slice(1)}.html`;
+}
 
 function sitemap(base: string, paths: readonly string[]): string {
   const urls = paths.map((path) => `  <url><loc>${base}${path}</loc></url>`).join('\n');
@@ -30,11 +76,9 @@ ${urls}
 
 export function seoPlugin({
   siteUrl,
-  modelsDir,
   imageAlt,
 }: {
   siteUrl: string | undefined;
-  modelsDir: string;
   imageAlt: string;
 }): Plugin {
   const base = siteUrl?.trim().replace(/\/+$/, '') || undefined;
@@ -60,21 +104,43 @@ export function seoPlugin({
       ];
     },
 
-    generateBundle() {
-      const robots = ['User-agent: *', 'Allow: /'];
-      if (base) {
-        const bikePaths = readdirSync(modelsDir)
-          .filter((file) => file.endsWith('.json'))
-          .map((file) => `/bikes/${file.slice(0, -'.json'.length)}`)
-          .sort();
-        this.emitFile({
-          type: 'asset',
-          fileName: 'sitemap.xml',
-          source: sitemap(base, [...STATIC_PATHS, ...bikePaths]),
-        });
-        robots.push('', `Sitemap: ${base}/sitemap.xml`);
-      }
-      this.emitFile({ type: 'asset', fileName: 'robots.txt', source: `${robots.join('\n')}\n` });
+    generateBundle: {
+      // Nach den übrigen Plugins: Erst dann liegt die fertige index.html im Bundle.
+      order: 'post',
+      handler(_options, bundle) {
+        const template = bundle['index.html'];
+        if (template?.type !== 'asset' || typeof template.source !== 'string') {
+          this.error('index.html fehlt im Build – die Seiten lassen sich nicht vorbereiten.');
+        }
+
+        const pages = allPages(loadDataset());
+        for (const page of pages) {
+          if (page.path === '/') continue; // Die Startseite ist index.html selbst
+          this.emitFile({
+            type: 'asset',
+            fileName: htmlFileFor(page.path),
+            source: applyPageMeta(template.source, {
+              title: pageTitle(page.meta),
+              description: pageDescription(page.meta),
+              url: base && `${base}${page.path}`,
+            }),
+          });
+        }
+
+        const robots = ['User-agent: *', 'Allow: /'];
+        if (base) {
+          this.emitFile({
+            type: 'asset',
+            fileName: 'sitemap.xml',
+            source: sitemap(
+              base,
+              pages.map((page) => page.path),
+            ),
+          });
+          robots.push('', `Sitemap: ${base}/sitemap.xml`);
+        }
+        this.emitFile({ type: 'asset', fileName: 'robots.txt', source: `${robots.join('\n')}\n` });
+      },
     },
   };
 }
