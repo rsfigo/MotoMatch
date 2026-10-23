@@ -1,0 +1,23 @@
+// Cloudflare: Workers mit statischen Dateien, ohne eigenen Worker-Code.
+// Workers Builds baut bei jedem Push auf main mit «npm run build» und veröffentlicht mit
+// «npx wrangler deploy». Einrichtung Schritt für Schritt im README («Veröffentlichen»).
+// Doku: https://developers.cloudflare.com/workers/static-assets/
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Muss mit dem Namen des Workers im Cloudflare-Dashboard übereinstimmen
+  "name": "motomatch",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    // Unbekannte Pfade liefern index.html aus (Single-Page-App); die App zeigt dann
+    // «Seite nicht gefunden» mit noindex (siehe DECISIONS.md, M8)
+    "not_found_handling": "single-page-application",
+    // dist/bikes.html erscheint unter /bikes, dist/bikes/<id>.html unter /bikes/<id>
+    // (Prerendering der Kopfdaten, scripts/seoPlugin.ts); /bikes/ leitet auf /bikes um
+    "html_handling": "auto-trailing-slash",
+  },
+  // Keine Worker-Logs: Es gibt keinen Worker-Code, und so fallen keine Protokolle an
+  "observability": { "enabled": false },
+  // Wrangler schickt keine Nutzungsstatistik an Cloudflare
+  "send_metrics": false,
+}

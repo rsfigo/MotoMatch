@@ -4,6 +4,8 @@ dist
 dist-ssr
 coverage
 *.tsbuildinfo
+# Zwischenstand von wrangler dev (lokale Cloudflare-Vorschau)
+.wrangler/
 
 # Umgebungsvariablen und Geheimnisse – nie committen
 .env
