@@ -5,8 +5,8 @@ Leistung, Gewicht, Sitzhöhe, Preis in CHF, Führerausweis-Kategorie und Ausstat
 Ein Fragebogen schlägt passende Modelle vor.
 
 > **Stand:** Phase 1 (Meilensteine M0–M6) ist fertig: eine reine Frontend-App mit Daten als
-> JSON-Dateien. Als Nächstes folgt Phase 2 mit Supabase. Den genauen Stand hält
-> [STATUS.md](STATUS.md) fest.
+> JSON-Dateien. Phase 2 ist vorbereitet – Datenbank mit Supabase (M7) und Veröffentlichung bei
+> Cloudflare (M8); es fehlen noch die Konten. Den genauen Stand hält [STATUS.md](STATUS.md) fest.
 
 ## Screenshots
 
@@ -45,6 +45,8 @@ Die Motorrad-Grafiken sind generische Silhouetten – keine Herstellerfotos, kei
 - **Qualität** – dunkles und helles Design, Animationen mit Motion (bei «Bewegung reduzieren» nur
   Überblendungen), Barrierefreiheit automatisch mit axe-core geprüft (WCAG 2.2 AA), Lighthouse Mobile ≥ 90,
   YouTube-Videos werden erst nach einem Klick geladen.
+- **Bereit fürs Netz** – jede Seite und jedes Bike mit eigenem Titel und eigener Vorschau beim Teilen
+  (auch ohne JavaScript), Sitemap, Sicherheits-Header mit Content Security Policy.
 
 ## Schnellstart
 
@@ -61,19 +63,20 @@ Danach läuft die Seite auf <http://localhost:5173>.
 
 ## Skripte
 
-| Befehl                  | Zweck                                                                         |
-| ----------------------- | ----------------------------------------------------------------------------- |
-| `npm run dev`           | Entwicklungsserver mit Hot Reload                                             |
-| `npm run build`         | Typprüfung und Produktions-Build nach `dist/`                                 |
-| `npm run preview`       | Produktions-Build lokal ansehen                                               |
-| `npm test`              | Unit-Tests (Vitest), `npm run test:watch` im Watch-Modus                      |
-| `npm run validate:data` | Prüft alle Bike-Daten (JSON) mit Zod                                          |
-| `npm run seed`          | Schreibt die JSON-Daten nach Supabase (`npm run seed -- --dry-run` prüft nur) |
-| `npm run check:rls`     | Prüft, dass man mit dem öffentlichen Schlüssel nur lesen kann                 |
-| `npm run export:data`   | Schreibt die Daten aus Supabase zurück in die JSON-Dateien (Backup)           |
-| `npm run lint`          | ESLint                                                                        |
-| `npm run typecheck`     | TypeScript-Prüfung ohne Build                                                 |
-| `npm run format`        | Code mit Prettier formatieren (`format:check` prüft nur)                      |
+| Befehl                       | Zweck                                                                         |
+| ---------------------------- | ----------------------------------------------------------------------------- |
+| `npm run dev`                | Entwicklungsserver mit Hot Reload                                             |
+| `npm run build`              | Typprüfung und Produktions-Build nach `dist/`                                 |
+| `npm run preview`            | Produktions-Build lokal ansehen                                               |
+| `npm run preview:cloudflare` | Baut und zeigt die Seite so, wie Cloudflare sie ausliefert (`wrangler dev`)   |
+| `npm test`                   | Unit-Tests (Vitest), `npm run test:watch` im Watch-Modus                      |
+| `npm run validate:data`      | Prüft alle Bike-Daten (JSON) mit Zod                                          |
+| `npm run seed`               | Schreibt die JSON-Daten nach Supabase (`npm run seed -- --dry-run` prüft nur) |
+| `npm run check:rls`          | Prüft, dass man mit dem öffentlichen Schlüssel nur lesen kann                 |
+| `npm run export:data`        | Schreibt die Daten aus Supabase zurück in die JSON-Dateien (Backup)           |
+| `npm run lint`               | ESLint                                                                        |
+| `npm run typecheck`          | TypeScript-Prüfung ohne Build                                                 |
+| `npm run format`             | Code mit Prettier formatieren (`format:check` prüft nur)                      |
 
 ## Tech-Stack
 
@@ -88,14 +91,18 @@ Danach läuft die Seite auf <http://localhost:5173>.
   JSON-Modus nicht im Browser-Bundle)
 - **Vitest** für die Logik, **ESLint** und **Prettier**
 - Schriften **Inter** und **Space Grotesk**, selbst gehostet über Fontsource
+- **Cloudflare Workers** (statische Dateien) als Hosting, veröffentlicht mit **Wrangler** bei
+  jedem Push auf `main`
 
 ## Projektstruktur
 
 ```
 docs/                   MASTER_PROMPT.md (Anforderungen), screenshots/ (Bilder für dieses README)
 public/                 favicon.svg, og-image.png (Vorschaubild beim Teilen)
-scripts/                validate-data, seed, check-rls, export-data, seoPlugin (Sitemap, kanonische URLs)
+scripts/                validate-data, seed, check-rls, export-data; Build-Plugins: seoPlugin
+                        (Kopfdaten pro Seite, Sitemap), headersPlugin (Sicherheits-Header)
 supabase/migrations/    Datenbankschema als SQL (Tabellen, Indizes, Row Level Security)
+wrangler.jsonc          Hosting bei Cloudflare (statische Dateien, Single-Page-App)
 src/
   app/                  App, Routen (pages.ts), Seitenübergänge, Lade- und Fehlerzustände
   pages/                eine Datei pro Seite (eigener Chunk)
@@ -139,9 +146,11 @@ Die Komponenten merken davon nichts: Beide Quellen erfüllen dasselbe Interface 
 
 ### Einrichten (einmalig)
 
-1. Auf [supabase.com](https://supabase.com) ein Konto und ein Projekt anlegen. Region: «Central
-   Europe (Zurich)», sonst «Central EU (Frankfurt)». Das Datenbank-Passwort im Passwort-Manager
-   ablegen – MotoMatch braucht es nicht.
+1. Auf [supabase.com](https://supabase.com) ein Konto und ein Projekt anlegen. Region: ausdrücklich
+   «Central Europe (Zurich)» wählen – nicht die allgemeine Region «Europe», die auch in London landen
+   kann –, sonst «Central EU (Frankfurt)». Das Datenbank-Passwort im Passwort-Manager ablegen –
+   MotoMatch braucht es nicht. Die gewählte Region gehört danach in die Datenschutzerklärung
+   (Platzhalter `[REGION DER DATENBANK]` in `src/i18n/de.ts`).
 2. Im Dashboard den **SQL Editor** öffnen, den Inhalt von
    `supabase/migrations/20261004120000_initial_schema.sql` einfügen und ausführen (oder mit der
    Supabase-CLI `supabase db push`).
@@ -233,14 +242,86 @@ Browser-Konsole nennt den Fehler.
 
 ## Veröffentlichen
 
-`npm run build` erzeugt statische Dateien in `dist/`, die auf jedem Webhosting laufen.
+MotoMatch läuft bei Cloudflare als Worker mit statischen Dateien – ohne eigenen Server-Code. Jeder
+Push auf `main` baut die Seite neu (`npm run build`) und veröffentlicht sie (`npx wrangler deploy`).
+Die Einstellungen stehen in [wrangler.jsonc](wrangler.jsonc), die Gründe in
+[DECISIONS.md](DECISIONS.md) (M8).
 
-- **Domain:** Mit der Umgebungsvariable `VITE_SITE_URL` (siehe [.env.example](.env.example)) ergänzt
-  der Build kanonische URLs, das Vorschaubild für Open Graph und eine `sitemap.xml`.
-- **Daten aus Supabase:** Beim Hoster `VITE_DATA_SOURCE=supabase`, `VITE_SUPABASE_URL` und
-  `VITE_SUPABASE_PUBLISHABLE_KEY` eintragen – nie `SUPABASE_SECRET_KEY`.
-- **Weiterleitung:** MotoMatch ist eine Single-Page-App. Der Server muss alle unbekannten Pfade auf
-  `index.html` umleiten (z. B. Netlify `/*  /index.html  200`, nginx `try_files $uri /index.html;`).
+Der Build erzeugt dafür zusätzlich:
+
+- pro Seite und pro Bike eine HTML-Datei mit eigenem Titel und eigener Beschreibung (z. B.
+  `dist/bikes/yamaha-mt-07.html`) – so sehen Suchmaschinen und Vorschauen beim Teilen die richtigen
+  Angaben auch ohne JavaScript;
+- `dist/_headers` mit Sicherheits-Headern (Content Security Policy) und langen Cache-Zeiten für
+  `dist/assets/`;
+- `robots.txt` und – sobald `VITE_SITE_URL` gesetzt ist – `sitemap.xml`, kanonische URLs und das
+  Vorschaubild mit absoluter Adresse.
+
+Unbekannte Pfade beantwortet Cloudflare mit der App selbst (Single-Page-App); sie zeigt dann «Seite
+nicht gefunden». Lokal so ansehen, wie Cloudflare ausliefert: `npm run preview:cloudflare` (baut und
+startet `wrangler dev` auf <http://localhost:8787>).
+
+### Bei Cloudflare einrichten (einmalig)
+
+1. Auf [cloudflare.com](https://www.cloudflare.com) ein Konto anlegen (Free-Plan genügt).
+2. Im Dashboard **Workers & Pages → Create application** wählen, GitHub verbinden, der App
+   «Cloudflare Workers & Pages» Zugriff auf das Repository `MotoMatch` geben und es auswählen.
+3. Einstellungen: Name **`motomatch`** (genau wie `name` in `wrangler.jsonc`, sonst scheitert der
+   Build), Build command `npm run build`, Deploy command `npx wrangler deploy` (Vorgabe), Branch
+   `main`. Die Node-Version liest Cloudflare aus `.nvmrc`.
+4. Unter **Settings → Build → Build variables and secrets** eintragen – nicht unter «Variables and
+   Secrets»: Die gelten erst zur Laufzeit, Vite braucht die Werte aber beim Build.
+   - `VITE_DATA_SOURCE` = `supabase`
+   - `VITE_SUPABASE_URL` = die Projekt-URL
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` = der öffentliche Schlüssel
+   - `VITE_SITE_URL` = `https://motomatch.ch` (erst, wenn die Domain verbunden ist)
+   - `VITE_OPERATOR_NAME`, `VITE_OPERATOR_ADDRESS` (Postadresse, kein Postfach),
+     `VITE_OPERATOR_EMAIL` – die Angaben für Impressum und Datenschutzerklärung. Sie erscheinen
+     öffentlich auf der Seite, stehen aber bewusst nicht im Repository.
+
+   `SUPABASE_SECRET_KEY` gehört nie zum Hoster.
+
+5. **Save and Deploy**. Danach ist die Seite unter `motomatch.<dein-konto>.workers.dev` erreichbar;
+   jeder weitere Push auf `main` veröffentlicht automatisch.
+
+### Eigene Domain verbinden
+
+1. Domain kaufen – vorher prüfen, ob sie frei ist, und im Markenregister
+   ([Swissreg](https://www.swissreg.ch)) nach «MotoMatch» suchen.
+2. In Cloudflare die Domain hinzufügen (**Onboard a domain**), `motomatch.ch` eingeben, Free-Plan wählen.
+   Die importierten DNS-Einträge prüfen; Einträge eines bisherigen Hosters für `motomatch.ch` und
+   `www` löschen.
+3. Beim Registrar DNSSEC ausschalten, falls es aktiv ist, dann die zwei Nameserver von Cloudflare
+   genau so eintragen. Die Umstellung dauert bis zu 24 Stunden; danach zeigt Cloudflare «Active».
+4. Worker **motomatch → Settings → Domains & Routes → Add → Custom Domain** → `motomatch.ch`.
+   Cloudflare legt DNS-Eintrag und Zertifikat selbst an.
+5. `www` auf die Hauptdomain umleiten: unter **DNS** einen Eintrag `AAAA` mit Name `www`, Inhalt
+   `100::` und eingeschaltetem Proxy anlegen; unter **Rules → Redirect Rules** die Vorlage «Redirect
+   from WWW to root» wählen – oder von Hand: Wildcard `https://www.*` → `https://${1}`, Status 301,
+   Query-String behalten.
+6. **SSL/TLS → Edge Certificates:** «Always Use HTTPS» einschalten. HSTS erst, wenn
+   `https://motomatch.ch` und `https://www.motomatch.ch` funktionieren – und ohne Preload.
+7. «Bot Fight Mode» (unter **Security**) und **Web Analytics** ausgeschaltet lassen. Sonst kommen ein
+   Cookie bzw. eine Besucherstatistik dazu, die in der Datenschutzerklärung fehlen.
+8. DNSSEC wieder einschalten: in Cloudflare unter **DNS → Settings** aktivieren und den angezeigten
+   DS-Eintrag beim Registrar hinterlegen.
+9. Die Build-Variable `VITE_SITE_URL` = `https://motomatch.ch` setzen und neu veröffentlichen (ein
+   Push auf `main` genügt). Erst dann enthält der Build Sitemap und kanonische URLs.
+
+### Bei Google anmelden (Search Console)
+
+1. In der [Google Search Console](https://search.google.com/search-console) **Property hinzufügen →
+   Domain** wählen und nur `motomatch.ch` eingeben (ohne `https://`, ohne `www`). Eine
+   Domain-Property deckt `https`, `http`, `www` und alle Subdomains ab.
+2. Bestätigen per DNS: Bietet Google Cloudflare zur automatischen Bestätigung an («Start
+   verification»), diesen Weg nehmen. Sonst «Any DNS provider» wählen, in Cloudflare unter **DNS**
+   einen `TXT`-Eintrag mit Name `@` und dem Text von Google anlegen und **Verify** klicken. Das kann
+   bis zu zwei, drei Tage dauern. Den Eintrag danach stehen lassen.
+3. Unter **Sitemaps** `https://motomatch.ch/sitemap.xml` eintragen und senden. Der Status sollte
+   «Success» zeigen. (Google findet die Sitemap auch über `robots.txt`.)
+4. Mit der **URL-Prüfung** oben im Suchfeld z. B. `https://motomatch.ch/bikes/yamaha-mt-07` testen
+   («Test live URL») und bei Bedarf «Request indexing» wählen. Google garantiert keine Aufnahme; es
+   gibt ein Tageskontingent.
 
 ## Hinweise
 
