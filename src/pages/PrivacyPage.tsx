@@ -3,8 +3,9 @@ import { usePageMeta } from '@/hooks/usePageMeta';
 import { t } from '@/i18n';
 
 /**
- * Datenschutz – beschreibt, was die App tatsächlich tut (keine Cookies, localStorage,
- * YouTube erst nach Klick). Platzhalter in [eckigen Klammern] vor dem Livegang ergänzen.
+ * Datenschutz – beschreibt, was die App tatsächlich tut (keine Cookies, localStorage, Hosting
+ * bei Cloudflare, Daten von Supabase, YouTube erst nach Klick). Platzhalter in [eckigen
+ * Klammern] vor dem Livegang ergänzen.
  */
 export default function PrivacyPage() {
   usePageMeta({ title: t.pages.privacy.title, description: t.pages.privacy.description });

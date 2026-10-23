@@ -1,6 +1,7 @@
 import { ExternalLink, FilePen } from 'lucide-react';
 import { Fragment, useId } from 'react';
 import { t } from '@/i18n';
+import { fillOperatorDetails, hasPlaceholder, OPERATOR } from '@/lib/legal';
 import { Container } from './Container';
 import { PageHeader } from './PageHeader';
 
@@ -32,6 +33,11 @@ function WithPlaceholders({ text }: { text: string }) {
   );
 }
 
+/** Absätze mit den Angaben zum Betreiber, soweit beim Build vorhanden (siehe lib/legal.ts). */
+function filledParagraphs(section: LegalSection): string[] {
+  return (section.paragraphs ?? []).map((paragraph) => fillOperatorDetails(paragraph, OPERATOR));
+}
+
 function SectionBlock({ section }: { section: LegalSection }) {
   const headingId = useId();
   return (
@@ -39,7 +45,7 @@ function SectionBlock({ section }: { section: LegalSection }) {
       <h2 id={headingId} className="text-xl font-bold sm:text-2xl">
         {section.title}
       </h2>
-      {section.paragraphs?.map((paragraph) => (
+      {filledParagraphs(section).map((paragraph) => (
         <p key={paragraph} className="mt-3 leading-relaxed text-ink-muted">
           <WithPlaceholders text={paragraph} />
         </p>
@@ -69,17 +75,21 @@ function SectionBlock({ section }: { section: LegalSection }) {
 
 /** Gemeinsamer Aufbau von Impressum und Datenschutz. */
 export function LegalPage({ title, lead, sections, asOf }: LegalPageProps) {
+  // Der Hinweis «Entwurf» verschwindet, sobald alle Platzhalter ausgefüllt sind
+  const isDraft = sections.some((section) => filledParagraphs(section).some(hasPlaceholder));
   return (
     <Container className="py-12 sm:py-16">
       <div className="max-w-3xl">
         <PageHeader title={title} lead={lead} />
-        <p className="mt-6 flex items-start gap-2 rounded-control border border-warning/40 bg-warning/10 px-4 py-3 text-sm">
-          <FilePen aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-warning" />
-          {/* Eigenes Element, sonst würde jeder Textteil zu einer Flex-Spalte */}
-          <span>
-            <WithPlaceholders text={t.legal.draftNotice} />
-          </span>
-        </p>
+        {isDraft && (
+          <p className="mt-6 flex items-start gap-2 rounded-control border border-warning/40 bg-warning/10 px-4 py-3 text-sm">
+            <FilePen aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-warning" />
+            {/* Eigenes Element, sonst würde jeder Textteil zu einer Flex-Spalte */}
+            <span>
+              <WithPlaceholders text={t.legal.draftNotice} />
+            </span>
+          </p>
+        )}
         <div className="mt-10 space-y-10">
           {sections.map((section) => (
             <SectionBlock key={section.title} section={section} />

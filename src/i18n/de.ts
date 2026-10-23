@@ -507,8 +507,12 @@ export const de = {
   },
 
   /**
-   * Rechtliches. Angaben in [eckigen Klammern] sind Platzhalter und werden vor dem Livegang
-   * ergänzt; beide Texte vorher von einer Fachperson prüfen lassen (siehe DECISIONS.md).
+   * Rechtliches (Entwürfe nach dem Schweizer DSG, keine Rechtsberatung). Angaben in [eckigen
+   * Klammern] sind Platzhalter: [NAME], [ADRESSE] (Postadresse, kein Postfach) und [E-MAIL] füllt
+   * der Build aus den Umgebungsvariablen VITE_OPERATOR_* (src/lib/legal.ts) – persönliche Angaben
+   * gehören nicht ins Repository. [REGION DER DATENBANK] wird hier ersetzt, sobald das
+   * Supabase-Projekt steht. Beide Texte vor dem Livegang von einer Fachperson prüfen lassen
+   * (siehe DECISIONS.md, M8).
    */
   legal: {
     draftNotice: 'Entwurf: Angaben in [eckigen Klammern] werden vor dem Livegang ergänzt.',
@@ -516,11 +520,8 @@ export const de = {
     imprint: {
       lead: 'Angaben zum Betreiber dieser Website.',
       sections: [
-        {
-          title: 'Betreiber',
-          paragraphs: ['[Vorname Nachname oder Firma]', '[Strasse Nr.], [PLZ Ort], Schweiz'],
-        },
-        { title: 'Kontakt', paragraphs: ['E-Mail: [E-Mail-Adresse]'] },
+        { title: 'Betreiber', paragraphs: ['[NAME]', '[ADRESSE]'] },
+        { title: 'Kontakt', paragraphs: ['E-Mail: [E-MAIL]'] },
         {
           title: 'Haftungsausschluss',
           paragraphs: [
@@ -550,16 +551,14 @@ export const de = {
           title: 'Das Wichtigste in Kürze',
           list: [
             'Keine Cookies, kein Tracking, keine Werbung und kein Benutzerkonto.',
+            'Beim Aufruf verarbeiten Cloudflare (Hosting) und Supabase (Datenbank) technisch notwendige Angaben wie deine IP-Adresse.',
             'Deine Einstellungen bleiben in deinem Browser.',
             'YouTube wird erst geladen, wenn du ein Video startest.',
           ],
         },
         {
           title: 'Verantwortlich',
-          paragraphs: [
-            '[Vorname Nachname oder Firma], [Strasse Nr.], [PLZ Ort], Schweiz',
-            'E-Mail: [E-Mail-Adresse]',
-          ],
+          paragraphs: ['[NAME], [ADRESSE]', 'E-Mail: [E-MAIL]'],
         },
         {
           title: 'Speicherung in deinem Browser',
@@ -575,10 +574,26 @@ export const de = {
           ],
         },
         {
-          title: 'Hosting und Server-Logfiles',
+          title: 'Hosting bei Cloudflare',
           paragraphs: [
-            'Die Website wird bei [Hosting-Anbieter, Land] betrieben. Beim Aufruf speichert der Server technisch notwendige Angaben wie IP-Adresse, Zeitpunkt, aufgerufene Seite und Browser. Sie dienen dem sicheren Betrieb und werden nach [Aufbewahrungsdauer] gelöscht.',
+            'Die Website wird über das Netz von Cloudflare ausgeliefert (Cloudflare, Inc., USA). Bei jedem Aufruf verarbeitet Cloudflare technisch notwendige Angaben wie deine IP-Adresse, den Zeitpunkt, die aufgerufene Adresse und Angaben zu deinem Browser – um die Seite auszuliefern und vor Angriffen zu schützen. Cloudflare bearbeitet diese Daten in unserem Auftrag in Rechenzentren weltweit, vor allem in den USA und in Europa.',
+            'MotoMatch selbst zeichnet keine Zugriffsprotokolle auf. Wie lange Cloudflare eigene Protokolle aufbewahrt, legt Cloudflare fest.',
           ],
+          link: {
+            label: 'Datenschutzerklärung von Cloudflare',
+            href: 'https://www.cloudflare.com/privacypolicy/',
+          },
+        },
+        {
+          title: 'Datenbank bei Supabase',
+          paragraphs: [
+            'Die Daten der Motorräder lädt dein Browser direkt aus einer Datenbank bei Supabase (Supabase Pte. Ltd., Singapur). In der Datenbank stehen nur Angaben zu Motorrädern, keine Angaben über dich. Sie liegt in [REGION DER DATENBANK].',
+            'Bei jeder Anfrage protokolliert Supabase deine IP-Adresse, den Zeitpunkt, die abgefragte Adresse, deinen Browser, die Adresse unserer Website und den aus der IP-Adresse abgeleiteten ungefähren Standort (Land, Ort). Die Protokolle dienen dem Betrieb und der Fehlersuche; sie liegen in Rechenzentren in der EU, und wir können sie einen Tag lang einsehen. Supabase setzt dafür unter anderem Amazon Web Services und Cloudflare ein.',
+          ],
+          link: {
+            label: 'Datenschutzerklärung von Supabase',
+            href: 'https://supabase.com/privacy',
+          },
         },
         {
           title: 'Schriften',
@@ -589,12 +604,21 @@ export const de = {
         {
           title: 'YouTube-Videos',
           paragraphs: [
-            'Video-Reviews sind über youtube-nocookie.com eingebunden und werden erst geladen, wenn du auf «Abspielen» klickst. Erst dann werden Daten an YouTube bzw. Google übertragen, zum Beispiel deine IP-Adresse; YouTube kann dabei auch Cookies setzen. Es gilt die Datenschutzerklärung von Google.',
+            'Video-Reviews sind über youtube-nocookie.com eingebunden und werden erst geladen, wenn du auf «Abspielen» klickst. Erst dann werden Daten an YouTube bzw. Google (Google LLC, USA) übertragen, zum Beispiel deine IP-Adresse; YouTube kann dabei auch Cookies setzen. Es gilt die Datenschutzerklärung von Google.',
           ],
           link: {
             label: 'Datenschutzerklärung von Google',
             href: 'https://policies.google.com/privacy',
           },
+        },
+        {
+          title: 'Bekanntgabe ins Ausland',
+          paragraphs: ['Deine Daten werden auch ausserhalb der Schweiz bearbeitet:'],
+          list: [
+            'Cloudflare: USA und weitere Länder. Cloudflare ist nach dem Swiss-U.S. Data Privacy Framework zertifiziert; für so zertifizierte Unternehmen gilt in den USA ein angemessener Datenschutz (Anhang 1 der Datenschutzverordnung). Für die übrigen Länder gelten Standarddatenschutzklauseln.',
+            'Supabase: Singapur und USA (Betrieb und Support sowie Unterauftragsbearbeiter wie Amazon Web Services und Cloudflare), gestützt auf die Standarddatenschutzklauseln im Auftragsbearbeitungsvertrag von Supabase. Die Protokolle liegen in der EU, die einen angemessenen Datenschutz hat.',
+            'YouTube (Google): USA – nur, wenn du ein Video startest.',
+          ],
         },
         {
           title: 'Links auf andere Websites',
@@ -606,6 +630,7 @@ export const de = {
           title: 'Deine Rechte',
           paragraphs: [
             'Nach dem Schweizer Datenschutzgesetz (DSG) kannst du Auskunft über deine Daten verlangen sowie deren Berichtigung oder Löschung. Schreib dazu an die oben genannte E-Mail-Adresse.',
+            'Bist du mit unserer Antwort nicht einverstanden, kannst du dich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) wenden.',
           ],
         },
       ],
